@@ -1,8 +1,10 @@
 name: Release
 
 # Triggered by pushing a version tag (v0.1.0, v0.2.0, ...).
-# Packages the extension, attaches the .vsix to a GitHub Release, and publishes
-# to the VS Code Marketplace. Needs the VSCE_PAT repository secret (see MAINTAINING.md).
+# Packages the extension and attaches the .vsix to a GitHub Release.
+# Marketplace publishing is optional: it runs only when the VSCE_PAT repository
+# secret exists — without it, download the .vsix from the Release and upload it at
+# https://marketplace.visualstudio.com/manage (see MAINTAINING.md).
 on:
   push:
     tags: ["v*"]
@@ -13,6 +15,8 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
+    env:
+      VSCE_PAT: ${{ secrets.VSCE_PAT }} # step-level `if` cannot read secrets directly
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -34,6 +38,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
       - name: Publish to VS Code Marketplace
+        if: env.VSCE_PAT != ''
         run: npx vsce publish --packagePath *.vsix
-        env:
-          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+      - name: Marketplace publish skipped
+        if: env.VSCE_PAT == ''
+        run: echo "::warning::No VSCE_PAT secret — download the .vsix from the GitHub Release and upload it manually at https://marketplace.visualstudio.com/manage"

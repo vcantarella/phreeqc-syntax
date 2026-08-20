@@ -137,9 +137,10 @@ so you always know whether the repo is releasable.
 
 ## How to release a new version
 
-Releases are automated (`.github/workflows/release.yml`): pushing a version tag packages
-the extension, creates a GitHub Release with the `.vsix` attached, and publishes it to the
-VS Code Marketplace.
+Releases are semi-automated (`.github/workflows/release.yml`): pushing a version tag runs
+all tests, packages the extension, and creates a GitHub Release with the `.vsix` attached.
+Getting that `.vsix` onto the VS Code Marketplace is a manual upload (no tokens needed),
+unless you opt into CI publishing — see below.
 
 1. Bump `"version"` in `package.json` (e.g. `0.1.0` → `0.1.1` for fixes, `0.2.0` for features).
 2. Add a section to `CHANGELOG.md`.
@@ -151,20 +152,54 @@ VS Code Marketplace.
    git push && git push --tags
    ```
 
-4. Watch the *Release* workflow on GitHub → Actions. It refuses to publish if any test
+4. Watch the *Release* workflow on GitHub → Actions. It refuses to release if any test
    fails or the tag doesn't match `package.json`.
 
-**One-time setup** for marketplace publishing from CI: create a Personal Access Token for
-the `VitorCantarella` publisher (see the
-[vsce docs](https://code.visualstudio.com/api/working-with-extensions/publishing-extension)),
-then add it on GitHub under *Settings → Secrets and variables → Actions* as a secret named
-`VSCE_PAT`. Tokens expire (max ~1 year) — when a release fails with an authentication
-error, create a fresh token and update the secret.
+5. **Publish to the marketplace (manual upload — no tokens, no Azure DevOps):**
+   download the `.vsix` from the GitHub Release (or build it locally with `npm run package`),
+   then go to `https://marketplace.visualstudio.com/manage/publishers/VitorCantarella`,
+   click the `⋯` menu on the *phreeqc-syntax* row → **Update**, and select the `.vsix`.
+   The marketplace validates it and the new version is live within minutes. Optional sanity
+   check first: install the `.vsix` locally via Extensions view → `...` → *Install from VSIX*.
 
-**Manual fallback** (CI unavailable): `npm run package` builds the `.vsix` locally after
-running all tests; `npx vsce publish` publishes it (uses a locally stored token via
-`vsce login VitorCantarella`). You can also install the `.vsix` locally first via
-Extensions view → `...` → *Install from VSIX*.
+**Optional — automatic marketplace publishing from CI.** If the `VSCE_PAT` repository secret
+exists, the release workflow does step 5 itself; without it, that step is skipped with a
+warning and nothing fails. Setting up the token is a trip through Microsoft's account maze —
+two different Microsoft sites are
+involved, and both must use the **same Microsoft account** that owns the `VitorCantarella`
+publisher (the one used for the original September 2024 publish):
+
+1. *Publisher access*: `https://marketplace.visualstudio.com/manage/publishers/VitorCantarella`.
+   If it claims you have no access, you are signed in with the wrong Microsoft account — retry
+   in a private browser window. (Support link at the bottom of marketplace.visualstudio.com
+   can recover a lost publisher; a new publisher would lose the install count and change the
+   extension ID.)
+2. *Create the token* (same account). Careful: this happens on Azure **DevOps**
+   (`dev.azure.com`), NOT the Azure cloud portal (`portal.azure.com`) — if you end up on
+   portal.azure.com you are on the wrong product and will find no tokens there. (Accounts
+   with no DevOps organization yet get redirected there automatically — if that happens,
+   search "Azure DevOps organizations" in the portal's top search bar and click "Get started
+   using Azure DevOps" to be handed back to the right site.) Otherwise navigate by exact URL
+   in a private browser window: `https://aex.dev.azure.com` lists your Azure DevOps
+   organizations — create one if there is none (free, any name; it is just a required
+   container). Then open `https://dev.azure.com/ORGNAME/_usersSettings/tokens` directly —
+   that is the Personal Access Tokens page. **+ New Token** with: Organization =
+   **All accessible organizations**, Scopes = Custom defined → "Show all scopes" (small link
+   at the bottom) → **Marketplace → Manage**. Verify with `npx vsce verify-pat VitorCantarella`.
+
+   > **⚠ Deadline — December 1, 2026**: Azure DevOps retires this "All accessible
+   > organizations" token type on 2026-12-01 ([announcement](https://devblogs.microsoft.com/devops/retirement-of-global-personal-access-tokens-in-azure-devops/)).
+   > Set the token's expiration to 2026-11-30, and before December check
+   > [microsoft/vscode#322741](https://github.com/microsoft/vscode/issues/322741) and the
+   > [publishing docs](https://code.visualstudio.com/api/working-with-extensions/publishing-extension)
+   > for the replacement (org-scoped PATs or Entra ID sign-in for `vsce`), then update the
+   > `VSCE_PAT` secret — or ask an AI assistant to "migrate my vsce publishing auth to the
+   > post-global-PAT method" with this file as context.
+3. *Store it*: GitHub repo → Settings → Secrets and variables → Actions → New repository
+   secret named `VSCE_PAT`.
+
+Tokens expire (max ~1 year) — when a release fails with an authentication error, repeat
+steps 2–3 with a fresh token, or just fall back to the manual upload (step 5 above).
 
 ## Troubleshooting
 

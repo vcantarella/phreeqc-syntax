@@ -3,3 +3,4 @@ dist/
 dist-test/
 *.vsix
 .claude/settings.local.json
+.claude/
