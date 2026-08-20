@@ -1,0 +1,273 @@
+>TITLE Example 18.--Inverse modeling of Madison aquifer
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^ source.phreeqc
+#              ^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>SOLUTION 1 Recharge number 3
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^^^^^^^^^^^^^^^^^ source.phreeqc
+#                           ^ source.phreeqc constant.numeric.phreeqc
+>        units   mmol/kgw
+#^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        temp    9.9
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>        pe      0.
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^ source.phreeqc constant.numeric.phreeqc
+>        pH      7.55
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        Ca      1.2
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>        Mg      1.01
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        Na      0.02
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        K       0.02
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        Fe(2)   0.001
+#^^^^^^^^^^^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^ source.phreeqc
+#                ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        Cl      0.02
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        S(6)    0.16
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        S(-2)   0
+#^^^^^^^^^^ source.phreeqc
+#          ^^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^ source.phreeqc
+#                ^ source.phreeqc constant.numeric.phreeqc
+>        C(4)    4.30
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        -i      13C     -7.0    1.4    
+#^^^^^^^^ source.phreeqc
+#        ^^ source.phreeqc variable.parameter.phreeqc
+#          ^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^ source.phreeqc constant.numeric.phreeqc
+#                            ^^^^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+#                                   ^^^^^ source.phreeqc
+>        -i      34S     9.7     0.9    
+#^^^^^^^^ source.phreeqc
+#        ^^ source.phreeqc variable.parameter.phreeqc
+#          ^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+#                                   ^^^^^ source.phreeqc
+>SOLUTION 2 Mysse
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^^^^^^^ source.phreeqc
+>        units   mmol/kgw
+#^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        temp    63.
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>        pH      6.61
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        pe      0.      
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^ source.phreeqc constant.numeric.phreeqc
+#                  ^^^^^^^ source.phreeqc
+>        redox   S(6)/S(-2)
+#^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                  ^ source.phreeqc constant.numeric.phreeqc
+#                   ^^^^ source.phreeqc
+#                       ^^ source.phreeqc constant.numeric.phreeqc
+#                         ^^ source.phreeqc
+>        Ca      11.28
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        Mg      4.54
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        Na      31.89
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        K       2.54
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        Fe(2)   0.0004
+#^^^^^^^^^^^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^ source.phreeqc
+#                ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>        Cl      17.85
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        S(6)    19.86
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^ source.phreeqc
+#                ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        S(-2)   0.26
+#^^^^^^^^^^ source.phreeqc
+#          ^^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        C(4)    6.87
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        -i      13C     -2.3    0.2   
+#^^^^^^^^ source.phreeqc
+#        ^^ source.phreeqc variable.parameter.phreeqc
+#          ^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^ source.phreeqc constant.numeric.phreeqc
+#                            ^^^^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+#                                   ^^^^ source.phreeqc
+>        -i      34S(6)  16.3    1.5   
+#^^^^^^^^ source.phreeqc
+#        ^^ source.phreeqc variable.parameter.phreeqc
+#          ^^^^^^^^^^ source.phreeqc
+#                    ^ source.phreeqc constant.numeric.phreeqc
+#                     ^^^ source.phreeqc
+#                        ^^^^ source.phreeqc constant.numeric.phreeqc
+#                            ^^^^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+#                                   ^^^^ source.phreeqc
+>        -i      34S(-2) -22.1   7     
+#^^^^^^^^ source.phreeqc
+#        ^^ source.phreeqc variable.parameter.phreeqc
+#          ^^^^^^^^^^ source.phreeqc
+#                    ^^ source.phreeqc constant.numeric.phreeqc
+#                      ^^ source.phreeqc
+#                        ^^^^^ source.phreeqc constant.numeric.phreeqc
+#                             ^^^ source.phreeqc
+#                                ^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^^^ source.phreeqc
+>INVERSE_MODELING 1
+#^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                ^ source.phreeqc
+#                 ^ source.phreeqc constant.numeric.phreeqc
+>        -solutions 1 2 
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+#                    ^ source.phreeqc
+#                     ^ source.phreeqc constant.numeric.phreeqc
+#                      ^^ source.phreeqc
+>        -uncertainty 0.05
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^ source.phreeqc constant.numeric.phreeqc
+>        -range
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+>        -isotopes
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+>                13C
+#^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                34S
+#^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        -balances
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+>                Fe(2)   1.0
+#^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+>                ph      0.1
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+>        -phases
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^ source.phreeqc variable.parameter.phreeqc
+>                Dolomite        dis     13C     3.0     2
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                                ^^^ source.phreeqc constant.numeric.phreeqc
+#                                                   ^^^^^ source.phreeqc
+#                                                        ^ source.phreeqc constant.numeric.phreeqc
+>                Calcite         pre     13C     -1.5    1
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                                ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                    ^^^^ source.phreeqc
+#                                                        ^ source.phreeqc constant.numeric.phreeqc
+>                Anhydrite       dis     34S     13.5    2
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                                ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                    ^^^^ source.phreeqc
+#                                                        ^ source.phreeqc constant.numeric.phreeqc
+>                CH2O            dis     13C     -25.0   5
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                                ^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                     ^^^ source.phreeqc
+#                                                        ^ source.phreeqc constant.numeric.phreeqc
+>                Goethite
+#^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                Pyrite          pre     34S     -22.    2
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                                ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                    ^^^^ source.phreeqc
+#                                                        ^ source.phreeqc constant.numeric.phreeqc
+>                CaX2            pre
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                Ca.75Mg.25X2    pre
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                MgX2            pre
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                NaX
+#^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                Halite
+#^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                Sylvite
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>PHASES
+#^^^^^^ source.phreeqc keyword.control.phreeqc
+>   Sylvite
+#^^^^^^^^^^^ source.phreeqc
+>        KCl = K+ + Cl-
+#^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        -log_k  0.0
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#              ^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>   CH2O
+#^^^^^^^^ source.phreeqc
+>        CH2O + H2O = CO2 + 4H+ + 4e-
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        -log_k  0.0
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#              ^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>EXCHANGE_SPECIES
+#^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>        0.75Ca+2 + 0.25Mg+2 + 2X- = Ca.75Mg.25X2
+#^^^^^^^^^^^^^^^ source.phreeqc
+#               ^ source.phreeqc constant.numeric.phreeqc
+#                ^^^^^^^^^^ source.phreeqc
+#                          ^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        log_k   0.0
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>

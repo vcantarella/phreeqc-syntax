@@ -1,0 +1,91 @@
+>TITLE Example 4a.--Rainwater evaporation
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>SOLUTION 1  Precipitation from Central Oklahoma
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        units           mg/L
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        pH              4.5   # estimated
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^ source.phreeqc
+#                              ^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>        temp            25.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^ source.phreeqc constant.numeric.phreeqc
+>        Ca              .384
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^ source.phreeqc constant.numeric.phreeqc
+>        Mg              .043
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^ source.phreeqc constant.numeric.phreeqc
+>        Na              .141
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^ source.phreeqc constant.numeric.phreeqc
+>        K               .036
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^ source.phreeqc constant.numeric.phreeqc
+>        Cl              .236
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^ source.phreeqc constant.numeric.phreeqc
+>        C(4)            .1      CO2(g)  -3.5
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^^^^^^^^^ source.phreeqc
+#                        ^^ source.phreeqc constant.numeric.phreeqc
+#                          ^^^^^^^^^^^^^^ source.phreeqc
+#                                        ^^^^ source.phreeqc constant.numeric.phreeqc
+>        S(6)            1.3
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+>        N(-3)           .208
+#^^^^^^^^^^ source.phreeqc
+#          ^^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^ source.phreeqc constant.numeric.phreeqc
+>        N(5)            .237
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^ source.phreeqc constant.numeric.phreeqc
+>REACTION 1
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+>        H2O     -1.0
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        52.73 moles
+#^^^^^^^^ source.phreeqc
+#        ^^^^^ source.phreeqc constant.numeric.phreeqc
+#             ^^^^^^^ source.phreeqc
+>SAVE solution 2
+#^^^^ source.phreeqc keyword.control.phreeqc
+#    ^^^^^^^^^^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>TITLE Example 4b.--Factor of 20 more solution
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                             ^^ source.phreeqc constant.numeric.phreeqc
+#                               ^^^^^^^^^^^^^^^ source.phreeqc
+>MIX
+#^^^ source.phreeqc keyword.control.phreeqc
+>        2       20.
+#^^^^^^^^ source.phreeqc
+#        ^ source.phreeqc constant.numeric.phreeqc
+#         ^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>SAVE solution 3
+#^^^^ source.phreeqc keyword.control.phreeqc
+#    ^^^^^^^^^^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>

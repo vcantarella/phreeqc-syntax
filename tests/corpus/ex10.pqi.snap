@@ -1,0 +1,909 @@
+>TITLE Example 10.--Solid solution of strontianite and aragonite.
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^ source.phreeqc
+#              ^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>PHASES
+#^^^^^^ source.phreeqc keyword.control.phreeqc
+>        Strontianite
+#^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                SrCO3 = CO3-2 + Sr+2
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                            ^ source.phreeqc constant.numeric.phreeqc
+#                             ^^^^^^ source.phreeqc
+#                                   ^ source.phreeqc constant.numeric.phreeqc
+>                log_k           -9.271
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>        Aragonite
+#^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                CaCO3 = CO3-2 + Ca+2
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                            ^ source.phreeqc constant.numeric.phreeqc
+#                             ^^^^^^ source.phreeqc
+#                                   ^ source.phreeqc constant.numeric.phreeqc
+>                log_k           -8.336
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>SOLID_SOLUTIONS 1
+#^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#               ^ source.phreeqc
+#                ^ source.phreeqc constant.numeric.phreeqc
+>        Ca(x)Sr(1-x)CO3 
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^^ source.phreeqc
+>                -comp1   Aragonite       0 
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                      ^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                         ^ source.phreeqc constant.numeric.phreeqc
+#                                          ^^ source.phreeqc
+>                -comp2   Strontianite    0 
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                      ^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                         ^ source.phreeqc constant.numeric.phreeqc
+#                                          ^^ source.phreeqc
+>                -Gugg_nondim   3.43    -1.82
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                            ^^^ source.phreeqc
+#                               ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                   ^^^^ source.phreeqc
+#                                       ^^^^^ source.phreeqc constant.numeric.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>SOLUTION 1
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+>        -units mmol/kgw
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#              ^^^^^^^^^^ source.phreeqc
+>        pH 5.93 charge
+#^^^^^^^^^^^ source.phreeqc
+#           ^^^^ source.phreeqc constant.numeric.phreeqc
+#               ^^^^^^^^ source.phreeqc
+>        Ca      3.932
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        C       7.864
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^ source.phreeqc constant.numeric.phreeqc
+>EQUILIBRIUM_PHASES 1
+#^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+>        CO2(g) -0.01265 10
+#^^^^^^^^^^^^^^^ source.phreeqc
+#               ^^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                       ^ source.phreeqc
+#                        ^^ source.phreeqc constant.numeric.phreeqc
+>        Aragonite
+#^^^^^^^^^^^^^^^^^^ source.phreeqc
+>SAVE solution 1
+#^^^^ source.phreeqc keyword.control.phreeqc
+#    ^^^^^^^^^^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>#
+#^ source.phreeqc comment.line.number-sign.phreeqc
+>#  Total of 0.00001 to 0.005 moles of SrCO3 added
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>#
+#^ source.phreeqc comment.line.number-sign.phreeqc
+>USE solution 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+>USE solid_solution 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^^^^^^^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+>REACTION 1
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+>        SrCO3   1.0
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>        .005 in 500 steps 
+#^^^^^^^^ source.phreeqc
+#        ^^^^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+#                   ^^^^^^^^ source.phreeqc
+>PRINT
+#^^^^^ source.phreeqc keyword.control.phreeqc
+>        -reset false
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#              ^^^^^^^ source.phreeqc
+>        -echo true
+#^^^^^^^^ source.phreeqc
+#        ^^^^^ source.phreeqc variable.parameter.phreeqc
+#             ^^^^^^ source.phreeqc
+>        -user_print true
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^ source.phreeqc
+>USER_PRINT
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>-start
+#^^^^^^ source.phreeqc variable.parameter.phreeqc
+>  10 sum = (S_S("Strontianite") + S_S("Aragonite"))
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^^^^ source.phreeqc
+#         ^ source.phreeqc keyword.operator.phreeqc
+#          ^^ source.phreeqc
+#            ^^^ source.phreeqc support.function.phreeqc
+#               ^ source.phreeqc
+#                ^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                              ^^ source.phreeqc
+#                                ^ source.phreeqc keyword.operator.phreeqc
+#                                 ^ source.phreeqc
+#                                  ^^^ source.phreeqc support.function.phreeqc
+#                                     ^ source.phreeqc
+#                                      ^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                 ^^^ source.phreeqc
+>  20 if sum = 0 THEN GOTO 110
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^ source.phreeqc keyword.control.basic.phreeqc
+#       ^^^^^ source.phreeqc
+#            ^ source.phreeqc keyword.operator.phreeqc
+#             ^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+#               ^ source.phreeqc
+#                ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                         ^ source.phreeqc
+#                          ^^^ source.phreeqc constant.numeric.phreeqc
+>  30 xb = S_S("Strontianite")/sum
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^^^ source.phreeqc
+#        ^ source.phreeqc keyword.operator.phreeqc
+#         ^ source.phreeqc
+#          ^^^ source.phreeqc support.function.phreeqc
+#             ^ source.phreeqc
+#              ^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                            ^ source.phreeqc
+#                             ^ source.phreeqc keyword.operator.phreeqc
+#                              ^^^^ source.phreeqc
+>  40 xc = S_S("Aragonite")/sum
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^^^ source.phreeqc
+#        ^ source.phreeqc keyword.operator.phreeqc
+#         ^ source.phreeqc
+#          ^^^ source.phreeqc support.function.phreeqc
+#             ^ source.phreeqc
+#              ^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                         ^ source.phreeqc
+#                          ^ source.phreeqc keyword.operator.phreeqc
+#                           ^^^^ source.phreeqc
+>  50 PRINT "Simulation number:    ", SIM_NO
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                   ^^ source.phreeqc
+#                                     ^^^^^^ source.phreeqc support.function.phreeqc
+>  60 PRINT "Reaction step number: ", STEP_NO
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                   ^^ source.phreeqc
+#                                     ^^^^^^^ source.phreeqc support.function.phreeqc
+>  70 PRINT "SrCO3 added:          ", RXN
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                   ^^ source.phreeqc
+#                                     ^^^ source.phreeqc support.function.phreeqc
+>  80 PRINT "Log Sigma pi:         ", LOG10 (ACT("CO3-2") * (ACT("Ca+2") + ACT("Sr+2")))
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                   ^^ source.phreeqc
+#                                     ^^^^^ source.phreeqc support.function.basic.phreeqc
+#                                          ^^ source.phreeqc
+#                                            ^^^ source.phreeqc support.function.phreeqc
+#                                               ^ source.phreeqc
+#                                                ^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                       ^^ source.phreeqc
+#                                                         ^ source.phreeqc keyword.operator.phreeqc
+#                                                          ^^ source.phreeqc
+#                                                            ^^^ source.phreeqc support.function.phreeqc
+#                                                               ^ source.phreeqc
+#                                                                ^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                                      ^^ source.phreeqc
+#                                                                        ^ source.phreeqc keyword.operator.phreeqc
+#                                                                         ^ source.phreeqc
+#                                                                          ^^^ source.phreeqc support.function.phreeqc
+#                                                                             ^ source.phreeqc
+#                                                                              ^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                                                    ^^^^ source.phreeqc
+>  90 PRINT "XAragonite:           ", xc
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                   ^^^^^ source.phreeqc
+> 100 PRINT "XStrontianite:        ", xb
+#^ source.phreeqc
+# ^^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                   ^^^^^ source.phreeqc
+> 110 PRINT "XCa:                  ", TOT("Ca")/(TOT("Ca") + TOT("Sr"))
+#^ source.phreeqc
+# ^^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                   ^^ source.phreeqc
+#                                     ^^^ source.phreeqc support.function.phreeqc
+#                                        ^ source.phreeqc
+#                                         ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                             ^ source.phreeqc
+#                                              ^ source.phreeqc keyword.operator.phreeqc
+#                                               ^ source.phreeqc
+#                                                ^^^ source.phreeqc support.function.phreeqc
+#                                                   ^ source.phreeqc
+#                                                    ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                        ^^ source.phreeqc
+#                                                          ^ source.phreeqc keyword.operator.phreeqc
+#                                                           ^ source.phreeqc
+#                                                            ^^^ source.phreeqc support.function.phreeqc
+#                                                               ^ source.phreeqc
+#                                                                ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                                    ^^^ source.phreeqc
+> 120 PRINT "XSr:                  ", TOT("Sr")/(TOT("Ca") + TOT("Sr"))
+#^ source.phreeqc
+# ^^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                   ^^ source.phreeqc
+#                                     ^^^ source.phreeqc support.function.phreeqc
+#                                        ^ source.phreeqc
+#                                         ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                             ^ source.phreeqc
+#                                              ^ source.phreeqc keyword.operator.phreeqc
+#                                               ^ source.phreeqc
+#                                                ^^^ source.phreeqc support.function.phreeqc
+#                                                   ^ source.phreeqc
+#                                                    ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                        ^^ source.phreeqc
+#                                                          ^ source.phreeqc keyword.operator.phreeqc
+#                                                           ^ source.phreeqc
+#                                                            ^^^ source.phreeqc support.function.phreeqc
+#                                                               ^ source.phreeqc
+#                                                                ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                                    ^^^ source.phreeqc
+> 130 PRINT "Misc 1:               ", MISC1("Ca(x)Sr(1-x)CO3")
+#^ source.phreeqc
+# ^^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                   ^^ source.phreeqc
+#                                     ^^^^^ source.phreeqc support.function.phreeqc
+#                                          ^ source.phreeqc
+#                                           ^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                            ^^ source.phreeqc
+> 140 PRINT "Misc 2:               ", MISC2("Ca(x)Sr(1-x)CO3")
+#^ source.phreeqc
+# ^^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                   ^^ source.phreeqc
+#                                     ^^^^^ source.phreeqc support.function.phreeqc
+#                                          ^ source.phreeqc
+#                                           ^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                            ^^ source.phreeqc
+>-end
+#^^^^ source.phreeqc variable.parameter.phreeqc
+>SELECTED_OUTPUT
+#^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>        -file ex10.sel
+#^^^^^^^^ source.phreeqc
+#        ^^^^^ source.phreeqc variable.parameter.phreeqc
+#             ^^^^^^^^^^ source.phreeqc
+>        -reset false
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#              ^^^^^^^ source.phreeqc
+>        -reaction true
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^^^^ source.phreeqc
+>USER_PUNCH
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>-head   lg_SigmaPi X_Arag X_Stront X_Ca_aq X_Sr_aq mol_Misc1 mol_Misc2 \
+#^^^^^ source.phreeqc variable.parameter.phreeqc
+#     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>     mol_Arag mol_Stront
+#^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>-start
+#^^^^^^ source.phreeqc variable.parameter.phreeqc
+>  10 sum = (S_S("Strontianite") + S_S("Aragonite"))
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^^^^ source.phreeqc
+#         ^ source.phreeqc keyword.operator.phreeqc
+#          ^^ source.phreeqc
+#            ^^^ source.phreeqc support.function.phreeqc
+#               ^ source.phreeqc
+#                ^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                              ^^ source.phreeqc
+#                                ^ source.phreeqc keyword.operator.phreeqc
+#                                 ^ source.phreeqc
+#                                  ^^^ source.phreeqc support.function.phreeqc
+#                                     ^ source.phreeqc
+#                                      ^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                 ^^^ source.phreeqc
+>  20 if sum = 0 THEN GOTO 60
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^ source.phreeqc keyword.control.basic.phreeqc
+#       ^^^^^ source.phreeqc
+#            ^ source.phreeqc keyword.operator.phreeqc
+#             ^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+#               ^ source.phreeqc
+#                ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                         ^ source.phreeqc
+#                          ^^ source.phreeqc constant.numeric.phreeqc
+>  30 xb = S_S("Strontianite")/(S_S("Strontianite") + S_S("Aragonite"))
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^^^ source.phreeqc
+#        ^ source.phreeqc keyword.operator.phreeqc
+#         ^ source.phreeqc
+#          ^^^ source.phreeqc support.function.phreeqc
+#             ^ source.phreeqc
+#              ^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                            ^ source.phreeqc
+#                             ^ source.phreeqc keyword.operator.phreeqc
+#                              ^ source.phreeqc
+#                               ^^^ source.phreeqc support.function.phreeqc
+#                                  ^ source.phreeqc
+#                                   ^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                 ^^ source.phreeqc
+#                                                   ^ source.phreeqc keyword.operator.phreeqc
+#                                                    ^ source.phreeqc
+#                                                     ^^^ source.phreeqc support.function.phreeqc
+#                                                        ^ source.phreeqc
+#                                                         ^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                                    ^^^ source.phreeqc
+>  40 xc = S_S("Aragonite")/(S_S("Strontianite") + S_S("Aragonite"))
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^^^ source.phreeqc
+#        ^ source.phreeqc keyword.operator.phreeqc
+#         ^ source.phreeqc
+#          ^^^ source.phreeqc support.function.phreeqc
+#             ^ source.phreeqc
+#              ^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                         ^ source.phreeqc
+#                          ^ source.phreeqc keyword.operator.phreeqc
+#                           ^ source.phreeqc
+#                            ^^^ source.phreeqc support.function.phreeqc
+#                               ^ source.phreeqc
+#                                ^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                              ^^ source.phreeqc
+#                                                ^ source.phreeqc keyword.operator.phreeqc
+#                                                 ^ source.phreeqc
+#                                                  ^^^ source.phreeqc support.function.phreeqc
+#                                                     ^ source.phreeqc
+#                                                      ^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                                 ^^^ source.phreeqc
+>  50 REM Sigma Pi
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^^^^^^^^^^^^ source.phreeqc comment.line.rem.phreeqc
+>  60 PUNCH LOG10(ACT("CO3-2") * (ACT("Ca+2") + ACT("Sr+2")))
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^ source.phreeqc support.function.basic.phreeqc
+#                ^ source.phreeqc
+#                 ^^^ source.phreeqc support.function.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                            ^^ source.phreeqc
+#                              ^ source.phreeqc keyword.operator.phreeqc
+#                               ^^ source.phreeqc
+#                                 ^^^ source.phreeqc support.function.phreeqc
+#                                    ^ source.phreeqc
+#                                     ^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                           ^^ source.phreeqc
+#                                             ^ source.phreeqc keyword.operator.phreeqc
+#                                              ^ source.phreeqc
+#                                               ^^^ source.phreeqc support.function.phreeqc
+#                                                  ^ source.phreeqc
+#                                                   ^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                         ^^^^ source.phreeqc
+>  70 PUNCH xc                                 # Mole fraction aragonite
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^ source.phreeqc support.function.phreeqc
+#          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                              ^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>  80 PUNCH xb                                 # Mole fraction strontianite
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^ source.phreeqc support.function.phreeqc
+#          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>  90 PUNCH TOT("Ca")/(TOT("Ca") + TOT("Sr"))  # Mole aqueous calcium
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc
+#               ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                   ^ source.phreeqc
+#                    ^ source.phreeqc keyword.operator.phreeqc
+#                     ^ source.phreeqc
+#                      ^^^ source.phreeqc support.function.phreeqc
+#                         ^ source.phreeqc
+#                          ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                              ^^ source.phreeqc
+#                                ^ source.phreeqc keyword.operator.phreeqc
+#                                 ^ source.phreeqc
+#                                  ^^^ source.phreeqc support.function.phreeqc
+#                                     ^ source.phreeqc
+#                                      ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                          ^^^^ source.phreeqc
+#                                              ^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>  100 PUNCH TOT("Sr")/(TOT("Ca") + TOT("Sr")) # Mole aqueous strontium
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^ source.phreeqc
+#      ^^^^^ source.phreeqc support.function.phreeqc
+#           ^ source.phreeqc
+#            ^^^ source.phreeqc support.function.phreeqc
+#               ^ source.phreeqc
+#                ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                    ^ source.phreeqc
+#                     ^ source.phreeqc keyword.operator.phreeqc
+#                      ^ source.phreeqc
+#                       ^^^ source.phreeqc support.function.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                               ^^ source.phreeqc
+#                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                  ^ source.phreeqc
+#                                   ^^^ source.phreeqc support.function.phreeqc
+#                                      ^ source.phreeqc
+#                                       ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                           ^^^ source.phreeqc
+#                                              ^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>  110 x1 = MISC1("Ca(x)Sr(1-x)CO3")
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^^^^ source.phreeqc
+#         ^ source.phreeqc keyword.operator.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^ source.phreeqc support.function.phreeqc
+#                ^ source.phreeqc
+#                 ^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                  ^^ source.phreeqc
+>  120 x2 = MISC2("Ca(x)Sr(1-x)CO3")
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^^^^ source.phreeqc
+#         ^ source.phreeqc keyword.operator.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^ source.phreeqc support.function.phreeqc
+#                ^ source.phreeqc
+#                 ^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                  ^^ source.phreeqc
+>  130 if (xb < x1 OR xb > x2) THEN GOTO 250
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^ source.phreeqc
+#      ^^ source.phreeqc keyword.control.basic.phreeqc
+#        ^^^^^ source.phreeqc
+#             ^ source.phreeqc keyword.operator.phreeqc
+#              ^^^^ source.phreeqc
+#                  ^^ source.phreeqc keyword.control.basic.phreeqc
+#                    ^^^^ source.phreeqc
+#                        ^ source.phreeqc keyword.operator.phreeqc
+#                         ^^^^^ source.phreeqc
+#                              ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                  ^ source.phreeqc
+#                                   ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                       ^ source.phreeqc
+#                                        ^^^ source.phreeqc constant.numeric.phreeqc
+>  140    nc = S_S("Aragonite")
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^^^^^^^ source.phreeqc
+#            ^ source.phreeqc keyword.operator.phreeqc
+#             ^ source.phreeqc
+#              ^^^ source.phreeqc support.function.phreeqc
+#                 ^ source.phreeqc
+#                  ^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                             ^^ source.phreeqc
+>  150    nb = S_S("Strontianite")
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^^^^^^^ source.phreeqc
+#            ^ source.phreeqc keyword.operator.phreeqc
+#             ^ source.phreeqc
+#              ^^^ source.phreeqc support.function.phreeqc
+#                 ^ source.phreeqc
+#                  ^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                ^^ source.phreeqc
+>  160    mol2 = ((x1 - 1)/x1)*nb + nc
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^^^^^^^^^ source.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^^^^^^ source.phreeqc
+#                     ^ source.phreeqc keyword.operator.phreeqc
+#                      ^ source.phreeqc
+#                       ^ source.phreeqc constant.numeric.phreeqc
+#                        ^ source.phreeqc
+#                         ^ source.phreeqc keyword.operator.phreeqc
+#                          ^^^ source.phreeqc
+#                             ^ source.phreeqc keyword.operator.phreeqc
+#                              ^^^ source.phreeqc
+#                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                  ^^^^ source.phreeqc
+>  170    mol2 = mol2 / ( ((x1 -1)/x1)*x2 + (1 - x2))
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^^^^^^^^^ source.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^^^^^^ source.phreeqc
+#                     ^ source.phreeqc keyword.operator.phreeqc
+#                      ^^^^^^^^ source.phreeqc
+#                              ^^ source.phreeqc constant.numeric.phreeqc
+#                                ^ source.phreeqc
+#                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                  ^^^ source.phreeqc
+#                                     ^ source.phreeqc keyword.operator.phreeqc
+#                                      ^^^ source.phreeqc
+#                                         ^ source.phreeqc keyword.operator.phreeqc
+#                                          ^^ source.phreeqc
+#                                            ^ source.phreeqc constant.numeric.phreeqc
+#                                             ^ source.phreeqc
+#                                              ^ source.phreeqc keyword.operator.phreeqc
+#                                               ^^^^^^ source.phreeqc
+>  180    mol1 = (nb - mol2*x2)/x1
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^^^^^^^^^ source.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^^^^^ source.phreeqc
+#                    ^ source.phreeqc keyword.operator.phreeqc
+#                     ^^^^^ source.phreeqc
+#                          ^ source.phreeqc keyword.operator.phreeqc
+#                           ^^^ source.phreeqc
+#                              ^ source.phreeqc keyword.operator.phreeqc
+#                               ^^^ source.phreeqc
+>  190    REM                                 # Moles of misc. end members if in gap
+#^^ source.phreeqc
+#  ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.rem.phreeqc
+>  200    PUNCH mol1
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^^^^ source.phreeqc
+#         ^^^^^ source.phreeqc support.function.phreeqc
+#              ^^^^^^ source.phreeqc
+>  210    PUNCH mol2
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^^^^ source.phreeqc
+#         ^^^^^ source.phreeqc support.function.phreeqc
+#              ^^^^^^ source.phreeqc
+>  220    GOTO 300
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^^^^ source.phreeqc
+#         ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#             ^ source.phreeqc
+#              ^^^ source.phreeqc constant.numeric.phreeqc
+>  250    REM                                 # Moles of misc. end members if not in gap
+#^^ source.phreeqc
+#  ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.rem.phreeqc
+>  260    PUNCH 1e-10
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^^^^ source.phreeqc
+#         ^^^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc
+#               ^^^^^ source.phreeqc constant.numeric.phreeqc
+>  270    PUNCH 1e-10
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^^^^ source.phreeqc
+#         ^^^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc
+#               ^^^^^ source.phreeqc constant.numeric.phreeqc
+>  300 PUNCH S_S("Aragonite")                 # Moles aragonite
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^ source.phreeqc
+#      ^^^^^ source.phreeqc support.function.phreeqc
+#           ^ source.phreeqc
+#            ^^^ source.phreeqc support.function.phreeqc
+#               ^ source.phreeqc
+#                ^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                           ^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                             ^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>  310 PUNCH S_S("Strontianite")              # Moles Strontianite
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^ source.phreeqc
+#      ^^^^^ source.phreeqc support.function.phreeqc
+#           ^ source.phreeqc
+#            ^^^ source.phreeqc support.function.phreeqc
+#               ^ source.phreeqc
+#                ^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                              ^^^^^^^^^^^^^^^ source.phreeqc
+#                                             ^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>-end
+#^^^^ source.phreeqc variable.parameter.phreeqc
+>USER_GRAPH Example 10
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#          ^^^^^^^^^ source.phreeqc
+#                   ^^ source.phreeqc constant.numeric.phreeqc
+>        -headings x_Aragonite  x_Srontianite
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        -chart_title "Aragonite-Strontianite Solid Solution"
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>        -axis_titles "Log(SrCO3 added, in moles)" "Log(Mole fraction of component)"
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                 ^ source.phreeqc
+#                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>        -axis_scale x_axis -5 1 1 1
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^^^ source.phreeqc
+#                           ^^ source.phreeqc constant.numeric.phreeqc
+#                             ^ source.phreeqc
+#                              ^ source.phreeqc constant.numeric.phreeqc
+#                               ^ source.phreeqc
+#                                ^ source.phreeqc constant.numeric.phreeqc
+#                                 ^ source.phreeqc
+#                                  ^ source.phreeqc constant.numeric.phreeqc
+>        -axis_scale y_axis -5 0.1 1 1
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^^^ source.phreeqc
+#                           ^^ source.phreeqc constant.numeric.phreeqc
+#                             ^ source.phreeqc
+#                              ^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^ source.phreeqc
+#                                  ^ source.phreeqc constant.numeric.phreeqc
+#                                   ^ source.phreeqc
+#                                    ^ source.phreeqc constant.numeric.phreeqc
+>        -connect_simulations true
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                            ^ source.phreeqc
+#                             ^^^^ source.phreeqc support.function.phreeqc
+>        -start
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+>  10 sum = (S_S("Strontianite") + S_S("Aragonite"))
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^^^^ source.phreeqc
+#         ^ source.phreeqc keyword.operator.phreeqc
+#          ^^ source.phreeqc
+#            ^^^ source.phreeqc support.function.phreeqc
+#               ^ source.phreeqc
+#                ^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                              ^^ source.phreeqc
+#                                ^ source.phreeqc keyword.operator.phreeqc
+#                                 ^ source.phreeqc
+#                                  ^^^ source.phreeqc support.function.phreeqc
+#                                     ^ source.phreeqc
+#                                      ^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                 ^^^ source.phreeqc
+>  20 IF sum = 0 THEN GOTO 70
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^ source.phreeqc keyword.control.basic.phreeqc
+#       ^^^^^ source.phreeqc
+#            ^ source.phreeqc keyword.operator.phreeqc
+#             ^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+#               ^ source.phreeqc
+#                ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                         ^ source.phreeqc
+#                          ^^ source.phreeqc constant.numeric.phreeqc
+>  30 xb = S_S("Strontianite")/ sum
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^^^ source.phreeqc
+#        ^ source.phreeqc keyword.operator.phreeqc
+#         ^ source.phreeqc
+#          ^^^ source.phreeqc support.function.phreeqc
+#             ^ source.phreeqc
+#              ^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                            ^ source.phreeqc
+#                             ^ source.phreeqc keyword.operator.phreeqc
+#                              ^^^^^ source.phreeqc
+>  40 xc = S_S("Aragonite")/ sum
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^^^ source.phreeqc
+#        ^ source.phreeqc keyword.operator.phreeqc
+#         ^ source.phreeqc
+#          ^^^ source.phreeqc support.function.phreeqc
+#             ^ source.phreeqc
+#              ^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                         ^ source.phreeqc
+#                          ^ source.phreeqc keyword.operator.phreeqc
+#                           ^^^^^ source.phreeqc
+>  50 PLOT_XY LOG10(RXN), LOG10(xc), line_w = 2, symbol_size = 0
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^ source.phreeqc
+#             ^^^^^ source.phreeqc support.function.basic.phreeqc
+#                  ^ source.phreeqc
+#                   ^^^ source.phreeqc support.function.phreeqc
+#                      ^^^ source.phreeqc
+#                         ^^^^^ source.phreeqc support.function.basic.phreeqc
+#                              ^^^^^^^^^^^^^ source.phreeqc
+#                                           ^ source.phreeqc keyword.operator.phreeqc
+#                                            ^ source.phreeqc
+#                                             ^ source.phreeqc constant.numeric.phreeqc
+#                                              ^^ source.phreeqc
+#                                                ^^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                           ^ source.phreeqc
+#                                                            ^ source.phreeqc keyword.operator.phreeqc
+#                                                             ^ source.phreeqc
+#                                                              ^ source.phreeqc constant.numeric.phreeqc
+>  60 PLOT_XY LOG10(RXN), LOG10(xb), line_w = 2, symbol_size = 0
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^ source.phreeqc
+#             ^^^^^ source.phreeqc support.function.basic.phreeqc
+#                  ^ source.phreeqc
+#                   ^^^ source.phreeqc support.function.phreeqc
+#                      ^^^ source.phreeqc
+#                         ^^^^^ source.phreeqc support.function.basic.phreeqc
+#                              ^^^^^^^^^^^^^ source.phreeqc
+#                                           ^ source.phreeqc keyword.operator.phreeqc
+#                                            ^ source.phreeqc
+#                                             ^ source.phreeqc constant.numeric.phreeqc
+#                                              ^^ source.phreeqc
+#                                                ^^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                           ^ source.phreeqc
+#                                                            ^ source.phreeqc keyword.operator.phreeqc
+#                                                             ^ source.phreeqc
+#                                                              ^ source.phreeqc constant.numeric.phreeqc
+>  70 rem
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^^^ source.phreeqc comment.line.rem.phreeqc
+>  -end
+#^^ source.phreeqc
+#  ^^^^ source.phreeqc variable.parameter.phreeqc
+>END     
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^ source.phreeqc
+>#
+#^ source.phreeqc comment.line.number-sign.phreeqc
+>#  Total of 0.005 to 0.1 moles of SrCO3 added
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>#
+#^ source.phreeqc comment.line.number-sign.phreeqc
+>USE solution 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+>USE solid_solution 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^^^^^^^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+>REACTION 1
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+>        SrCO3   1.0
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>        .1 in 20 steps 
+#^^^^^^^^ source.phreeqc
+#        ^^ source.phreeqc constant.numeric.phreeqc
+#          ^^^^ source.phreeqc
+#              ^^ source.phreeqc constant.numeric.phreeqc
+#                ^^^^^^^^ source.phreeqc
+>END     
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^ source.phreeqc
+>#
+#^ source.phreeqc comment.line.number-sign.phreeqc
+>#  Total of 0.1 to 10 moles of SrCO3 added
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>#
+#^ source.phreeqc comment.line.number-sign.phreeqc
+>USE solution 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+>USE solid_solution 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^^^^^^^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+>REACTION 1
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+>        SrCO3   1.0
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>        10.0 in 100 steps 
+#^^^^^^^^ source.phreeqc
+#        ^^^^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+#                   ^^^^^^^^ source.phreeqc
+>END     
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^ source.phreeqc

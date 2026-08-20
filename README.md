@@ -1,25 +1,13 @@
-# Syntax highlighting and language features for PHREEQC
+# PHREEQC language support for VS Code
 
-This extension brings syntax highlighting to PHREEQC in VSCode.
-It borrows heavily from the syntax highlighting features from the original Notepad++ version.
+A writing tool for [PHREEQC](https://www.usgs.gov/software/phreeqc-version-3) input files:
 
-[Notepad++ distribution](https://www.hydrochemistry.eu/)
+- **Syntax highlighting** for keyword data blocks, options, numbers, strings, comments, and the embedded BASIC language in `RATES`, `USER_PRINT`, `USER_PUNCH`, `USER_GRAPH`, and `CALCULATE_VALUES` blocks.
+- **Autocomplete** that knows where you are: keyword blocks at the top level, each block's own `-options` inside it, and BASIC functions (`TOT`, `SR`, `TIME`, ...) inside rate/user blocks. Abbreviations and any letter case work, as in PHREEQC itself.
+- **Hover documentation** with real excerpts from the USGS PHREEQC v3 manual — description, syntax line, example — plus a link to the exact manual section.
+- **Snippets** for common blocks: type `solution`, `kinetics-rates`, `transport`, `selected_output`, `speciation-run`, and more, then Tab through the placeholders.
 
-
-
-## Usage
-
-After installation, open a `.phr` file and edit it as you would any scripting language. syntax highlighting will appear and basic language functionality will be available (eg. commenting and indentation).
-
-This package does not include a Phreeqc installation. If you need to install PHREEQC,you will have to do it yourself. Both distributions should work:
-
-- [Appelo's webiste](https://www.hydrochemistry.eu/)
-- [USGS](https://www.usgs.gov/software/phreeqc-version-3)
-
-
-## Quickstart
-
-Install it in VSCode marketplace or by downloading the .vsix file from the repository and you are ready to go!
+Recognized file extensions: `.phr`, `.ppi`, `.pqi`, `.phrq`, `.dat` (databases), `.out`.
 
 <p align="center">
 <img src="images/syntaxscreenrecording.gif" width=75%>
@@ -27,33 +15,31 @@ Install it in VSCode marketplace or by downloading the .vsix file from the repos
 <em>(Example file)</em>
 </p>
 
-## Installation
+## Usage
 
- 1. Press install in the marketplace  
- or  
- 2. Download this extension `.vsix` file and follow the following steps:
-   
-  2.1. Open Visual Studio Code.
+Open any PHREEQC input file and start typing. `Ctrl+Space` opens completion anywhere; hover any keyword, option, or BASIC function for its documentation.
 
-  2.2. Open the Extensions View:
+This extension does not include or run PHREEQC itself. Get PHREEQC from:
 
-    2.2.1. Click on the Extensions icon in the Activity Bar on the side of the window Alternatively, you can open it by pressing Ctrl+Shift+X.
-  2.3. Install from VSIX:
+- [USGS](https://www.usgs.gov/software/phreeqc-version-3)
+- [Appelo's website](https://www.hydrochemistry.eu/)
 
-    2.3.1. Click on the ... (More Actions) button at the top of the Extensions view.
-    2.3.2. Select Install from VSIX... from the dropdown menu.
-    2.3.4.  Select the .vsix File:
+## Documentation excerpts
 
-A file dialog will open. Navigate to the directory where your .vsix file is located.
-Select the .vsix file and click Open.
-  2.4. Restart Visual Studio Code
+Hover documentation is excerpted from: Parkhurst, D.L., and Appelo, C.A.J., 2013, *Description of input and examples for PHREEQC version 3*, [USGS Techniques and Methods 6-A43](https://water.usgs.gov/water-resources/software/PHREEQC/documentation/phreeqc3-html/phreeqc3.htm). As a U.S. Geological Survey publication it is in the public domain.
+
+Element, species, and phase names come from the loaded database file and are **not** completed or documented (a possible future feature).
+
+The original syntax highlighting was ported from the Notepad++ user-defined language distributed at [hydrochemistry.eu](https://www.hydrochemistry.eu/).
 
 ## Disclaimer
 
-This is just a syntax-highlighter for facilitating text editing and reading phreeqc files. It does not interfere in how PHREEQC executes the scripts. Use it at your own risk.
-This project is not an official PHREEQC or USGS project, nor it is endorsed by the authors of PHREEQC and related organizations.
+This extension only assists with reading and writing PHREEQC files; it does not affect how PHREEQC executes them. This is not an official PHREEQC or USGS project and is not endorsed by the authors of PHREEQC or related organizations.
+
+## Contributing / maintaining
+
+See [MAINTAINING.md](https://github.com/vcantarella/phreeqc-syntax/blob/main/MAINTAINING.md) for how the extension is put together and how to make changes safely.
 
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-

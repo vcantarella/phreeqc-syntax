@@ -1,0 +1,39 @@
+# SYNTAX TEST "source.phreeqc" "PHREEQC grammar assertions"
+
+solution 1  Lowercase keywords must highlight
+# <- keyword.control.phreeqc
+    -temp 25.0
+#   ^^^^^ variable.parameter.phreeqc
+#         ^^^^ constant.numeric.phreeqc
+USE solution 5
+# <- keyword.control.phreeqc
+INCLUDE$ ./extra.pqi
+# <- keyword.control.phreeqc
+EQUILIBRIUM_PHASES 1
+# <- keyword.control.phreeqc
+    Calcite 0.0 10.0
+#           ^^^ constant.numeric.phreeqc
+RATES
+# <- keyword.control.phreeqc
+    Calcite
+    -start
+#   ^^^^^^ variable.parameter.phreeqc
+10 rate = TOT("Ca") * TIME
+# <- constant.numeric.phreeqc
+#         ^^^ support.function.phreeqc
+#             ^^^^ string.quoted.double.phreeqc
+#                     ^^^^ support.function.phreeqc
+20 REM kinetic rate for calcite
+#  ^^^ comment.line.rem.phreeqc
+30 IF (rate > 0) THEN rate = 0
+#  ^^ keyword.control.basic.phreeqc
+#                ^^^^ keyword.control.basic.phreeqc
+    -end
+END
+# <- keyword.control.phreeqc
+solution 2
+# <- keyword.control.phreeqc
+1.2E-5 .5 -9
+# <- constant.numeric.phreeqc
+#      ^^ constant.numeric.phreeqc
+#         ^^ constant.numeric.phreeqc

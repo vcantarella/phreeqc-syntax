@@ -1,0 +1,341 @@
+>TITLE Example 22.--Compare experimental CO2 solubilities at high CO2 pressure with
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^ source.phreeqc
+#              ^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>      Peng-Robinson calc`ns with fixed-volume gas_phase, 25, 50, 75, 100, 150 oC.
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                                         ^^ source.phreeqc constant.numeric.phreeqc
+#                                                           ^^ source.phreeqc
+#                                                             ^^ source.phreeqc constant.numeric.phreeqc
+#                                                               ^^ source.phreeqc
+#                                                                 ^^ source.phreeqc constant.numeric.phreeqc
+#                                                                   ^^ source.phreeqc
+#                                                                     ^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                        ^^ source.phreeqc
+#                                                                          ^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                             ^^^^^ source.phreeqc
+>#PRINT; -reset false
+#^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>PRINT
+#^^^^^ source.phreeqc keyword.control.phreeqc
+>-warnings 0
+#^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#         ^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+>SOLUTION 1
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+>GAS_PHASE 1
+#^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#         ^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+>    -fixed_volume
+#^^^^ source.phreeqc
+#    ^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+>    CO2(g) 0
+#^^^^^^^^^^^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+>    H2O(g) 0
+#^^^^^^^^^^^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+>REACTION
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+> CO2 1; 0 31*1
+#^^^^^ source.phreeqc
+#     ^ source.phreeqc constant.numeric.phreeqc
+#      ^^ source.phreeqc
+#        ^ source.phreeqc constant.numeric.phreeqc
+#         ^ source.phreeqc
+#          ^^ source.phreeqc constant.numeric.phreeqc
+#            ^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+>INCREMENTAL_REACTIONS true
+#^^^^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                     ^^^^^^ source.phreeqc
+>
+>USER_GRAPH 1 Example 22,
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#          ^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^^^^^^ source.phreeqc
+#                     ^^ source.phreeqc constant.numeric.phreeqc
+#                       ^^ source.phreeqc
+>  -chart_title "CO2 solubility at high pressures, 25 - 100 ºC"
+#^^ source.phreeqc
+#  ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#              ^ source.phreeqc
+#               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+> -plot_csv_file co2.dat
+#^ source.phreeqc
+# ^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#               ^^^^^^^^^ source.phreeqc
+> -axis_titles "Pressure / atm" "CO2 / (mol/kgw)"
+#^ source.phreeqc
+# ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#             ^ source.phreeqc
+#              ^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                              ^ source.phreeqc
+#                               ^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+> -axis_scale x_axis 0 500
+#^ source.phreeqc
+# ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#            ^^^^^^^^ source.phreeqc
+#                    ^ source.phreeqc constant.numeric.phreeqc
+#                     ^ source.phreeqc
+#                      ^^^ source.phreeqc constant.numeric.phreeqc
+> -axis_scale y_axis 0 2
+#^ source.phreeqc
+# ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#            ^^^^^^^^ source.phreeqc
+#                    ^ source.phreeqc constant.numeric.phreeqc
+#                     ^ source.phreeqc
+#                      ^ source.phreeqc constant.numeric.phreeqc
+> -connect_simulations false
+#^ source.phreeqc
+# ^^^^^^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                     ^ source.phreeqc
+#                      ^^^^^ source.phreeqc support.function.phreeqc
+> 10 graph_x PR_P("CO2(g)")
+#^ source.phreeqc
+# ^^ source.phreeqc constant.numeric.phreeqc
+#   ^ source.phreeqc
+#    ^^^^^^^ source.phreeqc support.function.phreeqc
+#           ^ source.phreeqc
+#            ^^^^ source.phreeqc support.function.phreeqc
+#                ^ source.phreeqc
+#                 ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                         ^^ source.phreeqc
+> 20 graph_y TOT("C(4)")
+#^ source.phreeqc
+# ^^ source.phreeqc constant.numeric.phreeqc
+#   ^ source.phreeqc
+#    ^^^^^^^ source.phreeqc support.function.phreeqc
+#           ^ source.phreeqc
+#            ^^^ source.phreeqc support.function.phreeqc
+#               ^ source.phreeqc
+#                ^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                      ^^ source.phreeqc
+> -end
+#^ source.phreeqc
+# ^^^^ source.phreeqc variable.parameter.phreeqc
+>USER_GRAPH 2 Example 22, P-Vm of CO2 gas, 25 - 150 ºC
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#          ^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^^^^^^ source.phreeqc
+#                     ^^ source.phreeqc constant.numeric.phreeqc
+#                       ^^^ source.phreeqc
+#                          ^ source.phreeqc keyword.operator.phreeqc
+#                           ^^ source.phreeqc support.function.phreeqc
+#                             ^^^^^^^^ source.phreeqc
+#                                     ^^^ source.phreeqc support.function.phreeqc
+#                                        ^^ source.phreeqc
+#                                          ^^ source.phreeqc constant.numeric.phreeqc
+#                                            ^ source.phreeqc
+#                                             ^ source.phreeqc keyword.operator.phreeqc
+#                                              ^ source.phreeqc
+#                                               ^^^ source.phreeqc constant.numeric.phreeqc
+#                                                  ^^^^ source.phreeqc
+> -chart_title "P-Vm of CO2 gas, data from Michels et al., 1935, 1937"
+#^ source.phreeqc
+# ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#             ^ source.phreeqc
+#              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+> -plot_csv_file co2_VP.dat
+#^ source.phreeqc
+# ^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#               ^^^^^^^^^^^^ source.phreeqc
+> -axis_titles "molar volume of CO2 gas / (L/mol)" "CO2 pressure / atm"
+#^ source.phreeqc
+# ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#             ^ source.phreeqc
+#              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                 ^ source.phreeqc
+#                                                  ^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+> -axis_scale x_axis 0 0.7
+#^ source.phreeqc
+# ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#            ^^^^^^^^ source.phreeqc
+#                    ^ source.phreeqc constant.numeric.phreeqc
+#                     ^ source.phreeqc
+#                      ^^^ source.phreeqc constant.numeric.phreeqc
+> -axis_scale y_axis 0 700
+#^ source.phreeqc
+# ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#            ^^^^^^^^ source.phreeqc
+#                    ^ source.phreeqc constant.numeric.phreeqc
+#                     ^ source.phreeqc
+#                      ^^^ source.phreeqc constant.numeric.phreeqc
+> -connect_simulations false
+#^ source.phreeqc
+# ^^^^^^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                     ^ source.phreeqc
+#                      ^^^^^ source.phreeqc support.function.phreeqc
+> 10 graph_x gas_vm : graph_y gas_p
+#^ source.phreeqc
+# ^^ source.phreeqc constant.numeric.phreeqc
+#   ^ source.phreeqc
+#    ^^^^^^^ source.phreeqc support.function.phreeqc
+#           ^ source.phreeqc
+#            ^^^^^^ source.phreeqc support.function.phreeqc
+#                  ^^^ source.phreeqc
+#                     ^^^^^^^ source.phreeqc support.function.phreeqc
+#                            ^ source.phreeqc
+#                             ^^^^^ source.phreeqc support.function.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>
+>USE solution 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+>USE gas_phase 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+>REACTION
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+> CO2 1; 0 29*1
+#^^^^^ source.phreeqc
+#     ^ source.phreeqc constant.numeric.phreeqc
+#      ^^ source.phreeqc
+#        ^ source.phreeqc constant.numeric.phreeqc
+#         ^ source.phreeqc
+#          ^^ source.phreeqc constant.numeric.phreeqc
+#            ^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+>REACTION_TEMPERATURE 2
+#^^^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                    ^ source.phreeqc
+#                     ^ source.phreeqc constant.numeric.phreeqc
+> 50
+#^ source.phreeqc
+# ^^ source.phreeqc constant.numeric.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>
+>USE solution 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+>USE gas_phase 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+>REACTION
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+> CO2 1; 0 27*1
+#^^^^^ source.phreeqc
+#     ^ source.phreeqc constant.numeric.phreeqc
+#      ^^ source.phreeqc
+#        ^ source.phreeqc constant.numeric.phreeqc
+#         ^ source.phreeqc
+#          ^^ source.phreeqc constant.numeric.phreeqc
+#            ^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+>REACTION_TEMPERATURE 3
+#^^^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                    ^ source.phreeqc
+#                     ^ source.phreeqc constant.numeric.phreeqc
+> 75
+#^ source.phreeqc
+# ^^ source.phreeqc constant.numeric.phreeqc
+>USER_GRAPH 2; -active false
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#          ^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^ source.phreeqc keyword.operator.phreeqc
+#             ^ source.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^^^^^^^ source.phreeqc
+#                      ^^^^^ source.phreeqc support.function.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>
+>USE solution 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+>USE gas_phase 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+>REACTION
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+> CO2 1; 0 28*1
+#^^^^^ source.phreeqc
+#     ^ source.phreeqc constant.numeric.phreeqc
+#      ^^ source.phreeqc
+#        ^ source.phreeqc constant.numeric.phreeqc
+#         ^ source.phreeqc
+#          ^^ source.phreeqc constant.numeric.phreeqc
+#            ^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+>REACTION_TEMPERATURE 4
+#^^^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                    ^ source.phreeqc
+#                     ^ source.phreeqc constant.numeric.phreeqc
+> 100
+#^ source.phreeqc
+# ^^^ source.phreeqc constant.numeric.phreeqc
+>USER_GRAPH 2; -active true
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#          ^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^ source.phreeqc keyword.operator.phreeqc
+#             ^ source.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^^^^^^^ source.phreeqc
+#                      ^^^^ source.phreeqc support.function.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>
+>USE solution 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+>USE gas_phase 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+>REACTION
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+> CO2 1; 0 26*1
+#^^^^^ source.phreeqc
+#     ^ source.phreeqc constant.numeric.phreeqc
+#      ^^ source.phreeqc
+#        ^ source.phreeqc constant.numeric.phreeqc
+#         ^ source.phreeqc
+#          ^^ source.phreeqc constant.numeric.phreeqc
+#            ^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+>REACTION_TEMPERATURE 5
+#^^^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                    ^ source.phreeqc
+#                     ^ source.phreeqc constant.numeric.phreeqc
+> 150
+#^ source.phreeqc
+# ^^^ source.phreeqc constant.numeric.phreeqc
+>USER_GRAPH 1; -active false
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#          ^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^ source.phreeqc keyword.operator.phreeqc
+#             ^ source.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^^^^^^^ source.phreeqc
+#                      ^^^^^ source.phreeqc support.function.phreeqc
+>USER_GRAPH 2; -active true
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#          ^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^ source.phreeqc keyword.operator.phreeqc
+#             ^ source.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^^^^^^^ source.phreeqc
+#                      ^^^^ source.phreeqc support.function.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>

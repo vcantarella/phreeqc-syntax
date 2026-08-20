@@ -1,0 +1,330 @@
+>TITLE Example 1.--Add uranium and speciate seawater.
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^ source.phreeqc
+#              ^^ source.phreeqc constant.numeric.phreeqc
+#                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>SOLUTION 1  SEAWATER FROM NORDSTROM AND OTHERS (1979)
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                                ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                    ^^ source.phreeqc
+>        units   ppm
+#^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        pH      8.22
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        pe      8.451
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        density 1.023
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        temp    25.0
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        redox   O(0)/O(-2)
+#^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                  ^ source.phreeqc constant.numeric.phreeqc
+#                   ^^^^ source.phreeqc
+#                       ^^ source.phreeqc constant.numeric.phreeqc
+#                         ^^ source.phreeqc
+>        Ca              412.3
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        Mg              1291.8
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>        Na              10768.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+>        K               399.1
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        Fe              0.002
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        Mn              0.0002  pe
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                              ^^^^^ source.phreeqc
+>        Si              4.28
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^ source.phreeqc constant.numeric.phreeqc
+>        Cl              19353.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+>        Alkalinity      141.682 as HCO3
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                               ^^^^^^^^^ source.phreeqc
+>        S(6)            2712.0
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>        N(5)            0.29    gfw   62.0
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^ source.phreeqc constant.numeric.phreeqc
+#                            ^^^^^^^^^^ source.phreeqc
+#                                      ^^^^ source.phreeqc constant.numeric.phreeqc
+>        N(-3)           0.03    as    NH4
+#^^^^^^^^^^ source.phreeqc
+#          ^^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^ source.phreeqc constant.numeric.phreeqc
+#                            ^^^^^^^^^^^^^^ source.phreeqc
+>        U               3.3     ppb   N(5)/N(-3)
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^^^^^^^^^ source.phreeqc
+#                                        ^ source.phreeqc constant.numeric.phreeqc
+#                                         ^^^^ source.phreeqc
+#                                             ^^ source.phreeqc constant.numeric.phreeqc
+#                                               ^^ source.phreeqc
+>        O(0)            1.0     O2(g) -0.7
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^^^^^^^ source.phreeqc
+#                                      ^^^^ source.phreeqc constant.numeric.phreeqc
+>SOLUTION_MASTER_SPECIES
+#^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>        U       U+4     0.0     238.0290     238.0290
+#^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                  ^ source.phreeqc constant.numeric.phreeqc
+#                   ^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^ source.phreeqc
+#                                ^^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                        ^^^^^ source.phreeqc
+#                                             ^^^^^^^^ source.phreeqc constant.numeric.phreeqc
+>        U(4)    U+4     0.0     238.0290
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^^^ source.phreeqc
+#                  ^ source.phreeqc constant.numeric.phreeqc
+#                   ^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^ source.phreeqc
+#                                ^^^^^^^^ source.phreeqc constant.numeric.phreeqc
+>        U(5)    UO2+    0.0     238.0290
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^ source.phreeqc
+#                                ^^^^^^^^ source.phreeqc constant.numeric.phreeqc
+>        U(6)    UO2+2   0.0     238.0290
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^^^^^ source.phreeqc
+#                    ^ source.phreeqc constant.numeric.phreeqc
+#                     ^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^ source.phreeqc
+#                                ^^^^^^^^ source.phreeqc constant.numeric.phreeqc
+>SOLUTION_SPECIES
+#^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>        #primary master species for U
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>        #is also secondary master species for U(4)
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>        U+4 = U+4
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^ source.phreeqc
+#                ^ source.phreeqc constant.numeric.phreeqc
+>                log_k          0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^ source.phreeqc constant.numeric.phreeqc
+>        U+4 + 4 H2O = U(OH)4 + 4 H+
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+#               ^^^^^^^^^^^^ source.phreeqc
+#                           ^ source.phreeqc constant.numeric.phreeqc
+#                            ^^^ source.phreeqc
+#                               ^ source.phreeqc constant.numeric.phreeqc
+#                                ^^^^ source.phreeqc
+>                log_k          -8.538
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>                delta_h        24.760 kcal
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                     ^^^^^^ source.phreeqc
+>        U+4 + 5 H2O = U(OH)5- + 5 H+
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+#               ^^^^^^^^^^^^ source.phreeqc
+#                           ^ source.phreeqc constant.numeric.phreeqc
+#                            ^^^^ source.phreeqc
+#                                ^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^ source.phreeqc
+>                log_k          -13.147
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+>                delta_h        27.580 kcal
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                     ^^^^^^ source.phreeqc
+>        #secondary master species for U(5)
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>        U+4 + 2 H2O = UO2+ + 4 H+ + e-
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+#               ^^^^^^^^^^^^^^ source.phreeqc
+#                             ^ source.phreeqc constant.numeric.phreeqc
+#                              ^^^^^^^^^ source.phreeqc
+>                log_k          -6.432
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>                delta_h        31.130 kcal
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                     ^^^^^^ source.phreeqc
+>        #secondary master species for U(6)
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>        U+4 + 2 H2O = UO2+2 + 4 H+ + 2 e-
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+#               ^^^^^^^^^^^ source.phreeqc
+#                          ^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^ source.phreeqc
+#                              ^ source.phreeqc constant.numeric.phreeqc
+#                               ^^^^^^ source.phreeqc
+#                                     ^ source.phreeqc constant.numeric.phreeqc
+#                                      ^^^^ source.phreeqc
+>                log_k          -9.217
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>                delta_h        34.430 kcal
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                     ^^^^^^ source.phreeqc
+>        UO2+2 + H2O = UO2OH+ + H+
+#^^^^^^^^^^^^ source.phreeqc
+#            ^ source.phreeqc constant.numeric.phreeqc
+#             ^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                log_k          -5.782
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>                delta_h        11.015 kcal
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                     ^^^^^^ source.phreeqc
+>        2UO2+2 + 2H2O = (UO2)2(OH)2+2 + 2H+
+#^^^^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+#              ^^^^^^^^^^^^^^^ source.phreeqc
+#                             ^ source.phreeqc constant.numeric.phreeqc
+#                              ^^^^ source.phreeqc
+#                                  ^ source.phreeqc constant.numeric.phreeqc
+#                                   ^ source.phreeqc
+#                                    ^ source.phreeqc constant.numeric.phreeqc
+#                                     ^^^^^^^ source.phreeqc
+>                log_k          -5.626
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>                delta_h        -36.04 kcal
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                     ^^^^^^ source.phreeqc
+>        3UO2+2 + 5H2O = (UO2)3(OH)5+ + 5H+
+#^^^^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+#              ^^^^^^^^^^^^^^^ source.phreeqc
+#                             ^ source.phreeqc constant.numeric.phreeqc
+#                              ^^^^ source.phreeqc
+#                                  ^ source.phreeqc constant.numeric.phreeqc
+#                                   ^^^^^^^^ source.phreeqc
+>                log_k          -15.641
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+>                delta_h        -44.27 kcal
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                     ^^^^^^ source.phreeqc
+>        UO2+2 + CO3-2 = UO2CO3
+#^^^^^^^^^^^^ source.phreeqc
+#            ^ source.phreeqc constant.numeric.phreeqc
+#             ^^^^^^^ source.phreeqc
+#                    ^ source.phreeqc constant.numeric.phreeqc
+#                     ^^^^^^^^^^ source.phreeqc
+>                log_k          10.064
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>                delta_h        0.84 kcal
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                   ^^^^^^ source.phreeqc
+>        UO2+2 + 2CO3-2 = UO2(CO3)2-2
+#^^^^^^^^^^^^ source.phreeqc
+#            ^ source.phreeqc constant.numeric.phreeqc
+#             ^^^^^^^^ source.phreeqc
+#                     ^ source.phreeqc constant.numeric.phreeqc
+#                      ^^^^^^^^^^^ source.phreeqc
+#                                 ^ source.phreeqc constant.numeric.phreeqc
+#                                  ^ source.phreeqc
+#                                   ^ source.phreeqc constant.numeric.phreeqc
+>                log_k          16.977
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>                delta_h        3.48 kcal
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                   ^^^^^^ source.phreeqc
+>        UO2+2 + 3CO3-2 = UO2(CO3)3-4
+#^^^^^^^^^^^^ source.phreeqc
+#            ^ source.phreeqc constant.numeric.phreeqc
+#             ^^^^^^^^ source.phreeqc
+#                     ^ source.phreeqc constant.numeric.phreeqc
+#                      ^^^^^^^^^^^ source.phreeqc
+#                                 ^ source.phreeqc constant.numeric.phreeqc
+#                                  ^ source.phreeqc
+#                                   ^ source.phreeqc constant.numeric.phreeqc
+>                log_k          21.397
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>                delta_h        -8.78 kcal
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                    ^^^^^^ source.phreeqc
+>PHASES
+#^^^^^^ source.phreeqc keyword.control.phreeqc
+>        Uraninite
+#^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        UO2 + 4 H+ = U+4 + 2 H2O
+#^^^^^^^^^^^^^^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+#               ^^^^^^^^ source.phreeqc
+#                       ^ source.phreeqc constant.numeric.phreeqc
+#                        ^^^ source.phreeqc
+#                           ^ source.phreeqc constant.numeric.phreeqc
+#                            ^^^^^ source.phreeqc
+>        log_k          -3.490
+#^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                       ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>        delta_h        -18.630 kcal
+#^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                       ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                              ^^^^^^ source.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>

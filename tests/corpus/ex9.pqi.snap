@@ -1,0 +1,723 @@
+>TITLE Example 9.--Kinetically controlled oxidation of ferrous 
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^ source.phreeqc
+#              ^^ source.phreeqc constant.numeric.phreeqc
+#                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                  iron. Decoupled valence states of iron.
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>SOLUTION_MASTER_SPECIES
+#^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>Fe_di              Fe_di+2    0.0     Fe_di              55.847
+#^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                         ^ source.phreeqc constant.numeric.phreeqc
+#                          ^^^^ source.phreeqc
+#                              ^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                                         ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>Fe_tri             Fe_tri+3   0.0     Fe_tri             55.847
+#^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                          ^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^ source.phreeqc
+#                              ^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                                         ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>SOLUTION_SPECIES
+#^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>Fe_di+2 = Fe_di+2
+#^^^^^^ source.phreeqc
+#      ^ source.phreeqc constant.numeric.phreeqc
+#       ^^^^^^^^^ source.phreeqc
+#                ^ source.phreeqc constant.numeric.phreeqc
+>        log_k   0.0
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>Fe_tri+3 = Fe_tri+3
+#^^^^^^^ source.phreeqc
+#       ^ source.phreeqc constant.numeric.phreeqc
+#        ^^^^^^^^^^ source.phreeqc
+#                  ^ source.phreeqc constant.numeric.phreeqc
+>        log_k   0.0
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>#
+#^ source.phreeqc comment.line.number-sign.phreeqc
+># Fe+2 species
+#^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>#
+#^ source.phreeqc comment.line.number-sign.phreeqc
+>Fe_di+2 + H2O = Fe_diOH+ + H+
+#^^^^^^ source.phreeqc
+#      ^ source.phreeqc constant.numeric.phreeqc
+#       ^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        log_k   -9.5
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        delta_h 13.20   kcal
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^ source.phreeqc constant.numeric.phreeqc
+#                     ^^^^^^^^ source.phreeqc
+>#
+#^ source.phreeqc comment.line.number-sign.phreeqc
+>#... and also other Fe+2 species
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>#
+#^ source.phreeqc comment.line.number-sign.phreeqc
+>Fe_di+2 + Cl- = Fe_diCl+
+#^^^^^^ source.phreeqc
+#      ^ source.phreeqc constant.numeric.phreeqc
+#       ^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        log_k   0.14
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>Fe_di+2 + CO3-2 = Fe_diCO3
+#^^^^^^ source.phreeqc
+#      ^ source.phreeqc constant.numeric.phreeqc
+#       ^^^^^^^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+#               ^^^^^^^^^^^^ source.phreeqc
+>        log_k   4.38
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>Fe_di+2 + HCO3- = Fe_diHCO3+
+#^^^^^^ source.phreeqc
+#      ^ source.phreeqc constant.numeric.phreeqc
+#       ^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        log_k   2.0
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>Fe_di+2 + SO4-2 = Fe_diSO4
+#^^^^^^ source.phreeqc
+#      ^ source.phreeqc constant.numeric.phreeqc
+#       ^^^^^^^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+#               ^^^^^^^^^^^^ source.phreeqc
+>        log_k   2.25
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        delta_h 3.230   kcal
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^ source.phreeqc constant.numeric.phreeqc
+#                     ^^^^^^^^ source.phreeqc
+>Fe_di+2 + HSO4- = Fe_diHSO4+
+#^^^^^^ source.phreeqc
+#      ^ source.phreeqc constant.numeric.phreeqc
+#       ^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        log_k   1.08
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>Fe_di+2 + 2HS- = Fe_di(HS)2
+#^^^^^^ source.phreeqc
+#      ^ source.phreeqc constant.numeric.phreeqc
+#       ^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                          ^ source.phreeqc constant.numeric.phreeqc
+>        log_k   8.95
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>Fe_di+2 + 3HS- = Fe_di(HS)3-
+#^^^^^^ source.phreeqc
+#      ^ source.phreeqc constant.numeric.phreeqc
+#       ^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                          ^ source.phreeqc constant.numeric.phreeqc
+#                           ^^ source.phreeqc
+>        log_k   10.987
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>Fe_di+2 + HPO4-2 = Fe_diHPO4
+#^^^^^^ source.phreeqc
+#      ^ source.phreeqc constant.numeric.phreeqc
+#       ^^^^^^^^ source.phreeqc
+#               ^ source.phreeqc constant.numeric.phreeqc
+#                ^^^^^^^^^^^^^ source.phreeqc
+>        log_k   3.6
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>Fe_di+2 + H2PO4- = Fe_diH2PO4+
+#^^^^^^ source.phreeqc
+#      ^ source.phreeqc constant.numeric.phreeqc
+#       ^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        log_k   2.7
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>Fe_di+2 + F- = Fe_diF+
+#^^^^^^ source.phreeqc
+#      ^ source.phreeqc constant.numeric.phreeqc
+#       ^^^^^^^^^^^^^^^^ source.phreeqc
+>        log_k   1.0
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>#
+#^ source.phreeqc comment.line.number-sign.phreeqc
+># Fe+3 species
+#^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>#
+#^ source.phreeqc comment.line.number-sign.phreeqc
+>Fe_tri+3 + H2O = Fe_triOH+2 + H+
+#^^^^^^^ source.phreeqc
+#       ^ source.phreeqc constant.numeric.phreeqc
+#        ^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                          ^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^^ source.phreeqc
+>        log_k   -2.19
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        delta_h 10.4    kcal
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^^^^^^ source.phreeqc
+>#
+#^ source.phreeqc comment.line.number-sign.phreeqc
+>#... and also other Fe+3 species
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>#
+#^ source.phreeqc comment.line.number-sign.phreeqc
+>Fe_tri+3 + 2 H2O = Fe_tri(OH)2+ + 2 H+
+#^^^^^^^ source.phreeqc
+#       ^ source.phreeqc constant.numeric.phreeqc
+#        ^^^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^^^^^^^^^^^^^^ source.phreeqc
+#                             ^ source.phreeqc constant.numeric.phreeqc
+#                              ^^^^ source.phreeqc
+#                                  ^ source.phreeqc constant.numeric.phreeqc
+#                                   ^^^^ source.phreeqc
+>        log_k   -5.67
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        delta_h 17.1    kcal
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^^^^^^ source.phreeqc
+>Fe_tri+3 + 3 H2O = Fe_tri(OH)3 + 3 H+
+#^^^^^^^ source.phreeqc
+#       ^ source.phreeqc constant.numeric.phreeqc
+#        ^^^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^^^^^^^^^^^^^^ source.phreeqc
+#                             ^ source.phreeqc constant.numeric.phreeqc
+#                              ^^^ source.phreeqc
+#                                 ^ source.phreeqc constant.numeric.phreeqc
+#                                  ^^^^ source.phreeqc
+>        log_k   -12.56
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>        delta_h 24.8    kcal
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^^^^^^ source.phreeqc
+>Fe_tri+3 + 4 H2O = Fe_tri(OH)4- + 4 H+
+#^^^^^^^ source.phreeqc
+#       ^ source.phreeqc constant.numeric.phreeqc
+#        ^^^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^^^^^^^^^^^^^^ source.phreeqc
+#                             ^ source.phreeqc constant.numeric.phreeqc
+#                              ^^^^ source.phreeqc
+#                                  ^ source.phreeqc constant.numeric.phreeqc
+#                                   ^^^^ source.phreeqc
+>        log_k   -21.6
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        delta_h 31.9    kcal
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^^^^^^ source.phreeqc
+>2 Fe_tri+3 + 2 H2O = Fe_tri2(OH)2+4 + 2 H+
+#^ source.phreeqc constant.numeric.phreeqc
+# ^^^^^^^^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+#              ^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                ^ source.phreeqc constant.numeric.phreeqc
+#                                 ^ source.phreeqc
+#                                  ^ source.phreeqc constant.numeric.phreeqc
+#                                   ^^^ source.phreeqc
+#                                      ^ source.phreeqc constant.numeric.phreeqc
+#                                       ^^^^ source.phreeqc
+>        log_k   -2.95
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        delta_h 13.5    kcal
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^^^^^^ source.phreeqc
+>3 Fe_tri+3 + 4 H2O = Fe_tri3(OH)4+5 + 4 H+
+#^ source.phreeqc constant.numeric.phreeqc
+# ^^^^^^^^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+#              ^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                ^ source.phreeqc constant.numeric.phreeqc
+#                                 ^ source.phreeqc
+#                                  ^ source.phreeqc constant.numeric.phreeqc
+#                                   ^^^ source.phreeqc
+#                                      ^ source.phreeqc constant.numeric.phreeqc
+#                                       ^^^^ source.phreeqc
+>        log_k   -6.3
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        delta_h 14.3    kcal
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^^^^^^ source.phreeqc
+>Fe_tri+3 + Cl- = Fe_triCl+2
+#^^^^^^^ source.phreeqc
+#       ^ source.phreeqc constant.numeric.phreeqc
+#        ^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                          ^ source.phreeqc constant.numeric.phreeqc
+>        log_k   1.48
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        delta_h 5.6     kcal
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+#                   ^^^^^^^^^^ source.phreeqc
+>Fe_tri+3 + 2 Cl- = Fe_triCl2+
+#^^^^^^^ source.phreeqc
+#       ^ source.phreeqc constant.numeric.phreeqc
+#        ^^^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        log_k   2.13
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>Fe_tri+3 + 3 Cl- = Fe_triCl3
+#^^^^^^^ source.phreeqc
+#       ^ source.phreeqc constant.numeric.phreeqc
+#        ^^^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^^^^^^^^^^^^^^ source.phreeqc
+>        log_k   1.13
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>Fe_tri+3 + SO4-2 = Fe_triSO4+
+#^^^^^^^ source.phreeqc
+#       ^ source.phreeqc constant.numeric.phreeqc
+#        ^^^^^^^ source.phreeqc
+#               ^ source.phreeqc constant.numeric.phreeqc
+#                ^^^^^^^^^^^^^^ source.phreeqc
+>        log_k   4.04
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        delta_h 3.91    kcal
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^^^^^^ source.phreeqc
+>Fe_tri+3 + HSO4- = Fe_triHSO4+2
+#^^^^^^^ source.phreeqc
+#       ^ source.phreeqc constant.numeric.phreeqc
+#        ^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                              ^ source.phreeqc constant.numeric.phreeqc
+>        log_k   2.48
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>Fe_tri+3 + 2 SO4-2 = Fe_tri(SO4)2-
+#^^^^^^^ source.phreeqc
+#       ^ source.phreeqc constant.numeric.phreeqc
+#        ^^^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^^ source.phreeqc
+#                 ^ source.phreeqc constant.numeric.phreeqc
+#                  ^^^^^^^^^^^^^^ source.phreeqc
+#                                ^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^ source.phreeqc
+>        log_k   5.38
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        delta_h 4.60    kcal
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^^^^^^ source.phreeqc
+>Fe_tri+3 + HPO4-2 = Fe_triHPO4+
+#^^^^^^^ source.phreeqc
+#       ^ source.phreeqc constant.numeric.phreeqc
+#        ^^^^^^^^ source.phreeqc
+#                ^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^^^^^^^^^ source.phreeqc
+>        log_k   5.43
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        delta_h 5.76    kcal
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^^^^^^ source.phreeqc
+>Fe_tri+3 + H2PO4- = Fe_triH2PO4+2
+#^^^^^^^ source.phreeqc
+#       ^ source.phreeqc constant.numeric.phreeqc
+#        ^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                ^ source.phreeqc constant.numeric.phreeqc
+>        log_k   5.43
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>Fe_tri+3 + F- = Fe_triF+2
+#^^^^^^^ source.phreeqc
+#       ^ source.phreeqc constant.numeric.phreeqc
+#        ^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^ source.phreeqc constant.numeric.phreeqc
+>        log_k   6.2
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>        delta_h 2.7     kcal
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+#                   ^^^^^^^^^^ source.phreeqc
+>Fe_tri+3 + 2 F- = Fe_triF2+
+#^^^^^^^ source.phreeqc
+#       ^ source.phreeqc constant.numeric.phreeqc
+#        ^^^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^^^^^^^^^^^^^ source.phreeqc
+>        log_k   10.8
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        delta_h 4.8     kcal
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+#                   ^^^^^^^^^^ source.phreeqc
+>Fe_tri+3 + 3 F- = Fe_triF3
+#^^^^^^^ source.phreeqc
+#       ^ source.phreeqc constant.numeric.phreeqc
+#        ^^^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^^^^^^^^^^^^ source.phreeqc
+>        log_k   14.0
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        delta_h 5.4     kcal
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+#                   ^^^^^^^^^^ source.phreeqc
+>PHASES
+#^^^^^^ source.phreeqc keyword.control.phreeqc
+>Goethite
+#^^^^^^^^^ source.phreeqc
+>        Fe_triOOH + 3 H+ = Fe_tri+3 + 2 H2O
+#^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                    ^ source.phreeqc constant.numeric.phreeqc
+#                     ^^^^^^^^^^^^^ source.phreeqc
+#                                  ^ source.phreeqc constant.numeric.phreeqc
+#                                   ^^^ source.phreeqc
+#                                      ^ source.phreeqc constant.numeric.phreeqc
+#                                       ^^^^^ source.phreeqc
+>        log_k   -1.0
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>PRINT
+#^^^^^ source.phreeqc keyword.control.phreeqc
+>-warnings 0
+#^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#         ^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+>SOLUTION 1
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+>        pH  7.0
+#^^^^^^^^^^^^ source.phreeqc
+#            ^^^ source.phreeqc constant.numeric.phreeqc
+>        pe 10.0  O2(g) -0.67
+#^^^^^^^^^^^ source.phreeqc
+#           ^^^^ source.phreeqc constant.numeric.phreeqc
+#               ^^^^^^^^ source.phreeqc
+#                       ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        Fe_di  0.1
+#^^^^^^^^^^^^^^^ source.phreeqc
+#               ^^^ source.phreeqc constant.numeric.phreeqc
+>        Na  10.
+#^^^^^^^^^^^^ source.phreeqc
+#            ^^^ source.phreeqc constant.numeric.phreeqc
+>        Cl  10.  charge
+#^^^^^^^^^^^^ source.phreeqc
+#            ^^^ source.phreeqc constant.numeric.phreeqc
+#               ^^^^^^^^^ source.phreeqc
+>EQUILIBRIUM_PHASES 1
+#^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+>        O2(g)           -0.67
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^^ source.phreeqc constant.numeric.phreeqc
+>RATES
+#^^^^^ source.phreeqc keyword.control.phreeqc
+>Fe_di_ox
+#^^^^^^^^^ source.phreeqc
+>  -start
+#^^ source.phreeqc
+#  ^^^^^^ source.phreeqc variable.parameter.phreeqc
+>  10  Fe_di = TOT("Fe_di")
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^^^^^^^ source.phreeqc
+#            ^ source.phreeqc keyword.operator.phreeqc
+#             ^ source.phreeqc
+#              ^^^ source.phreeqc support.function.phreeqc
+#                 ^ source.phreeqc
+#                  ^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                         ^^ source.phreeqc
+>  20  if (Fe_di <= 0) then goto 200
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^ source.phreeqc
+#      ^^ source.phreeqc keyword.control.basic.phreeqc
+#        ^^^^^^^^ source.phreeqc
+#                ^ source.phreeqc keyword.operator.phreeqc
+#                 ^ source.phreeqc keyword.operator.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+#                    ^^ source.phreeqc
+#                      ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                               ^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+>  30  p_o2 = SR("O2(g)")
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^^^^^^ source.phreeqc
+#           ^ source.phreeqc keyword.operator.phreeqc
+#            ^ source.phreeqc
+#             ^^ source.phreeqc support.function.phreeqc
+#               ^ source.phreeqc
+#                ^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                       ^^ source.phreeqc
+>  40  moles = (2.91e-9 + 1.33e12 * (ACT("OH-"))^2 * p_o2) * Fe_di * TIME
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^^^^^^^ source.phreeqc
+#            ^ source.phreeqc keyword.operator.phreeqc
+#             ^^ source.phreeqc
+#               ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                      ^ source.phreeqc
+#                       ^ source.phreeqc keyword.operator.phreeqc
+#                        ^ source.phreeqc
+#                         ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                ^ source.phreeqc
+#                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                  ^^ source.phreeqc
+#                                    ^^^ source.phreeqc support.function.phreeqc
+#                                       ^ source.phreeqc
+#                                        ^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                             ^^ source.phreeqc
+#                                               ^ source.phreeqc keyword.operator.phreeqc
+#                                                ^ source.phreeqc constant.numeric.phreeqc
+#                                                 ^ source.phreeqc
+#                                                  ^ source.phreeqc keyword.operator.phreeqc
+#                                                   ^^^^^^^ source.phreeqc
+#                                                          ^ source.phreeqc keyword.operator.phreeqc
+#                                                           ^^^^^^^ source.phreeqc
+#                                                                  ^ source.phreeqc keyword.operator.phreeqc
+#                                                                   ^ source.phreeqc
+#                                                                    ^^^^ source.phreeqc support.function.phreeqc
+>  200 SAVE moles
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^ source.phreeqc
+#      ^^^^ source.phreeqc support.function.phreeqc
+#          ^^^^^^^ source.phreeqc
+>  -end
+#^^ source.phreeqc
+#  ^^^^ source.phreeqc variable.parameter.phreeqc
+>KINETICS 1
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+>Fe_di_ox
+#^^^^^^^^^ source.phreeqc
+>        -formula  Fe_di  -1.0  Fe_tri  1.0
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                ^^^^^^^^^ source.phreeqc
+#                         ^^^^ source.phreeqc constant.numeric.phreeqc
+#                             ^^^^^^^^^^ source.phreeqc
+#                                       ^^^ source.phreeqc constant.numeric.phreeqc
+>        -steps 100 400 3100 10800 21600 5.04e4 8.64e4 1.728e5 1.728e5 1.728e5 1.728e5 
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#              ^ source.phreeqc
+#               ^^^ source.phreeqc constant.numeric.phreeqc
+#                  ^ source.phreeqc
+#                   ^^^ source.phreeqc constant.numeric.phreeqc
+#                      ^ source.phreeqc
+#                       ^^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^ source.phreeqc
+#                            ^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^ source.phreeqc
+#                                  ^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                       ^ source.phreeqc
+#                                        ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                              ^ source.phreeqc
+#                                               ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                     ^ source.phreeqc
+#                                                      ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                             ^ source.phreeqc
+#                                                              ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                     ^ source.phreeqc
+#                                                                      ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                             ^ source.phreeqc
+#                                                                              ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                                     ^^ source.phreeqc
+>        -step_divide 1e-4
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^ source.phreeqc constant.numeric.phreeqc
+>INCREMENTAL_REACTIONS true
+#^^^^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                     ^^^^^^ source.phreeqc
+>SELECTED_OUTPUT
+#^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>        -file ex9.sel
+#^^^^^^^^ source.phreeqc
+#        ^^^^^ source.phreeqc variable.parameter.phreeqc
+#             ^^^^^^^^^ source.phreeqc
+>        -reset false
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#              ^^^^^^^ source.phreeqc
+>USER_PUNCH
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>        -headings Days  Fe(2)  Fe(3)  pH  si_goethite
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^^^^^^^^ source.phreeqc
+#                           ^ source.phreeqc constant.numeric.phreeqc
+#                            ^^^^^^ source.phreeqc
+#                                  ^ source.phreeqc constant.numeric.phreeqc
+#                                   ^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>  10 PUNCH SIM_TIME / 3600 / 24, TOT("Fe_di")*1e6, TOT("Fe_tri")*1e6, -LA("H+"), \
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^^^ source.phreeqc support.function.phreeqc
+#                   ^ source.phreeqc
+#                    ^ source.phreeqc keyword.operator.phreeqc
+#                     ^ source.phreeqc
+#                      ^^^^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^ source.phreeqc keyword.operator.phreeqc
+#                            ^ source.phreeqc
+#                             ^^ source.phreeqc constant.numeric.phreeqc
+#                               ^^ source.phreeqc
+#                                 ^^^ source.phreeqc support.function.phreeqc
+#                                    ^ source.phreeqc
+#                                     ^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                            ^ source.phreeqc
+#                                             ^ source.phreeqc keyword.operator.phreeqc
+#                                              ^^^ source.phreeqc constant.numeric.phreeqc
+#                                                 ^^ source.phreeqc
+#                                                   ^^^ source.phreeqc support.function.phreeqc
+#                                                      ^ source.phreeqc
+#                                                       ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                               ^ source.phreeqc
+#                                                                ^ source.phreeqc keyword.operator.phreeqc
+#                                                                 ^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                    ^^ source.phreeqc
+#                                                                      ^ source.phreeqc keyword.operator.phreeqc
+#                                                                       ^^ source.phreeqc support.function.phreeqc
+#                                                                         ^ source.phreeqc
+#                                                                          ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                                              ^^^^^ source.phreeqc
+>           SI("Goethite")
+#^^^^^^^^^^^ source.phreeqc
+#           ^^ source.phreeqc support.function.phreeqc
+#             ^ source.phreeqc
+#              ^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                        ^^ source.phreeqc
+>USER_GRAPH Example 9
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#          ^^^^^^^^^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+>        -headings _time_ Fe(2) Fe(3) pH
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^^^^^^^^^ source.phreeqc
+#                            ^ source.phreeqc constant.numeric.phreeqc
+#                             ^^^^^ source.phreeqc
+#                                  ^ source.phreeqc constant.numeric.phreeqc
+#                                   ^^^^^ source.phreeqc
+>        -chart_title "Oxidation of Ferrous Iron"
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>        -axis_titles "Time, in days" "Micromole per kilogram water" "pH"
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                    ^ source.phreeqc
+#                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                                   ^ source.phreeqc
+#                                                                    ^^^^ source.phreeqc string.quoted.double.phreeqc
+>        -axis_scale secondary_y_axis 4.0 7.0 1.0 0.5
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                     ^^^ source.phreeqc constant.numeric.phreeqc
+#                                        ^ source.phreeqc
+#                                         ^^^ source.phreeqc constant.numeric.phreeqc
+#                                            ^ source.phreeqc
+#                                             ^^^ source.phreeqc constant.numeric.phreeqc
+#                                                ^ source.phreeqc
+#                                                 ^^^ source.phreeqc constant.numeric.phreeqc
+>  -start
+#^^ source.phreeqc
+#  ^^^^^^ source.phreeqc variable.parameter.phreeqc
+>  10 GRAPH_X TOTAL_TIME / 3600 / 24 
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^ source.phreeqc
+#             ^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                       ^ source.phreeqc
+#                        ^ source.phreeqc keyword.operator.phreeqc
+#                         ^ source.phreeqc
+#                          ^^^^ source.phreeqc constant.numeric.phreeqc
+#                              ^ source.phreeqc
+#                               ^ source.phreeqc keyword.operator.phreeqc
+#                                ^ source.phreeqc
+#                                 ^^ source.phreeqc constant.numeric.phreeqc
+#                                   ^^ source.phreeqc
+>  20 GRAPH_Y TOT("Fe_di")*1e6, TOT("Fe_tri")*1e6 
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^ source.phreeqc
+#             ^^^ source.phreeqc support.function.phreeqc
+#                ^ source.phreeqc
+#                 ^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                        ^ source.phreeqc
+#                         ^ source.phreeqc keyword.operator.phreeqc
+#                          ^^^ source.phreeqc constant.numeric.phreeqc
+#                             ^^ source.phreeqc
+#                               ^^^ source.phreeqc support.function.phreeqc
+#                                  ^ source.phreeqc
+#                                   ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                           ^ source.phreeqc
+#                                            ^ source.phreeqc keyword.operator.phreeqc
+#                                             ^^^ source.phreeqc constant.numeric.phreeqc
+#                                                ^^ source.phreeqc
+>  30 GRAPH_SY -LA("H+")
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^^ source.phreeqc support.function.phreeqc
+#             ^ source.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^^ source.phreeqc support.function.phreeqc
+#                 ^ source.phreeqc
+#                  ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                      ^^ source.phreeqc
+>  -end
+#^^ source.phreeqc
+#  ^^^^ source.phreeqc variable.parameter.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>

@@ -1,0 +1,1249 @@
+># must use DATABASE ex15.dat
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>TITLE Example 15.--1D Transport: Kinetic Biodegradation, Cell Growth, and Sorption
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^ source.phreeqc
+#              ^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>***********
+#^^^^^^^^^^^^ source.phreeqc
+>PLEASE NOTE: This problem requires database file ex15.dat!!
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>***********
+#^^^^^^^^^^^^ source.phreeqc
+>PRINT
+#^^^^^ source.phreeqc keyword.control.phreeqc
+>        -reset false
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#              ^^^^^^^ source.phreeqc
+>        -echo_input true
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^ source.phreeqc
+>		-status false
+#^^ source.phreeqc
+#  ^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#         ^^^^^^^ source.phreeqc
+>SOLUTION 0 Pulse solution with NTA and cobalt
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        units umol/L
+#^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        pH      6
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^ source.phreeqc constant.numeric.phreeqc
+>        C       .49
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>        O(0)    62.5 
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+#                    ^^ source.phreeqc
+>        Nta     5.23
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        Co      5.23
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        Na      1000
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        Cl      1000
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>SOLUTION 1-10 Background solution initially filling column
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^ source.phreeqc constant.numeric.phreeqc
+#             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        units umol/L
+#^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        pH      6
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^ source.phreeqc constant.numeric.phreeqc
+>        C       .49
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>        O(0)    62.5 
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+#                    ^^ source.phreeqc
+>        Na      1000
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        Cl      1000
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>COPY solution 0 100 # for use later on, and in
+#^^^^ source.phreeqc keyword.control.phreeqc
+#    ^^^^^^^^^^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+#               ^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+#                   ^ source.phreeqc
+#                    ^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>COPY solution 1 101 # 20 cells model
+#^^^^ source.phreeqc keyword.control.phreeqc
+#    ^^^^^^^^^^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+#               ^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+#                   ^ source.phreeqc
+#                    ^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>RATES Rate expressions for the four kinetic reactions
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                       ^^^ source.phreeqc keyword.control.basic.phreeqc
+#                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>#
+#^ source.phreeqc comment.line.number-sign.phreeqc
+>        HNTA-2
+#^^^^^^^^^^^^ source.phreeqc
+#            ^ source.phreeqc keyword.operator.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+>        -start
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+>10 Ks = 7.64e-7
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^^^^ source.phreeqc
+#      ^ source.phreeqc keyword.operator.phreeqc
+#       ^ source.phreeqc
+#        ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+>20 Ka = 6.25e-6
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^^^^ source.phreeqc
+#      ^ source.phreeqc keyword.operator.phreeqc
+#       ^ source.phreeqc
+#        ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+>30 qm = 1.407e-3/3600
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^^^^ source.phreeqc
+#      ^ source.phreeqc keyword.operator.phreeqc
+#       ^ source.phreeqc
+#        ^^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                ^ source.phreeqc keyword.operator.phreeqc
+#                 ^^^^ source.phreeqc constant.numeric.phreeqc
+>40 f1 = MOL("HNta-2")/(Ks + MOL("HNta-2"))
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^^^^ source.phreeqc
+#      ^ source.phreeqc keyword.operator.phreeqc
+#       ^ source.phreeqc
+#        ^^^ source.phreeqc support.function.phreeqc
+#           ^ source.phreeqc
+#            ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                    ^ source.phreeqc
+#                     ^ source.phreeqc keyword.operator.phreeqc
+#                      ^^^^ source.phreeqc
+#                          ^ source.phreeqc keyword.operator.phreeqc
+#                           ^ source.phreeqc
+#                            ^^^ source.phreeqc support.function.phreeqc
+#                               ^ source.phreeqc
+#                                ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                        ^^^ source.phreeqc
+>50 f2 = MOL("O2")/(Ka + MOL("O2"))
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^^^^ source.phreeqc
+#      ^ source.phreeqc keyword.operator.phreeqc
+#       ^ source.phreeqc
+#        ^^^ source.phreeqc support.function.phreeqc
+#           ^ source.phreeqc
+#            ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                ^ source.phreeqc
+#                 ^ source.phreeqc keyword.operator.phreeqc
+#                  ^^^^ source.phreeqc
+#                      ^ source.phreeqc keyword.operator.phreeqc
+#                       ^ source.phreeqc
+#                        ^^^ source.phreeqc support.function.phreeqc
+#                           ^ source.phreeqc
+#                            ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                ^^^ source.phreeqc
+>60 rate = -qm * KIN("Biomass") * f1 * f2 
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^^^^^^ source.phreeqc
+#        ^ source.phreeqc keyword.operator.phreeqc
+#         ^ source.phreeqc
+#          ^ source.phreeqc keyword.operator.phreeqc
+#           ^^^ source.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^ source.phreeqc
+#                ^^^ source.phreeqc support.function.phreeqc
+#                   ^ source.phreeqc
+#                    ^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                             ^^ source.phreeqc
+#                               ^ source.phreeqc keyword.operator.phreeqc
+#                                ^^^^ source.phreeqc
+#                                    ^ source.phreeqc keyword.operator.phreeqc
+#                                     ^^^^^ source.phreeqc
+>70 moles = rate * TIME
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^^^^^^^ source.phreeqc
+#         ^ source.phreeqc keyword.operator.phreeqc
+#          ^^^^^^ source.phreeqc
+#                ^ source.phreeqc keyword.operator.phreeqc
+#                 ^ source.phreeqc
+#                  ^^^^ source.phreeqc support.function.phreeqc
+>80 PUT(rate, 1)   # save the rate for use in Biomass rate calculation
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^ source.phreeqc support.function.phreeqc
+#      ^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+#              ^^^^ source.phreeqc
+#                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>90 SAVE moles
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^^ source.phreeqc support.function.phreeqc
+#       ^^^^^^^ source.phreeqc
+>        -end
+#^^^^^^^^ source.phreeqc
+#        ^^^^ source.phreeqc variable.parameter.phreeqc
+>#
+#^ source.phreeqc comment.line.number-sign.phreeqc
+>        Biomass
+#^^^^^^^^^^^^^^^^ source.phreeqc
+>        -start
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+>10 Y = 65.14
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^^^ source.phreeqc
+#     ^ source.phreeqc keyword.operator.phreeqc
+#      ^ source.phreeqc
+#       ^^^^^ source.phreeqc constant.numeric.phreeqc
+>20 b = 0.00208/3600
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^^^ source.phreeqc
+#     ^ source.phreeqc keyword.operator.phreeqc
+#      ^ source.phreeqc
+#       ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^^^^ source.phreeqc constant.numeric.phreeqc
+>30 rate = GET(1)  # uses rate calculated in HTNA-2 rate calculation
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^^^^^^ source.phreeqc
+#        ^ source.phreeqc keyword.operator.phreeqc
+#         ^ source.phreeqc
+#          ^^^ source.phreeqc support.function.phreeqc
+#             ^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+#               ^^^ source.phreeqc
+#                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>40 rate = -Y*rate -b*M
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^^^^^^ source.phreeqc
+#        ^ source.phreeqc keyword.operator.phreeqc
+#         ^ source.phreeqc
+#          ^ source.phreeqc keyword.operator.phreeqc
+#           ^ source.phreeqc
+#            ^ source.phreeqc keyword.operator.phreeqc
+#             ^^^^^ source.phreeqc
+#                  ^ source.phreeqc keyword.operator.phreeqc
+#                   ^ source.phreeqc
+#                    ^ source.phreeqc keyword.operator.phreeqc
+#                     ^ source.phreeqc support.function.phreeqc
+>50 moles = -rate * TIME
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^^^^^^^ source.phreeqc
+#         ^ source.phreeqc keyword.operator.phreeqc
+#          ^ source.phreeqc
+#           ^ source.phreeqc keyword.operator.phreeqc
+#            ^^^^^ source.phreeqc
+#                 ^ source.phreeqc keyword.operator.phreeqc
+#                  ^ source.phreeqc
+#                   ^^^^ source.phreeqc support.function.phreeqc
+>60 if (M + moles) < 0 then moles = -M
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^ source.phreeqc keyword.control.basic.phreeqc
+#     ^^ source.phreeqc
+#       ^ source.phreeqc support.function.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc keyword.operator.phreeqc
+#          ^^^^^^^^ source.phreeqc
+#                  ^ source.phreeqc keyword.operator.phreeqc
+#                   ^ source.phreeqc
+#                    ^ source.phreeqc constant.numeric.phreeqc
+#                     ^ source.phreeqc
+#                      ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                          ^^^^^^^ source.phreeqc
+#                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                  ^ source.phreeqc
+#                                   ^ source.phreeqc keyword.operator.phreeqc
+#                                    ^ source.phreeqc support.function.phreeqc
+>70 SAVE moles
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^^ source.phreeqc support.function.phreeqc
+#       ^^^^^^^ source.phreeqc
+>        -end
+#^^^^^^^^ source.phreeqc
+#        ^^^^ source.phreeqc variable.parameter.phreeqc
+>#
+#^ source.phreeqc comment.line.number-sign.phreeqc
+>        Co_sorption
+#^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        -start
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+>10 km = 1/3600
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^^^^ source.phreeqc
+#      ^ source.phreeqc keyword.operator.phreeqc
+#       ^ source.phreeqc
+#        ^ source.phreeqc constant.numeric.phreeqc
+#         ^ source.phreeqc keyword.operator.phreeqc
+#          ^^^^ source.phreeqc constant.numeric.phreeqc
+>20 kd = 5.07e-3
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^^^^ source.phreeqc
+#      ^ source.phreeqc keyword.operator.phreeqc
+#       ^ source.phreeqc
+#        ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+>30 solids = 3.75e3
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc keyword.operator.phreeqc
+#           ^ source.phreeqc
+#            ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>40 rate = -km*(MOL("Co+2") - (M/solids)/kd)
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^^^^^^ source.phreeqc
+#        ^ source.phreeqc keyword.operator.phreeqc
+#         ^ source.phreeqc
+#          ^ source.phreeqc keyword.operator.phreeqc
+#           ^^ source.phreeqc
+#             ^ source.phreeqc keyword.operator.phreeqc
+#              ^ source.phreeqc
+#               ^^^ source.phreeqc support.function.phreeqc
+#                  ^ source.phreeqc
+#                   ^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                         ^^ source.phreeqc
+#                           ^ source.phreeqc keyword.operator.phreeqc
+#                            ^^ source.phreeqc
+#                              ^ source.phreeqc support.function.phreeqc
+#                               ^ source.phreeqc keyword.operator.phreeqc
+#                                ^^^^^^^ source.phreeqc
+#                                       ^ source.phreeqc keyword.operator.phreeqc
+#                                        ^^^^ source.phreeqc
+>50 moles = rate * TIME
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^^^^^^^ source.phreeqc
+#         ^ source.phreeqc keyword.operator.phreeqc
+#          ^^^^^^ source.phreeqc
+#                ^ source.phreeqc keyword.operator.phreeqc
+#                 ^ source.phreeqc
+#                  ^^^^ source.phreeqc support.function.phreeqc
+>60 if (M - moles) < 0 then moles = M
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^ source.phreeqc keyword.control.basic.phreeqc
+#     ^^ source.phreeqc
+#       ^ source.phreeqc support.function.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc keyword.operator.phreeqc
+#          ^^^^^^^^ source.phreeqc
+#                  ^ source.phreeqc keyword.operator.phreeqc
+#                   ^ source.phreeqc
+#                    ^ source.phreeqc constant.numeric.phreeqc
+#                     ^ source.phreeqc
+#                      ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                          ^^^^^^^ source.phreeqc
+#                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                  ^ source.phreeqc
+#                                   ^ source.phreeqc support.function.phreeqc
+>70 SAVE moles
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^^ source.phreeqc support.function.phreeqc
+#       ^^^^^^^ source.phreeqc
+>        -end
+#^^^^^^^^ source.phreeqc
+#        ^^^^ source.phreeqc variable.parameter.phreeqc
+>#
+#^ source.phreeqc comment.line.number-sign.phreeqc
+>        CoNta_sorption
+#^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        -start
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+>10 km = 1/3600
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^^^^ source.phreeqc
+#      ^ source.phreeqc keyword.operator.phreeqc
+#       ^ source.phreeqc
+#        ^ source.phreeqc constant.numeric.phreeqc
+#         ^ source.phreeqc keyword.operator.phreeqc
+#          ^^^^ source.phreeqc constant.numeric.phreeqc
+>20 kd = 5.33e-4
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^^^^ source.phreeqc
+#      ^ source.phreeqc keyword.operator.phreeqc
+#       ^ source.phreeqc
+#        ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+>30 solids = 3.75e3
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc keyword.operator.phreeqc
+#           ^ source.phreeqc
+#            ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>40 rate = -km*(MOL("CoNta-") - (M/solids)/kd)
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^^^^^^ source.phreeqc
+#        ^ source.phreeqc keyword.operator.phreeqc
+#         ^ source.phreeqc
+#          ^ source.phreeqc keyword.operator.phreeqc
+#           ^^ source.phreeqc
+#             ^ source.phreeqc keyword.operator.phreeqc
+#              ^ source.phreeqc
+#               ^^^ source.phreeqc support.function.phreeqc
+#                  ^ source.phreeqc
+#                   ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                           ^^ source.phreeqc
+#                             ^ source.phreeqc keyword.operator.phreeqc
+#                              ^^ source.phreeqc
+#                                ^ source.phreeqc support.function.phreeqc
+#                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                  ^^^^^^^ source.phreeqc
+#                                         ^ source.phreeqc keyword.operator.phreeqc
+#                                          ^^^^ source.phreeqc
+>50 moles = rate * TIME
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^^^^^^^ source.phreeqc
+#         ^ source.phreeqc keyword.operator.phreeqc
+#          ^^^^^^ source.phreeqc
+#                ^ source.phreeqc keyword.operator.phreeqc
+#                 ^ source.phreeqc
+#                  ^^^^ source.phreeqc support.function.phreeqc
+>60 if (M - moles) < 0 then moles = M
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^ source.phreeqc keyword.control.basic.phreeqc
+#     ^^ source.phreeqc
+#       ^ source.phreeqc support.function.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc keyword.operator.phreeqc
+#          ^^^^^^^^ source.phreeqc
+#                  ^ source.phreeqc keyword.operator.phreeqc
+#                   ^ source.phreeqc
+#                    ^ source.phreeqc constant.numeric.phreeqc
+#                     ^ source.phreeqc
+#                      ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                          ^^^^^^^ source.phreeqc
+#                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                  ^ source.phreeqc
+#                                   ^ source.phreeqc support.function.phreeqc
+>70 SAVE moles
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^^ source.phreeqc support.function.phreeqc
+#       ^^^^^^^ source.phreeqc
+>        -end
+#^^^^^^^^ source.phreeqc
+#        ^^^^ source.phreeqc variable.parameter.phreeqc
+>KINETICS 1-10 Four kinetic reactions for all cells
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^ source.phreeqc constant.numeric.phreeqc
+#             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        HNTA-2
+#^^^^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+>                -formula C -3.12 H -1.968 O -4.848 N -0.424 Nta 1.
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                        ^^^ source.phreeqc
+#                           ^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                ^^^ source.phreeqc
+#                                   ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                         ^^^ source.phreeqc
+#                                            ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                  ^^^ source.phreeqc
+#                                                     ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                           ^^^^^ source.phreeqc
+#                                                                ^^ source.phreeqc constant.numeric.phreeqc
+>        Biomass
+#^^^^^^^^^^^^^^^^ source.phreeqc
+>                -formula        H 0.0
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                        ^^^^^^^^^^ source.phreeqc
+#                                  ^^^ source.phreeqc constant.numeric.phreeqc
+>                -m              1.36e-4
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^ source.phreeqc variable.parameter.phreeqc
+#                  ^^^^^^^^^^^^^^ source.phreeqc
+#                                ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+>        Co_sorption
+#^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                -formula CoCl2
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                        ^^^^^^^ source.phreeqc
+>                -m      0.0
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^ source.phreeqc variable.parameter.phreeqc
+#                  ^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+>                -tol 1e-11
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        CoNta_sorption
+#^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                -formula NaCoNta
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                        ^^^^^^^^^ source.phreeqc
+>                -m      0.0
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^ source.phreeqc variable.parameter.phreeqc
+#                  ^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+>                -tol 1e-11
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^^ source.phreeqc constant.numeric.phreeqc
+>COPY kinetics 1 101 # to use with 20 cells                
+#^^^^ source.phreeqc keyword.control.phreeqc
+#    ^^^^^^^^^^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+#               ^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+#                   ^ source.phreeqc
+#                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>SELECTED_OUTPUT
+#^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>        -file   ex15.sel
+#^^^^^^^^ source.phreeqc
+#        ^^^^^ source.phreeqc variable.parameter.phreeqc
+#             ^^^^^^^^^^^^ source.phreeqc
+>        -mol    Nta-3 CoNta- HNta-2 Co+2
+#^^^^^^^^ source.phreeqc
+#        ^^^^ source.phreeqc variable.parameter.phreeqc
+#            ^^^^^^^^ source.phreeqc
+#                    ^ source.phreeqc constant.numeric.phreeqc
+#                     ^^^^^^^^^^^^^ source.phreeqc
+#                                  ^ source.phreeqc constant.numeric.phreeqc
+#                                   ^^^^ source.phreeqc
+#                                       ^ source.phreeqc constant.numeric.phreeqc
+>USER_PUNCH
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>        -headings        hours   Co_sorb CoNta_sorb      Biomass
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        -start
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+>  10 punch TOTAL_TIME/3600 + 3600/2/3600
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                     ^ source.phreeqc keyword.operator.phreeqc
+#                      ^^^^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^ source.phreeqc keyword.operator.phreeqc
+#                            ^ source.phreeqc
+#                             ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                  ^ source.phreeqc constant.numeric.phreeqc
+#                                   ^ source.phreeqc keyword.operator.phreeqc
+#                                    ^^^^ source.phreeqc constant.numeric.phreeqc
+>  20 punch KIN("Co_sorption")/3.75e3
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc
+#               ^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                            ^ source.phreeqc
+#                             ^ source.phreeqc keyword.operator.phreeqc
+#                              ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>  30 punch KIN("CoNta_sorption")/3.75e3
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc
+#               ^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                               ^ source.phreeqc
+#                                ^ source.phreeqc keyword.operator.phreeqc
+#                                 ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>  40 punch KIN("Biomass")
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc
+#               ^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                        ^^ source.phreeqc
+>        -end
+#^^^^^^^^ source.phreeqc
+#        ^^^^ source.phreeqc variable.parameter.phreeqc
+>USER_GRAPH Example 15A
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#          ^^^^^^^^^^^^^ source.phreeqc
+>        -headings 10_cells: Co+2 CoNTA- HNTA-2 pH
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^^^^^^^^^^^ source.phreeqc
+#                              ^ source.phreeqc keyword.operator.phreeqc
+#                               ^ source.phreeqc constant.numeric.phreeqc
+#                                ^^^^^^ source.phreeqc
+#                                      ^ source.phreeqc keyword.operator.phreeqc
+#                                       ^^^^^ source.phreeqc
+#                                            ^ source.phreeqc keyword.operator.phreeqc
+#                                             ^ source.phreeqc constant.numeric.phreeqc
+#                                              ^^^^ source.phreeqc
+>        -chart_title "Example 15"
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>        -axis_titles "Time / hours" "umol / kgw" "pH"
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                   ^ source.phreeqc
+#                                    ^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                ^ source.phreeqc
+#                                                 ^^^^ source.phreeqc string.quoted.double.phreeqc
+>        -axis_scale x_axis 0 75
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^^^ source.phreeqc
+#                           ^ source.phreeqc constant.numeric.phreeqc
+#                            ^ source.phreeqc
+#                             ^^ source.phreeqc constant.numeric.phreeqc
+>        -axis_scale y_axis 0 4
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^^^ source.phreeqc
+#                           ^ source.phreeqc constant.numeric.phreeqc
+#                            ^ source.phreeqc
+#                             ^ source.phreeqc constant.numeric.phreeqc
+>        -axis_scale secondary_y_axis 5.799 6.8 0.2 0.1
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                     ^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                          ^ source.phreeqc
+#                                           ^^^ source.phreeqc constant.numeric.phreeqc
+#                                              ^ source.phreeqc
+#                                               ^^^ source.phreeqc constant.numeric.phreeqc
+#                                                  ^ source.phreeqc
+#                                                   ^^^ source.phreeqc constant.numeric.phreeqc
+>        -plot_concentration_vs t
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                              ^^^ source.phreeqc
+>        -start
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+>  10 x = TOTAL_TIME/3600 + 3600/2/3600
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^^ source.phreeqc
+#       ^ source.phreeqc keyword.operator.phreeqc
+#        ^ source.phreeqc
+#         ^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                   ^ source.phreeqc keyword.operator.phreeqc
+#                    ^^^^ source.phreeqc constant.numeric.phreeqc
+#                        ^ source.phreeqc
+#                         ^ source.phreeqc keyword.operator.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^^ source.phreeqc constant.numeric.phreeqc
+#                               ^ source.phreeqc keyword.operator.phreeqc
+#                                ^ source.phreeqc constant.numeric.phreeqc
+#                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                  ^^^^ source.phreeqc constant.numeric.phreeqc
+>  20 PLOT_XY -1, -1, line_width = 0, symbol_size = 0
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^ source.phreeqc
+#             ^^ source.phreeqc constant.numeric.phreeqc
+#               ^^ source.phreeqc
+#                 ^^ source.phreeqc constant.numeric.phreeqc
+#                   ^^ source.phreeqc
+#                     ^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                               ^ source.phreeqc
+#                                ^ source.phreeqc keyword.operator.phreeqc
+#                                 ^ source.phreeqc
+#                                  ^ source.phreeqc constant.numeric.phreeqc
+#                                   ^^ source.phreeqc
+#                                     ^^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                ^ source.phreeqc
+#                                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                                  ^ source.phreeqc
+#                                                   ^ source.phreeqc constant.numeric.phreeqc
+>  30 PLOT_XY x, MOL("Co+2") * 1e6, color = Red, line_width = 0, symbol_size = 4
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^^^^ source.phreeqc
+#                ^^^ source.phreeqc support.function.phreeqc
+#                   ^ source.phreeqc
+#                    ^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                          ^^ source.phreeqc
+#                            ^ source.phreeqc keyword.operator.phreeqc
+#                             ^ source.phreeqc
+#                              ^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^ source.phreeqc
+#                                   ^^^^^ source.phreeqc support.function.phreeqc
+#                                        ^ source.phreeqc
+#                                         ^ source.phreeqc keyword.operator.phreeqc
+#                                          ^^^^^^ source.phreeqc
+#                                                ^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                          ^ source.phreeqc
+#                                                           ^ source.phreeqc keyword.operator.phreeqc
+#                                                            ^ source.phreeqc
+#                                                             ^ source.phreeqc constant.numeric.phreeqc
+#                                                              ^^ source.phreeqc
+#                                                                ^^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                           ^ source.phreeqc
+#                                                                            ^ source.phreeqc keyword.operator.phreeqc
+#                                                                             ^ source.phreeqc
+#                                                                              ^ source.phreeqc constant.numeric.phreeqc
+>  40 PLOT_XY x, MOL("CoNta-") * 1e6, color = Green, line_width = 0, symbol_size = 4
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^^^^ source.phreeqc
+#                ^^^ source.phreeqc support.function.phreeqc
+#                   ^ source.phreeqc
+#                    ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                            ^^ source.phreeqc
+#                              ^ source.phreeqc keyword.operator.phreeqc
+#                               ^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+#                                   ^^ source.phreeqc
+#                                     ^^^^^ source.phreeqc support.function.phreeqc
+#                                          ^ source.phreeqc
+#                                           ^ source.phreeqc keyword.operator.phreeqc
+#                                            ^^^^^^^^ source.phreeqc
+#                                                    ^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                              ^ source.phreeqc
+#                                                               ^ source.phreeqc keyword.operator.phreeqc
+#                                                                ^ source.phreeqc
+#                                                                 ^ source.phreeqc constant.numeric.phreeqc
+#                                                                  ^^ source.phreeqc
+#                                                                    ^^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                               ^ source.phreeqc
+#                                                                                ^ source.phreeqc keyword.operator.phreeqc
+#                                                                                 ^ source.phreeqc
+#                                                                                  ^ source.phreeqc constant.numeric.phreeqc
+>  50 PLOT_XY x, MOL("HNta-2") * 1e6, color = Blue, line_width = 0, symbol_size = 4
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^^^^ source.phreeqc
+#                ^^^ source.phreeqc support.function.phreeqc
+#                   ^ source.phreeqc
+#                    ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                            ^^ source.phreeqc
+#                              ^ source.phreeqc keyword.operator.phreeqc
+#                               ^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+#                                   ^^ source.phreeqc
+#                                     ^^^^^ source.phreeqc support.function.phreeqc
+#                                          ^ source.phreeqc
+#                                           ^ source.phreeqc keyword.operator.phreeqc
+#                                            ^^^^^^^ source.phreeqc
+#                                                   ^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                             ^ source.phreeqc
+#                                                              ^ source.phreeqc keyword.operator.phreeqc
+#                                                               ^ source.phreeqc
+#                                                                ^ source.phreeqc constant.numeric.phreeqc
+#                                                                 ^^ source.phreeqc
+#                                                                   ^^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                              ^ source.phreeqc
+#                                                                               ^ source.phreeqc keyword.operator.phreeqc
+#                                                                                ^ source.phreeqc
+#                                                                                 ^ source.phreeqc constant.numeric.phreeqc
+>  60 PLOT_XY x, -LA("H+"), y-axis = 2, color = Magenta, line_width = 0, symbol_size = 4
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^^^^ source.phreeqc
+#                ^ source.phreeqc keyword.operator.phreeqc
+#                 ^^ source.phreeqc support.function.phreeqc
+#                   ^ source.phreeqc
+#                    ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                        ^^^^ source.phreeqc
+#                            ^ source.phreeqc keyword.operator.phreeqc
+#                             ^^^^^ source.phreeqc
+#                                  ^ source.phreeqc keyword.operator.phreeqc
+#                                   ^ source.phreeqc
+#                                    ^ source.phreeqc constant.numeric.phreeqc
+#                                     ^^ source.phreeqc
+#                                       ^^^^^ source.phreeqc support.function.phreeqc
+#                                            ^ source.phreeqc
+#                                             ^ source.phreeqc keyword.operator.phreeqc
+#                                              ^^^^^^^^^^ source.phreeqc
+#                                                        ^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                  ^ source.phreeqc
+#                                                                   ^ source.phreeqc keyword.operator.phreeqc
+#                                                                    ^ source.phreeqc
+#                                                                     ^ source.phreeqc constant.numeric.phreeqc
+#                                                                      ^^ source.phreeqc
+#                                                                        ^^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                                   ^ source.phreeqc
+#                                                                                    ^ source.phreeqc keyword.operator.phreeqc
+#                                                                                     ^ source.phreeqc
+#                                                                                      ^ source.phreeqc constant.numeric.phreeqc
+>        -end
+#^^^^^^^^ source.phreeqc
+#        ^^^^ source.phreeqc variable.parameter.phreeqc
+>TRANSPORT First 20 hours have NTA and cobalt in infilling solution
+#^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#         ^^^^^^^ source.phreeqc
+#                ^^ source.phreeqc constant.numeric.phreeqc
+#                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        -cells                10
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#              ^^^^^^^^^^^^^^^^ source.phreeqc
+#                              ^^ source.phreeqc constant.numeric.phreeqc
+>        -lengths              10*1
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                ^^^^^^^^^^^^^^ source.phreeqc
+#                              ^^ source.phreeqc constant.numeric.phreeqc
+#                                ^ source.phreeqc
+#                                 ^ source.phreeqc constant.numeric.phreeqc
+>        -shifts               20
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#               ^^^^^^^^^^^^^^^ source.phreeqc
+#                              ^^ source.phreeqc constant.numeric.phreeqc
+>        -time_step            3600
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                  ^^^^^^^^^^^^ source.phreeqc
+#                              ^^^^ source.phreeqc constant.numeric.phreeqc
+>        -flow_direction       forward
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                       ^^^^^^^^^^^^^^^ source.phreeqc
+>        -boundary_conditions  flux flux
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                            ^^^^^^^^^^^^ source.phreeqc
+>        -dispersivities       10*.05
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                       ^^^^^^^ source.phreeqc
+#                              ^^ source.phreeqc constant.numeric.phreeqc
+#                                ^ source.phreeqc
+#                                 ^^^ source.phreeqc constant.numeric.phreeqc
+>        -correct_disp         true
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                     ^^^^^^^^^^^^^^ source.phreeqc
+>        -diffusion_coefficient 0.0
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                              ^ source.phreeqc
+#                               ^^^ source.phreeqc constant.numeric.phreeqc
+>        -punch_cells          10
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^^^^^^^^^^ source.phreeqc
+#                              ^^ source.phreeqc constant.numeric.phreeqc
+>        -punch_frequency      1
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                        ^^^^^^ source.phreeqc
+#                              ^ source.phreeqc constant.numeric.phreeqc
+>        -print_cells          10
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^^^^^^^^^^ source.phreeqc
+#                              ^^ source.phreeqc constant.numeric.phreeqc
+>        -print_frequency      5
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                        ^^^^^^ source.phreeqc
+#                              ^ source.phreeqc constant.numeric.phreeqc
+>COPY solution 101 0 # initial column solution becomes influent
+#^^^^ source.phreeqc keyword.control.phreeqc
+#    ^^^^^^^^^^ source.phreeqc
+#              ^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^ source.phreeqc
+#                  ^ source.phreeqc constant.numeric.phreeqc
+#                   ^ source.phreeqc
+#                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>TRANSPORT Last 55 hours with background infilling solution
+#^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#         ^^^^^^ source.phreeqc
+#               ^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        -shifts               55
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#               ^^^^^^^^^^^^^^^ source.phreeqc
+#                              ^^ source.phreeqc constant.numeric.phreeqc
+>COPY cell 100 0 # for the 20 cell model...
+#^^^^ source.phreeqc keyword.control.phreeqc
+#    ^^^^^^ source.phreeqc
+#          ^^^ source.phreeqc constant.numeric.phreeqc
+#             ^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+#               ^ source.phreeqc
+#                ^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>COPY cell 101 1-20
+#^^^^ source.phreeqc keyword.control.phreeqc
+#    ^^^^^^ source.phreeqc
+#          ^^^ source.phreeqc constant.numeric.phreeqc
+#             ^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+#               ^ source.phreeqc
+#                ^^ source.phreeqc constant.numeric.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>USER_PUNCH
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>        -start
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+>  10 punch TOTAL_TIME/3600 + 3600/4/3600
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                     ^ source.phreeqc keyword.operator.phreeqc
+#                      ^^^^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^ source.phreeqc keyword.operator.phreeqc
+#                            ^ source.phreeqc
+#                             ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                  ^ source.phreeqc constant.numeric.phreeqc
+#                                   ^ source.phreeqc keyword.operator.phreeqc
+#                                    ^^^^ source.phreeqc constant.numeric.phreeqc
+>  20 punch KIN("Co_sorption")/3.75e3
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc
+#               ^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                            ^ source.phreeqc
+#                             ^ source.phreeqc keyword.operator.phreeqc
+#                              ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>  30 punch KIN("CoNta_sorption")/3.75e3
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc
+#               ^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                               ^ source.phreeqc
+#                                ^ source.phreeqc keyword.operator.phreeqc
+#                                 ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>  40 punch KIN("Biomass")
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc
+#               ^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                        ^^ source.phreeqc
+>        -end
+#^^^^^^^^ source.phreeqc
+#        ^^^^ source.phreeqc variable.parameter.phreeqc
+>USER_GRAPH
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>        -headings 20_cells: Co+2 CoNTA- HNTA-2 pH
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^^^^^^^^^^^ source.phreeqc
+#                              ^ source.phreeqc keyword.operator.phreeqc
+#                               ^ source.phreeqc constant.numeric.phreeqc
+#                                ^^^^^^ source.phreeqc
+#                                      ^ source.phreeqc keyword.operator.phreeqc
+#                                       ^^^^^ source.phreeqc
+#                                            ^ source.phreeqc keyword.operator.phreeqc
+#                                             ^ source.phreeqc constant.numeric.phreeqc
+#                                              ^^^^ source.phreeqc
+>        -start
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+>  10 x = TOTAL_TIME/3600 + 3600/4/3600
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^^ source.phreeqc
+#       ^ source.phreeqc keyword.operator.phreeqc
+#        ^ source.phreeqc
+#         ^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                   ^ source.phreeqc keyword.operator.phreeqc
+#                    ^^^^ source.phreeqc constant.numeric.phreeqc
+#                        ^ source.phreeqc
+#                         ^ source.phreeqc keyword.operator.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^^ source.phreeqc constant.numeric.phreeqc
+#                               ^ source.phreeqc keyword.operator.phreeqc
+#                                ^ source.phreeqc constant.numeric.phreeqc
+#                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                  ^^^^ source.phreeqc constant.numeric.phreeqc
+>  20 PLOT_XY -1, -1, line_width = 0, symbol_size = 0
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^ source.phreeqc
+#             ^^ source.phreeqc constant.numeric.phreeqc
+#               ^^ source.phreeqc
+#                 ^^ source.phreeqc constant.numeric.phreeqc
+#                   ^^ source.phreeqc
+#                     ^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                               ^ source.phreeqc
+#                                ^ source.phreeqc keyword.operator.phreeqc
+#                                 ^ source.phreeqc
+#                                  ^ source.phreeqc constant.numeric.phreeqc
+#                                   ^^ source.phreeqc
+#                                     ^^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                ^ source.phreeqc
+#                                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                                  ^ source.phreeqc
+#                                                   ^ source.phreeqc constant.numeric.phreeqc
+>  30 PLOT_XY x, MOL("Co+2") * 1e6, color = Red, symbol_size = 0
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^^^^ source.phreeqc
+#                ^^^ source.phreeqc support.function.phreeqc
+#                   ^ source.phreeqc
+#                    ^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                          ^^ source.phreeqc
+#                            ^ source.phreeqc keyword.operator.phreeqc
+#                             ^ source.phreeqc
+#                              ^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^ source.phreeqc
+#                                   ^^^^^ source.phreeqc support.function.phreeqc
+#                                        ^ source.phreeqc
+#                                         ^ source.phreeqc keyword.operator.phreeqc
+#                                          ^^^^^^ source.phreeqc
+#                                                ^^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                           ^ source.phreeqc
+#                                                            ^ source.phreeqc keyword.operator.phreeqc
+#                                                             ^ source.phreeqc
+#                                                              ^ source.phreeqc constant.numeric.phreeqc
+>  40 PLOT_XY x, MOL("CoNta-") * 1e6, color = Green, symbol_size = 0
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^^^^ source.phreeqc
+#                ^^^ source.phreeqc support.function.phreeqc
+#                   ^ source.phreeqc
+#                    ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                            ^^ source.phreeqc
+#                              ^ source.phreeqc keyword.operator.phreeqc
+#                               ^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+#                                   ^^ source.phreeqc
+#                                     ^^^^^ source.phreeqc support.function.phreeqc
+#                                          ^ source.phreeqc
+#                                           ^ source.phreeqc keyword.operator.phreeqc
+#                                            ^^^^^^^^ source.phreeqc
+#                                                    ^^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                               ^ source.phreeqc
+#                                                                ^ source.phreeqc keyword.operator.phreeqc
+#                                                                 ^ source.phreeqc
+#                                                                  ^ source.phreeqc constant.numeric.phreeqc
+>  50 PLOT_XY x, MOL("HNta-2") * 1e6, color = Blue, symbol_size = 0
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^^^^ source.phreeqc
+#                ^^^ source.phreeqc support.function.phreeqc
+#                   ^ source.phreeqc
+#                    ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                            ^^ source.phreeqc
+#                              ^ source.phreeqc keyword.operator.phreeqc
+#                               ^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+#                                   ^^ source.phreeqc
+#                                     ^^^^^ source.phreeqc support.function.phreeqc
+#                                          ^ source.phreeqc
+#                                           ^ source.phreeqc keyword.operator.phreeqc
+#                                            ^^^^^^^ source.phreeqc
+#                                                   ^^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                              ^ source.phreeqc
+#                                                               ^ source.phreeqc keyword.operator.phreeqc
+#                                                                ^ source.phreeqc
+#                                                                 ^ source.phreeqc constant.numeric.phreeqc
+>  60 PLOT_XY x, -LA("H+"), y-axis = 2, color = Magenta, symbol_size = 0
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^^^^ source.phreeqc
+#                ^ source.phreeqc keyword.operator.phreeqc
+#                 ^^ source.phreeqc support.function.phreeqc
+#                   ^ source.phreeqc
+#                    ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                        ^^^^ source.phreeqc
+#                            ^ source.phreeqc keyword.operator.phreeqc
+#                             ^^^^^ source.phreeqc
+#                                  ^ source.phreeqc keyword.operator.phreeqc
+#                                   ^ source.phreeqc
+#                                    ^ source.phreeqc constant.numeric.phreeqc
+#                                     ^^ source.phreeqc
+#                                       ^^^^^ source.phreeqc support.function.phreeqc
+#                                            ^ source.phreeqc
+#                                             ^ source.phreeqc keyword.operator.phreeqc
+#                                              ^^^^^^^^^^ source.phreeqc
+#                                                        ^^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                   ^ source.phreeqc
+#                                                                    ^ source.phreeqc keyword.operator.phreeqc
+#                                                                     ^ source.phreeqc
+#                                                                      ^ source.phreeqc constant.numeric.phreeqc
+>        -end
+#^^^^^^^^ source.phreeqc
+#        ^^^^ source.phreeqc variable.parameter.phreeqc
+>TRANSPORT First 20 hours have NTA and cobalt in infilling solution
+#^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#         ^^^^^^^ source.phreeqc
+#                ^^ source.phreeqc constant.numeric.phreeqc
+#                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        -cells                20
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#              ^^^^^^^^^^^^^^^^ source.phreeqc
+#                              ^^ source.phreeqc constant.numeric.phreeqc
+>        -lengths              20*0.5
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                ^^^^^^^^^^^^^^ source.phreeqc
+#                              ^^ source.phreeqc constant.numeric.phreeqc
+#                                ^ source.phreeqc
+#                                 ^^^ source.phreeqc constant.numeric.phreeqc
+>        -shifts               40
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#               ^^^^^^^^^^^^^^^ source.phreeqc
+#                              ^^ source.phreeqc constant.numeric.phreeqc
+>        -initial_time         0
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                     ^^^^^^^^^ source.phreeqc
+#                              ^ source.phreeqc constant.numeric.phreeqc
+>        -time_step            1800
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                  ^^^^^^^^^^^^ source.phreeqc
+#                              ^^^^ source.phreeqc constant.numeric.phreeqc
+>        -flow_direction       forward
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                       ^^^^^^^^^^^^^^^ source.phreeqc
+>        -boundary_conditions  flux  flux
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                            ^^^^^^^^^^^^^ source.phreeqc
+>        -dispersivities       20*.05
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                       ^^^^^^^ source.phreeqc
+#                              ^^ source.phreeqc constant.numeric.phreeqc
+#                                ^ source.phreeqc
+#                                 ^^^ source.phreeqc constant.numeric.phreeqc
+>        -correct_disp         true
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                     ^^^^^^^^^^^^^^ source.phreeqc
+>        -diffusion_coefficient 0.0
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                              ^ source.phreeqc
+#                               ^^^ source.phreeqc constant.numeric.phreeqc
+>        -punch_cells          20
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^^^^^^^^^^ source.phreeqc
+#                              ^^ source.phreeqc constant.numeric.phreeqc
+>        -punch_frequency      2
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                        ^^^^^^ source.phreeqc
+#                              ^ source.phreeqc constant.numeric.phreeqc
+>        -print_cells          20
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^^^^^^^^^^ source.phreeqc
+#                              ^^ source.phreeqc constant.numeric.phreeqc
+>        -print_frequency      10
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                        ^^^^^^ source.phreeqc
+#                              ^^ source.phreeqc constant.numeric.phreeqc
+>COPY cell 101 0
+#^^^^ source.phreeqc keyword.control.phreeqc
+#    ^^^^^^ source.phreeqc
+#          ^^^ source.phreeqc constant.numeric.phreeqc
+#             ^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>TRANSPORT Last 55 hours with background infilling solution
+#^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#         ^^^^^^ source.phreeqc
+#               ^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        -shifts               110
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#               ^^^^^^^^^^^^^^^ source.phreeqc
+#                              ^^^ source.phreeqc constant.numeric.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>

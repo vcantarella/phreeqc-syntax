@@ -1,0 +1,50 @@
+# Demo input for manual testing (F5 → open this file).
+# Exercises: keywords, options, numbers, strings, BASIC blocks, snippets targets.
+TITLE Calcite dissolution demo
+
+SOLUTION 1  Rainwater
+    temp      15.0
+    pH        5.6
+    pe        4.0
+    units     mmol/kgw
+    Ca        0.01
+    C(4)      0.02
+    -water    1.0    # kg
+
+EQUILIBRIUM_PHASES 1
+    Calcite   0.0   10.0
+    CO2(g)    -3.5
+
+KINETICS 1
+    Calcite
+        -m0    1.0
+        -parms 50.0  0.6
+    -steps 3600 in 10 steps
+    -step_divide 100
+
+RATES
+    Calcite
+    -start
+10  REM simple TST rate for calcite
+20  si_cc = SI("Calcite")
+30  IF (M <= 0 AND si_cc < 0) THEN GOTO 200
+40  k = 10^-6.91
+50  rate = k * (1 - 10^(0.67 * si_cc))
+60  moles = rate * TIME
+200 SAVE moles
+    -end
+
+SELECTED_OUTPUT 1
+    -file      demo_output.tsv
+    -totals    Ca C(4)
+    -saturation_indices Calcite CO2(g)
+
+USER_PUNCH 1
+    -headings pH_calc Ca_mol
+    -start
+10 PUNCH -LA("H+")
+20 PUNCH TOT("Ca")
+    -end
+
+USE solution 1
+END

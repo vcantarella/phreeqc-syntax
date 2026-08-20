@@ -1,0 +1,133 @@
+>TITLE Example 2.--Temperature dependence of solubility
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^ source.phreeqc
+#              ^^ source.phreeqc constant.numeric.phreeqc
+#                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                  of gypsum and anhydrite
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>SOLUTION 1 Pure water
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^^^^^^^^^^^^ source.phreeqc
+>        pH      7.0
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>        temp    25.0                
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^^^^^^^^^^^^^^ source.phreeqc
+>EQUILIBRIUM_PHASES 1
+#^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+>        Gypsum          0.0     1.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+>        Anhydrite       0.0     1.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+>REACTION_TEMPERATURE 1
+#^^^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                    ^ source.phreeqc
+#                     ^ source.phreeqc constant.numeric.phreeqc
+>        25.0 75.0 in 51 steps
+#^^^^^^^^ source.phreeqc
+#        ^^^^ source.phreeqc constant.numeric.phreeqc
+#            ^ source.phreeqc
+#             ^^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^ source.phreeqc
+#                     ^^ source.phreeqc constant.numeric.phreeqc
+#                       ^^^^^^^ source.phreeqc
+>SELECTED_OUTPUT
+#^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>        -file   ex2.sel
+#^^^^^^^^ source.phreeqc
+#        ^^^^^ source.phreeqc variable.parameter.phreeqc
+#             ^^^^^^^^^^^ source.phreeqc
+>        -temperature
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+>        -si     anhydrite  gypsum
+#^^^^^^^^ source.phreeqc
+#        ^^^ source.phreeqc variable.parameter.phreeqc
+#           ^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>USER_GRAPH 1 Example 2
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#          ^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^^^^^^ source.phreeqc
+#                     ^ source.phreeqc constant.numeric.phreeqc
+>        -headings Temperature Gypsum Anhydrite
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        -chart_title "Gypsum-Anhydrite Stability"
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>        -axis_scale x_axis 25 75 5 0
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^^^ source.phreeqc
+#                           ^^ source.phreeqc constant.numeric.phreeqc
+#                             ^ source.phreeqc
+#                              ^^ source.phreeqc constant.numeric.phreeqc
+#                                ^ source.phreeqc
+#                                 ^ source.phreeqc constant.numeric.phreeqc
+#                                  ^ source.phreeqc
+#                                   ^ source.phreeqc constant.numeric.phreeqc
+>        -axis_scale y_axis auto 0.05 0.1
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^^^^^^^^ source.phreeqc
+#                                ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                    ^ source.phreeqc
+#                                     ^^^ source.phreeqc constant.numeric.phreeqc
+>        -axis_titles "Temperature, in degrees celsius" "Saturation index"
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                      ^ source.phreeqc
+#                                                       ^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>        -initial_solutions false
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^^^ source.phreeqc support.function.phreeqc
+>  -start
+#^^ source.phreeqc
+#  ^^^^^^ source.phreeqc variable.parameter.phreeqc
+>  10 graph_x TC
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^ source.phreeqc
+#             ^^ source.phreeqc support.function.phreeqc
+>  20 graph_y SI("Gypsum") SI("Anhydrite")
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^ source.phreeqc
+#             ^^ source.phreeqc support.function.phreeqc
+#               ^ source.phreeqc
+#                ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                        ^^ source.phreeqc
+#                          ^^ source.phreeqc support.function.phreeqc
+#                            ^ source.phreeqc
+#                             ^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                        ^^ source.phreeqc
+>  -end
+#^^ source.phreeqc
+#  ^^^^ source.phreeqc variable.parameter.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>

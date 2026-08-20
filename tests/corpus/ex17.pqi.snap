@@ -1,0 +1,141 @@
+>#must use DATABASE pitzer.dat
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>TITLE Example 17.--Inverse modeling of Black Sea water evaporation
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^ source.phreeqc
+#              ^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>SOLUTION 1  Black Sea water
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        units   mg/L
+#^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        density 1.014
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        pH      8.0     # estimated
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+#                   ^^^^^ source.phreeqc
+#                        ^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>        Ca      233
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>        Mg      679
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>        Na      5820
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        K       193
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>        S(6)    1460
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        Cl      10340
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        Br      35
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^ source.phreeqc constant.numeric.phreeqc
+>        C       1       CO2(g) -3.5
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^ source.phreeqc constant.numeric.phreeqc
+>SOLUTION 2  Composition during halite precipitation
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        units   mg/L
+#^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        density 1.271
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        pH      5.0     # estimated
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+#                   ^^^^^ source.phreeqc
+#                        ^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>        Ca      0.0 
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+#                   ^^ source.phreeqc
+>        Mg      50500
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        Na      55200
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        K       15800
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        S(6)    76200
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^ source.phreeqc
+#                ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        Cl      187900
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>        Br      2670
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        C       1       CO2(g) -3.5
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^ source.phreeqc constant.numeric.phreeqc
+>INVERSE_MODELING
+#^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>        -solution 1 2
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^ source.phreeqc
+#                  ^ source.phreeqc constant.numeric.phreeqc
+#                   ^ source.phreeqc
+#                    ^ source.phreeqc constant.numeric.phreeqc
+>        -uncertainties .025
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                      ^ source.phreeqc
+#                       ^^^^ source.phreeqc constant.numeric.phreeqc
+>        -range
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+>        -balances 
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^ source.phreeqc
+>                Br
+#^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                K
+#^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                Mg
+#^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        -phases
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^ source.phreeqc variable.parameter.phreeqc
+>                H2O(g)  pre
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                Calcite pre
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                CO2(g)  pre
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                Gypsum  pre
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                Halite  pre
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                Glauberite pre
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                Polyhalite pre
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>

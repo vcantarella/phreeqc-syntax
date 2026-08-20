@@ -1,0 +1,1390 @@
+>TITLE Simulation 6A.--React to phase boundaries.
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>SOLUTION 1  PURE WATER
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^^^^^^^^^^^^^ source.phreeqc
+>            pH    7.0 charge
+#^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                  ^^^ source.phreeqc constant.numeric.phreeqc
+#                     ^^^^^^^^ source.phreeqc
+>          temp   25.0
+#^^^^^^^^^^^^^^^^^ source.phreeqc
+#                 ^^^^ source.phreeqc constant.numeric.phreeqc
+>PHASES
+#^^^^^^ source.phreeqc keyword.control.phreeqc
+>        Gibbsite
+#^^^^^^^^^^^^^^^^^ source.phreeqc
+>                Al(OH)3 + 3 H+ = Al+3 + 3 H2O
+#^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                      ^ source.phreeqc constant.numeric.phreeqc
+#                       ^^^ source.phreeqc
+#                          ^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^^^^^ source.phreeqc
+#                                    ^ source.phreeqc constant.numeric.phreeqc
+#                                     ^^^ source.phreeqc
+#                                        ^ source.phreeqc constant.numeric.phreeqc
+#                                         ^^^^^ source.phreeqc
+>                log_k          8.049
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^^ source.phreeqc constant.numeric.phreeqc
+>                delta_h        -22.792 kcal
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                      ^^^^^^ source.phreeqc
+>        Kaolinite
+#^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                Al2Si2O5(OH)4 + 6 H+ = H2O + 2 H4SiO4 + 2 Al+3
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                            ^ source.phreeqc constant.numeric.phreeqc
+#                             ^^^ source.phreeqc
+#                                ^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^^^^^^^^^ source.phreeqc
+#                                             ^ source.phreeqc constant.numeric.phreeqc
+#                                              ^^^^^^^^^^ source.phreeqc
+#                                                        ^ source.phreeqc constant.numeric.phreeqc
+#                                                         ^^^^ source.phreeqc
+#                                                             ^ source.phreeqc constant.numeric.phreeqc
+>                log_k          5.708
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^^ source.phreeqc constant.numeric.phreeqc
+>                delta_h        -35.306 kcal
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                      ^^^^^^ source.phreeqc
+>        K-mica
+#^^^^^^^^^^^^^^^ source.phreeqc
+>                KAl3Si3O10(OH)2 + 10 H+ = 3 Al+3 + 3 H4SiO4 + K+
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                              ^ source.phreeqc constant.numeric.phreeqc
+#                               ^^^ source.phreeqc
+#                                  ^^ source.phreeqc constant.numeric.phreeqc
+#                                    ^^^^^^ source.phreeqc
+#                                          ^ source.phreeqc constant.numeric.phreeqc
+#                                           ^^^^ source.phreeqc
+#                                               ^ source.phreeqc constant.numeric.phreeqc
+#                                                ^^^ source.phreeqc
+#                                                   ^ source.phreeqc constant.numeric.phreeqc
+#                                                    ^^^^^^^^^^^^^ source.phreeqc
+>                log_k          12.970
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>                delta_h        -59.377 kcal
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                      ^^^^^^ source.phreeqc
+>        K-feldspar
+#^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                KAlSi3O8 + 4 H2O + 4 H+ = Al+3 + 3 H4SiO4 + K+
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                           ^ source.phreeqc constant.numeric.phreeqc
+#                            ^^^^^^^ source.phreeqc
+#                                   ^ source.phreeqc constant.numeric.phreeqc
+#                                    ^^^^^^^^^ source.phreeqc
+#                                             ^ source.phreeqc constant.numeric.phreeqc
+#                                              ^^^ source.phreeqc
+#                                                 ^ source.phreeqc constant.numeric.phreeqc
+#                                                  ^^^^^^^^^^^^^ source.phreeqc
+>                log_k          0.875
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^^ source.phreeqc constant.numeric.phreeqc
+>                delta_h        -12.467 kcal
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                      ^^^^^^ source.phreeqc
+>SELECTED_OUTPUT
+#^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>        -file           ex6A-B.sel
+#^^^^^^^^ source.phreeqc
+#        ^^^^^ source.phreeqc variable.parameter.phreeqc
+#             ^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        -activities     K+ H+ H4SiO4
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        -si             Gibbsite Kaolinite K-mica K-feldspar
+#^^^^^^^^ source.phreeqc
+#        ^^^ source.phreeqc variable.parameter.phreeqc
+#           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        -equilibrium    Gibbsite Kaolinite K-mica K-feldspar
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>TITLE Simulation 6A1.--Find amount of K-feldspar dissolved to
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                    reach gibbsite saturation.
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>USE solution 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+>EQUILIBRIUM_PHASES 1
+#^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+>        Gibbsite        0.0     KAlSi3O8        10.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        Kaolinite       0.0     0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+>        K-mica          0.0     0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+>        K-feldspar      0.0     0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+>USER_GRAPH 1 Simulation 6
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#          ^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^^^^^^^^^ source.phreeqc
+#                        ^ source.phreeqc constant.numeric.phreeqc
+>        -headings 6A--Intersections
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^ source.phreeqc
+#                    ^ source.phreeqc keyword.operator.phreeqc
+#                     ^ source.phreeqc keyword.operator.phreeqc
+#                      ^^^^^^^^^^^^^^ source.phreeqc
+>        -chart_title "K-Feldspar Reaction Path"
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>        -axis_titles "Log[H4SiO4]" "Log([K+] / [H+])"
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                  ^ source.phreeqc
+#                                   ^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>        -axis_scale x_axis -8.0 0.0 1 1
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^^^ source.phreeqc
+#                           ^^^^ source.phreeqc constant.numeric.phreeqc
+#                               ^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+#                                   ^ source.phreeqc
+#                                    ^ source.phreeqc constant.numeric.phreeqc
+#                                     ^ source.phreeqc
+#                                      ^ source.phreeqc constant.numeric.phreeqc
+>        -axis_scale y_axis -1.0 8.0 1 1
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^^^ source.phreeqc
+#                           ^^^^ source.phreeqc constant.numeric.phreeqc
+#                               ^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+#                                   ^ source.phreeqc
+#                                    ^ source.phreeqc constant.numeric.phreeqc
+#                                     ^ source.phreeqc
+#                                      ^ source.phreeqc constant.numeric.phreeqc
+>  10 PLOT_XY LA("H4SiO4"),(LA("K+")-LA("H+")), color = Red, line_w = 0, \
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^ source.phreeqc
+#             ^^ source.phreeqc support.function.phreeqc
+#               ^ source.phreeqc
+#                ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                        ^^^ source.phreeqc
+#                           ^^ source.phreeqc support.function.phreeqc
+#                             ^ source.phreeqc
+#                              ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                  ^ source.phreeqc
+#                                   ^ source.phreeqc keyword.operator.phreeqc
+#                                    ^^ source.phreeqc support.function.phreeqc
+#                                      ^ source.phreeqc
+#                                       ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                           ^^^^ source.phreeqc
+#                                               ^^^^^ source.phreeqc support.function.phreeqc
+#                                                    ^ source.phreeqc
+#                                                     ^ source.phreeqc keyword.operator.phreeqc
+#                                                      ^^^^^^^^^^^^^ source.phreeqc
+#                                                                   ^ source.phreeqc keyword.operator.phreeqc
+#                                                                    ^ source.phreeqc
+#                                                                     ^ source.phreeqc constant.numeric.phreeqc
+#                                                                      ^^^^ source.phreeqc
+>  	symbol = Circle, symbol_size = 10
+#^^^ source.phreeqc
+#   ^^^^^^ source.phreeqc support.function.phreeqc
+#         ^ source.phreeqc
+#          ^ source.phreeqc keyword.operator.phreeqc
+#           ^^^^^^^^^ source.phreeqc
+#                    ^^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                               ^ source.phreeqc
+#                                ^ source.phreeqc keyword.operator.phreeqc
+#                                 ^ source.phreeqc
+#                                  ^^ source.phreeqc constant.numeric.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>TITLE Simulation 6A2.--Find amount of K-feldspar dissolved to
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                    reach kaolinite saturation.
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>USE solution 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+>EQUILIBRIUM_PHASES 1
+#^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+>        Gibbsite        0.0     0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+>        Kaolinite       0.0     KAlSi3O8        10.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        K-mica          0.0     0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+>        K-feldspar      0.0     0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>TITLE Simulation 6A3.--Find amount of K-feldspar dissolved to
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                    reach K-mica saturation.
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>USE solution 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+>EQUILIBRIUM_PHASES 1
+#^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+>        Gibbsite        0.0     0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+>        Kaolinite       0.0     0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+>        K-mica          0.0     KAlSi3O8        10.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        K-feldspar      0.0     0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>TITLE Simulation 6A4.--Find amount of K-feldspar dissolved to
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                    reach K-feldspar saturation.
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>USE solution 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+>EQUILIBRIUM_PHASES 1
+#^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+>        Gibbsite        0.0     0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+>        Kaolinite       0.0     0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+>        K-mica          0.0     0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+>        K-feldspar      0.0     KAlSi3O8        10.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                                ^^^^ source.phreeqc constant.numeric.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>TITLE Simulation 6A5.--Find point with kaolinite present,
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                    but no gibbsite.
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>USE solution 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+>EQUILIBRIUM_PHASES 1
+#^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+>        Gibbsite        0.0     KAlSi3O8        10.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        Kaolinite       0.0     1.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>TITLE Simulation 6A6.--Find point with K-mica present,
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                    but no kaolinite
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>USE solution 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+>EQUILIBRIUM_PHASES 1
+#^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+>        Kaolinite       0.0     KAlSi3O8        10.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        K-mica          0.0     1.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>TITLE Simulation 6B.--Path between phase boundaries.
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>USE solution 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+>EQUILIBRIUM_PHASES 1
+#^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+>        Kaolinite       0.0     0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+>        Gibbsite        0.0     0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+>        K-mica          0.0     0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+>        K-feldspar      0.0     0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+>REACTION 1
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+>        K-feldspar      1.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+>        0.04 0.08 0.16 0.32 0.64 1.0 2.0 4.0
+#^^^^^^^^ source.phreeqc
+#        ^^^^ source.phreeqc constant.numeric.phreeqc
+#            ^ source.phreeqc
+#             ^^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^ source.phreeqc
+#                  ^^^^ source.phreeqc constant.numeric.phreeqc
+#                      ^ source.phreeqc
+#                       ^^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^ source.phreeqc
+#                            ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                ^ source.phreeqc
+#                                 ^^^ source.phreeqc constant.numeric.phreeqc
+#                                    ^ source.phreeqc
+#                                     ^^^ source.phreeqc constant.numeric.phreeqc
+#                                        ^ source.phreeqc
+#                                         ^^^ source.phreeqc constant.numeric.phreeqc
+>        8.0 16.0 32.0 64.0 100 200 umol
+#^^^^^^^^ source.phreeqc
+#        ^^^ source.phreeqc constant.numeric.phreeqc
+#           ^ source.phreeqc
+#            ^^^^ source.phreeqc constant.numeric.phreeqc
+#                ^ source.phreeqc
+#                 ^^^^ source.phreeqc constant.numeric.phreeqc
+#                     ^ source.phreeqc
+#                      ^^^^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^ source.phreeqc constant.numeric.phreeqc
+#                              ^ source.phreeqc
+#                               ^^^ source.phreeqc constant.numeric.phreeqc
+#                                  ^^^^^^ source.phreeqc
+>USER_GRAPH
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>        -headings 6B--Increments
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^ source.phreeqc
+#                    ^ source.phreeqc keyword.operator.phreeqc
+#                     ^ source.phreeqc keyword.operator.phreeqc
+#                      ^^^^^^^^^^^ source.phreeqc
+>  10 PLOT_XY LA("H4SiO4"),(LA("K+")-LA("H+")), color = Blue, line_w = 0, \
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^ source.phreeqc
+#             ^^ source.phreeqc support.function.phreeqc
+#               ^ source.phreeqc
+#                ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                        ^^^ source.phreeqc
+#                           ^^ source.phreeqc support.function.phreeqc
+#                             ^ source.phreeqc
+#                              ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                  ^ source.phreeqc
+#                                   ^ source.phreeqc keyword.operator.phreeqc
+#                                    ^^ source.phreeqc support.function.phreeqc
+#                                      ^ source.phreeqc
+#                                       ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                           ^^^^ source.phreeqc
+#                                               ^^^^^ source.phreeqc support.function.phreeqc
+#                                                    ^ source.phreeqc
+#                                                     ^ source.phreeqc keyword.operator.phreeqc
+#                                                      ^^^^^^^^^^^^^^ source.phreeqc
+#                                                                    ^ source.phreeqc keyword.operator.phreeqc
+#                                                                     ^ source.phreeqc
+#                                                                      ^ source.phreeqc constant.numeric.phreeqc
+#                                                                       ^^^^ source.phreeqc
+>  		symbol = XCross, symbol_size = 7
+#^^^^ source.phreeqc
+#    ^^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^ source.phreeqc keyword.operator.phreeqc
+#            ^^^^^^^^^ source.phreeqc
+#                     ^^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                ^ source.phreeqc
+#                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                  ^ source.phreeqc
+#                                   ^ source.phreeqc constant.numeric.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>TITLE Simulation 6C.--kinetic calculation
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>SOLUTION 1
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+>        -units mol/kgw
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#              ^^^^^^^^^ source.phreeqc
+>        Al         1.e-13
+#^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                   ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>        K          1.e-13
+#^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                   ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>        Si         3.e-13
+#^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                   ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>EQUILIBRIUM_PHASES 1
+#^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+>        Gibbsite   0.0  0.0
+#^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                   ^^^ source.phreeqc constant.numeric.phreeqc
+#                      ^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+>        Kaolinite  0.0  0.0
+#^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                   ^^^ source.phreeqc constant.numeric.phreeqc
+#                      ^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+>        K-mica     0.0  0.0
+#^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                   ^^^ source.phreeqc constant.numeric.phreeqc
+#                      ^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+>KINETICS 1
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+>K-feldspar
+#^^^^^^^^^^^ source.phreeqc
+># k0 * A/V = 1e-16 mol/cm2/s * (10% fsp, 0.1mm cubes) 136/cm = 136.e-13 mol/dm3/s
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>        -parms 1.36e-11
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#              ^ source.phreeqc
+#               ^^^^^^^^ source.phreeqc constant.numeric.phreeqc
+>        -m0 2.16
+#^^^^^^^^ source.phreeqc
+#        ^^^ source.phreeqc variable.parameter.phreeqc
+#           ^ source.phreeqc
+#            ^^^^ source.phreeqc constant.numeric.phreeqc
+>        -m  1.94
+#^^^^^^^^ source.phreeqc
+#        ^^ source.phreeqc variable.parameter.phreeqc
+#          ^^ source.phreeqc
+#            ^^^^ source.phreeqc constant.numeric.phreeqc
+>        -step_divide 1e-6
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^ source.phreeqc constant.numeric.phreeqc
+>        -steps    1e2 1e3 1e4 1e5 1e6 1e7 1e8
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#              ^^^^ source.phreeqc
+#                  ^^^ source.phreeqc constant.numeric.phreeqc
+#                     ^ source.phreeqc
+#                      ^^^ source.phreeqc constant.numeric.phreeqc
+#                         ^ source.phreeqc
+#                          ^^^ source.phreeqc constant.numeric.phreeqc
+#                             ^ source.phreeqc
+#                              ^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^ source.phreeqc
+#                                  ^^^ source.phreeqc constant.numeric.phreeqc
+#                                     ^ source.phreeqc
+#                                      ^^^ source.phreeqc constant.numeric.phreeqc
+#                                         ^ source.phreeqc
+#                                          ^^^ source.phreeqc constant.numeric.phreeqc
+>#        -steps    1e2 1e3 1e4 1e5 63240.0 64950.0 1347610.0 1010300.0 45242800.0
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>INCREMENTAL_REACTIONS true
+#^^^^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                     ^^^^^^ source.phreeqc
+>RATES
+#^^^^^ source.phreeqc keyword.control.phreeqc
+>K-feldspar
+#^ source.phreeqc
+# ^ source.phreeqc keyword.operator.phreeqc
+#  ^^^^^^^^^ source.phreeqc
+>-start
+#^^^^^^ source.phreeqc variable.parameter.phreeqc
+>  10  REM store the initial amount of K-feldspar
+#^^ source.phreeqc
+#  ^^^^ source.phreeqc constant.numeric.phreeqc
+#      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.rem.phreeqc
+>  20  IF EXISTS(1) = 0 THEN PUT(M, 1)
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^ source.phreeqc
+#      ^^ source.phreeqc keyword.control.basic.phreeqc
+#        ^ source.phreeqc
+#         ^^^^^^ source.phreeqc support.function.phreeqc
+#               ^ source.phreeqc
+#                ^ source.phreeqc constant.numeric.phreeqc
+#                 ^^ source.phreeqc
+#                   ^ source.phreeqc keyword.operator.phreeqc
+#                    ^ source.phreeqc
+#                     ^ source.phreeqc constant.numeric.phreeqc
+#                      ^ source.phreeqc
+#                       ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                           ^ source.phreeqc
+#                            ^^^ source.phreeqc support.function.phreeqc
+#                               ^ source.phreeqc
+#                                ^ source.phreeqc support.function.phreeqc
+#                                 ^^ source.phreeqc
+#                                   ^ source.phreeqc constant.numeric.phreeqc
+#                                    ^^ source.phreeqc
+>  30  REM calculate moles of reaction
+#^^ source.phreeqc
+#  ^^^^ source.phreeqc constant.numeric.phreeqc
+#      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.rem.phreeqc
+>  40  SR_kfld = SR("K-feldspar")
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^^^^^^^^^ source.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^ source.phreeqc
+#                ^^ source.phreeqc support.function.phreeqc
+#                  ^ source.phreeqc
+#                   ^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                               ^^ source.phreeqc
+>  50  moles = PARM(1) * (M/M0)^0.67 * (1 - SR_kfld) * TIME
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^^^^^^^ source.phreeqc
+#            ^ source.phreeqc keyword.operator.phreeqc
+#             ^ source.phreeqc
+#              ^^^^ source.phreeqc support.function.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+#                    ^^ source.phreeqc
+#                      ^ source.phreeqc keyword.operator.phreeqc
+#                       ^^ source.phreeqc
+#                         ^ source.phreeqc support.function.phreeqc
+#                          ^ source.phreeqc keyword.operator.phreeqc
+#                           ^^ source.phreeqc support.function.phreeqc
+#                             ^ source.phreeqc
+#                              ^ source.phreeqc keyword.operator.phreeqc
+#                               ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                   ^ source.phreeqc
+#                                    ^ source.phreeqc keyword.operator.phreeqc
+#                                     ^^ source.phreeqc
+#                                       ^ source.phreeqc constant.numeric.phreeqc
+#                                        ^ source.phreeqc
+#                                         ^ source.phreeqc keyword.operator.phreeqc
+#                                          ^^^^^^^^^^ source.phreeqc
+#                                                    ^ source.phreeqc keyword.operator.phreeqc
+#                                                     ^ source.phreeqc
+#                                                      ^^^^ source.phreeqc support.function.phreeqc
+>  60  REM The following is for printout of phase transitions
+#^^ source.phreeqc
+#  ^^^^ source.phreeqc constant.numeric.phreeqc
+#      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.rem.phreeqc
+>  80  REM      Start Gibbsite
+#^^ source.phreeqc
+#  ^^^^ source.phreeqc constant.numeric.phreeqc
+#      ^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.rem.phreeqc
+>  90  if ABS(SI("Gibbsite")) > 1e-3 THEN GOTO 150
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^ source.phreeqc
+#      ^^ source.phreeqc keyword.control.basic.phreeqc
+#        ^ source.phreeqc
+#         ^^^ source.phreeqc support.function.basic.phreeqc
+#            ^ source.phreeqc
+#             ^^ source.phreeqc support.function.phreeqc
+#               ^ source.phreeqc
+#                ^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                          ^^^ source.phreeqc
+#                             ^ source.phreeqc keyword.operator.phreeqc
+#                              ^ source.phreeqc
+#                               ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                   ^ source.phreeqc
+#                                    ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                        ^ source.phreeqc
+#                                         ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                             ^ source.phreeqc
+#                                              ^^^ source.phreeqc constant.numeric.phreeqc
+>  100   i = 2
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^^^^^ source.phreeqc
+#          ^ source.phreeqc keyword.operator.phreeqc
+#           ^ source.phreeqc
+#            ^ source.phreeqc constant.numeric.phreeqc
+>  110   GOSUB 1500
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^^^ source.phreeqc
+#        ^^^^^ source.phreeqc keyword.control.basic.phreeqc
+#             ^ source.phreeqc
+#              ^^^^ source.phreeqc constant.numeric.phreeqc
+>  150 REM      Start Gibbsite -> Kaolinite
+#^^ source.phreeqc
+#  ^^^^ source.phreeqc constant.numeric.phreeqc
+#      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.rem.phreeqc
+>  160 if ABS(SI("Kaolinite")) > 1e-3 THEN GOTO 200
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^ source.phreeqc
+#      ^^ source.phreeqc keyword.control.basic.phreeqc
+#        ^ source.phreeqc
+#         ^^^ source.phreeqc support.function.basic.phreeqc
+#            ^ source.phreeqc
+#             ^^ source.phreeqc support.function.phreeqc
+#               ^ source.phreeqc
+#                ^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                           ^^^ source.phreeqc
+#                              ^ source.phreeqc keyword.operator.phreeqc
+#                               ^ source.phreeqc
+#                                ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                    ^ source.phreeqc
+#                                     ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                         ^ source.phreeqc
+#                                          ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                              ^ source.phreeqc
+#                                               ^^^ source.phreeqc constant.numeric.phreeqc
+>  170   i = 3
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^^^^^ source.phreeqc
+#          ^ source.phreeqc keyword.operator.phreeqc
+#           ^ source.phreeqc
+#            ^ source.phreeqc constant.numeric.phreeqc
+>  180   GOSUB 1500
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^^^ source.phreeqc
+#        ^^^^^ source.phreeqc keyword.control.basic.phreeqc
+#             ^ source.phreeqc
+#              ^^^^ source.phreeqc constant.numeric.phreeqc
+>  200 REM      End Gibbsite -> Kaolinite
+#^^ source.phreeqc
+#  ^^^^ source.phreeqc constant.numeric.phreeqc
+#      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.rem.phreeqc
+>  210 if ABS(SI("Kaolinite")) > 1e-3 OR EQUI("Gibbsite") > 0 THEN GOTO 250
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^ source.phreeqc
+#      ^^ source.phreeqc keyword.control.basic.phreeqc
+#        ^ source.phreeqc
+#         ^^^ source.phreeqc support.function.basic.phreeqc
+#            ^ source.phreeqc
+#             ^^ source.phreeqc support.function.phreeqc
+#               ^ source.phreeqc
+#                ^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                           ^^^ source.phreeqc
+#                              ^ source.phreeqc keyword.operator.phreeqc
+#                               ^ source.phreeqc
+#                                ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                    ^ source.phreeqc
+#                                     ^^ source.phreeqc keyword.control.basic.phreeqc
+#                                       ^ source.phreeqc
+#                                        ^^^^ source.phreeqc support.function.phreeqc
+#                                            ^ source.phreeqc
+#                                             ^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                       ^^ source.phreeqc
+#                                                         ^ source.phreeqc keyword.operator.phreeqc
+#                                                          ^ source.phreeqc
+#                                                           ^ source.phreeqc constant.numeric.phreeqc
+#                                                            ^ source.phreeqc
+#                                                             ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                                                 ^ source.phreeqc
+#                                                                  ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                                                      ^ source.phreeqc
+#                                                                       ^^^ source.phreeqc constant.numeric.phreeqc
+>  220   i = 4
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^^^^^ source.phreeqc
+#          ^ source.phreeqc keyword.operator.phreeqc
+#           ^ source.phreeqc
+#            ^ source.phreeqc constant.numeric.phreeqc
+>  230   GOSUB 1500
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^^^ source.phreeqc
+#        ^^^^^ source.phreeqc keyword.control.basic.phreeqc
+#             ^ source.phreeqc
+#              ^^^^ source.phreeqc constant.numeric.phreeqc
+>  250 REM      Start Kaolinite -> K-mica
+#^^ source.phreeqc
+#  ^^^^ source.phreeqc constant.numeric.phreeqc
+#      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.rem.phreeqc
+>  260 if ABS(SI("K-mica")) > 1e-3 THEN GOTO 300
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^ source.phreeqc
+#      ^^ source.phreeqc keyword.control.basic.phreeqc
+#        ^ source.phreeqc
+#         ^^^ source.phreeqc support.function.basic.phreeqc
+#            ^ source.phreeqc
+#             ^^ source.phreeqc support.function.phreeqc
+#               ^ source.phreeqc
+#                ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                        ^^^ source.phreeqc
+#                           ^ source.phreeqc keyword.operator.phreeqc
+#                            ^ source.phreeqc
+#                             ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^ source.phreeqc
+#                                  ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                      ^ source.phreeqc
+#                                       ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                           ^ source.phreeqc
+#                                            ^^^ source.phreeqc constant.numeric.phreeqc
+>  270   i = 5
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^^^^^ source.phreeqc
+#          ^ source.phreeqc keyword.operator.phreeqc
+#           ^ source.phreeqc
+#            ^ source.phreeqc constant.numeric.phreeqc
+>  280   GOSUB 1500
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^^^ source.phreeqc
+#        ^^^^^ source.phreeqc keyword.control.basic.phreeqc
+#             ^ source.phreeqc
+#              ^^^^ source.phreeqc constant.numeric.phreeqc
+>  300 REM      End Kaolinite -> K-mica
+#^^ source.phreeqc
+#  ^^^^ source.phreeqc constant.numeric.phreeqc
+#      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.rem.phreeqc
+>  310 if ABS(SI("K-mica")) > 1e-3 OR EQUI("Kaolinite") > 0 THEN GOTO 350
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^ source.phreeqc
+#      ^^ source.phreeqc keyword.control.basic.phreeqc
+#        ^ source.phreeqc
+#         ^^^ source.phreeqc support.function.basic.phreeqc
+#            ^ source.phreeqc
+#             ^^ source.phreeqc support.function.phreeqc
+#               ^ source.phreeqc
+#                ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                        ^^^ source.phreeqc
+#                           ^ source.phreeqc keyword.operator.phreeqc
+#                            ^ source.phreeqc
+#                             ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^ source.phreeqc
+#                                  ^^ source.phreeqc keyword.control.basic.phreeqc
+#                                    ^ source.phreeqc
+#                                     ^^^^ source.phreeqc support.function.phreeqc
+#                                         ^ source.phreeqc
+#                                          ^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                     ^^ source.phreeqc
+#                                                       ^ source.phreeqc keyword.operator.phreeqc
+#                                                        ^ source.phreeqc
+#                                                         ^ source.phreeqc constant.numeric.phreeqc
+#                                                          ^ source.phreeqc
+#                                                           ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                                               ^ source.phreeqc
+#                                                                ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                                                    ^ source.phreeqc
+#                                                                     ^^^ source.phreeqc constant.numeric.phreeqc
+>  320   i = 6
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^^^^^ source.phreeqc
+#          ^ source.phreeqc keyword.operator.phreeqc
+#           ^ source.phreeqc
+#            ^ source.phreeqc constant.numeric.phreeqc
+>  330   GOSUB 1500
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^^^ source.phreeqc
+#        ^^^^^ source.phreeqc keyword.control.basic.phreeqc
+#             ^ source.phreeqc
+#              ^^^^ source.phreeqc constant.numeric.phreeqc
+>  350 REM      Start K-mica -> K-feldspar
+#^^ source.phreeqc
+#  ^^^^ source.phreeqc constant.numeric.phreeqc
+#      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.rem.phreeqc
+>  360 if ABS(SI("K-feldspar")) > 1e-3 THEN GOTO 1000
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^ source.phreeqc
+#      ^^ source.phreeqc keyword.control.basic.phreeqc
+#        ^ source.phreeqc
+#         ^^^ source.phreeqc support.function.basic.phreeqc
+#            ^ source.phreeqc
+#             ^^ source.phreeqc support.function.phreeqc
+#               ^ source.phreeqc
+#                ^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                            ^^^ source.phreeqc
+#                               ^ source.phreeqc keyword.operator.phreeqc
+#                                ^ source.phreeqc
+#                                 ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                     ^ source.phreeqc
+#                                      ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                          ^ source.phreeqc
+#                                           ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                               ^ source.phreeqc
+#                                                ^^^^ source.phreeqc constant.numeric.phreeqc
+>  370   i = 7
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^^^^^ source.phreeqc
+#          ^ source.phreeqc keyword.operator.phreeqc
+#           ^ source.phreeqc
+#            ^ source.phreeqc constant.numeric.phreeqc
+>  380   GOSUB 1500
+#^^ source.phreeqc
+#  ^^^ source.phreeqc constant.numeric.phreeqc
+#     ^^^ source.phreeqc
+#        ^^^^^ source.phreeqc keyword.control.basic.phreeqc
+#             ^ source.phreeqc
+#              ^^^^ source.phreeqc constant.numeric.phreeqc
+>  1000 SAVE moles
+#^^ source.phreeqc
+#  ^^^^ source.phreeqc constant.numeric.phreeqc
+#      ^ source.phreeqc
+#       ^^^^ source.phreeqc support.function.phreeqc
+#           ^^^^^^^ source.phreeqc
+>  1010 END
+#^^ source.phreeqc
+#  ^^^^ source.phreeqc constant.numeric.phreeqc
+#      ^^^^^ source.phreeqc
+>  1500 REM subroutine to store data
+#^^ source.phreeqc
+#  ^^^^^ source.phreeqc constant.numeric.phreeqc
+#       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.rem.phreeqc
+>  1510 if GET(i) >= M THEN RETURN
+#^^ source.phreeqc
+#  ^^^^ source.phreeqc constant.numeric.phreeqc
+#      ^ source.phreeqc
+#       ^^ source.phreeqc keyword.control.basic.phreeqc
+#         ^ source.phreeqc
+#          ^^^ source.phreeqc support.function.phreeqc
+#             ^^^^ source.phreeqc
+#                 ^ source.phreeqc keyword.operator.phreeqc
+#                  ^ source.phreeqc keyword.operator.phreeqc
+#                   ^ source.phreeqc
+#                    ^ source.phreeqc support.function.phreeqc
+#                     ^ source.phreeqc
+#                      ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^^^^ source.phreeqc keyword.control.basic.phreeqc
+>  1520     PUT(M, i)
+#^^ source.phreeqc
+#  ^^^^ source.phreeqc constant.numeric.phreeqc
+#      ^^^^^ source.phreeqc
+#           ^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc
+#               ^ source.phreeqc support.function.phreeqc
+#                ^^^^^ source.phreeqc
+>  1530     PUT(TOTAL_TIME, i, 1)
+#^^ source.phreeqc
+#  ^^^^ source.phreeqc constant.numeric.phreeqc
+#      ^^^^^ source.phreeqc
+#           ^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc
+#               ^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                         ^^^^^ source.phreeqc
+#                              ^ source.phreeqc constant.numeric.phreeqc
+#                               ^^ source.phreeqc
+>  1540     PUT(LA("K+")-LA("H+"), i, 2)
+#^^ source.phreeqc
+#  ^^^^ source.phreeqc constant.numeric.phreeqc
+#      ^^^^^ source.phreeqc
+#           ^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc
+#               ^^ source.phreeqc support.function.phreeqc
+#                 ^ source.phreeqc
+#                  ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                      ^ source.phreeqc
+#                       ^ source.phreeqc keyword.operator.phreeqc
+#                        ^^ source.phreeqc support.function.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                               ^^^^^^ source.phreeqc
+#                                     ^ source.phreeqc constant.numeric.phreeqc
+#                                      ^^ source.phreeqc
+>  1550     PUT(LA("H4SiO4"), i, 3)
+#^^ source.phreeqc
+#  ^^^^ source.phreeqc constant.numeric.phreeqc
+#      ^^^^^ source.phreeqc
+#           ^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc
+#               ^^ source.phreeqc support.function.phreeqc
+#                 ^ source.phreeqc
+#                  ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                          ^^^^^^ source.phreeqc
+#                                ^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^ source.phreeqc
+>  1560 RETURN
+#^^ source.phreeqc
+#  ^^^^ source.phreeqc constant.numeric.phreeqc
+#      ^ source.phreeqc
+#       ^^^^^^ source.phreeqc keyword.control.basic.phreeqc
+>-end
+#^^^^ source.phreeqc variable.parameter.phreeqc
+>USER_PRINT
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>  10 DATA "A: Gibbsite               ", "B: Gibbsite  -> Kaolinite ", \
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#         ^ source.phreeqc
+#          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                      ^^ source.phreeqc
+#                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                                    ^^^^ source.phreeqc
+>          "C: Gibbsite  -> Kaolinite ", "D: Kaolinite -> K-mica    ", \
+#^^^^^^^^^^ source.phreeqc
+#          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                      ^^ source.phreeqc
+#                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                                    ^^^^ source.phreeqc
+>          "E: Kaolinite -> K-mica    ", "F: K-mica    -> K-feldspar"
+#^^^^^^^^^^ source.phreeqc
+#          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                      ^^ source.phreeqc
+#                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>  20 PRINT \
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^ source.phreeqc support.function.phreeqc
+#          ^^^ source.phreeqc
+>  "        Transition                 Time   K-feldspar      LA(K/H)   LA(H4SiO4)"
+#^^ source.phreeqc
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>  30 PRINT "                                            transfer"
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>  40 PRINT "                                            (umoles)"
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>  50 FOR i = 2 TO 7
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^ source.phreeqc keyword.control.basic.phreeqc
+#        ^^^ source.phreeqc
+#           ^ source.phreeqc keyword.operator.phreeqc
+#            ^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+#              ^ source.phreeqc
+#               ^^ source.phreeqc keyword.control.basic.phreeqc
+#                 ^ source.phreeqc
+#                  ^ source.phreeqc constant.numeric.phreeqc
+>  60   READ s$
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^^ source.phreeqc
+#       ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#           ^^^^ source.phreeqc
+>  70   IF EXISTS(i) THEN PRINT s$, GET(i,1), (GET(1) - GET(i))*1e6, GET(i,2), GET(i,3)
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^^ source.phreeqc
+#       ^^ source.phreeqc keyword.control.basic.phreeqc
+#         ^ source.phreeqc
+#          ^^^^^^ source.phreeqc support.function.phreeqc
+#                ^^^^ source.phreeqc
+#                    ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                        ^ source.phreeqc
+#                         ^^^^^ source.phreeqc support.function.phreeqc
+#                              ^^^^^ source.phreeqc
+#                                   ^^^ source.phreeqc support.function.phreeqc
+#                                      ^^^ source.phreeqc
+#                                         ^ source.phreeqc constant.numeric.phreeqc
+#                                          ^^^^ source.phreeqc
+#                                              ^^^ source.phreeqc support.function.phreeqc
+#                                                 ^ source.phreeqc
+#                                                  ^ source.phreeqc constant.numeric.phreeqc
+#                                                   ^^ source.phreeqc
+#                                                     ^ source.phreeqc keyword.operator.phreeqc
+#                                                      ^ source.phreeqc
+#                                                       ^^^ source.phreeqc support.function.phreeqc
+#                                                          ^^^^ source.phreeqc
+#                                                              ^ source.phreeqc keyword.operator.phreeqc
+#                                                               ^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                  ^^ source.phreeqc
+#                                                                    ^^^ source.phreeqc support.function.phreeqc
+#                                                                       ^^^ source.phreeqc
+#                                                                          ^ source.phreeqc constant.numeric.phreeqc
+#                                                                           ^^^ source.phreeqc
+#                                                                              ^^^ source.phreeqc support.function.phreeqc
+#                                                                                 ^^^ source.phreeqc
+#                                                                                    ^ source.phreeqc constant.numeric.phreeqc
+#                                                                                     ^^ source.phreeqc
+>  80 NEXT i
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#         ^^^ source.phreeqc
+>SELECTED_OUTPUT
+#^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>        -file ex6C.sel
+#^^^^^^^^ source.phreeqc
+#        ^^^^^ source.phreeqc variable.parameter.phreeqc
+#             ^^^^^^^^^^ source.phreeqc
+>        -reset false
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#              ^^^^^^^ source.phreeqc
+>USER_PUNCH
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>  -headings pH+log[K]  log[H4SiO4]
+#^^ source.phreeqc
+#  ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#           ^^^ source.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^^^ source.phreeqc support.function.basic.phreeqc
+#                  ^^^^^ source.phreeqc
+#                       ^^^ source.phreeqc support.function.basic.phreeqc
+#                          ^^^^^^^^^ source.phreeqc
+>  10 PUNCH LA("K+")-LA("H+") LA("H4SiO4")
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^ source.phreeqc support.function.phreeqc
+#             ^ source.phreeqc
+#              ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc keyword.operator.phreeqc
+#                    ^^ source.phreeqc support.function.phreeqc
+#                      ^ source.phreeqc
+#                       ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                           ^^ source.phreeqc
+#                             ^^ source.phreeqc support.function.phreeqc
+#                               ^ source.phreeqc
+#                                ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                        ^^ source.phreeqc
+>USER_GRAPH
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>  -headings 6C--Kinetics
+#^^ source.phreeqc
+#  ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#           ^^^ source.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^ source.phreeqc keyword.operator.phreeqc
+#                ^^^^^^^^^ source.phreeqc
+>  10 PLOT_XY LA("H4SiO4"),(LA("K+")-LA("H+")), color = Blue, line_w = 2, symbol = None
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^ source.phreeqc
+#             ^^ source.phreeqc support.function.phreeqc
+#               ^ source.phreeqc
+#                ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                        ^^^ source.phreeqc
+#                           ^^ source.phreeqc support.function.phreeqc
+#                             ^ source.phreeqc
+#                              ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                  ^ source.phreeqc
+#                                   ^ source.phreeqc keyword.operator.phreeqc
+#                                    ^^ source.phreeqc support.function.phreeqc
+#                                      ^ source.phreeqc
+#                                       ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                           ^^^^ source.phreeqc
+#                                               ^^^^^ source.phreeqc support.function.phreeqc
+#                                                    ^ source.phreeqc
+#                                                     ^ source.phreeqc keyword.operator.phreeqc
+#                                                      ^^^^^^^^^^^^^^ source.phreeqc
+#                                                                    ^ source.phreeqc keyword.operator.phreeqc
+#                                                                     ^ source.phreeqc
+#                                                                      ^ source.phreeqc constant.numeric.phreeqc
+#                                                                       ^^ source.phreeqc
+#                                                                         ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                               ^ source.phreeqc
+#                                                                                ^ source.phreeqc keyword.operator.phreeqc
+#                                                                                 ^^^^^^ source.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>PRINT; -user_print false
+#^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+># --Plot the phase boundaries with USER_GRAPH..
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>PHASES
+#^^^^^^ source.phreeqc keyword.control.phreeqc
+> K_H; KH = K+ - H+; -no_check
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>USER_GRAPH
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>-initial_solutions true
+#^^^^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                  ^ source.phreeqc
+#                   ^^^^ source.phreeqc support.function.phreeqc
+> 10 PLOT_XY LA("H4SiO4"), SI("K_H"), color = Black, symbol = None 
+#^ source.phreeqc
+# ^^ source.phreeqc constant.numeric.phreeqc
+#   ^ source.phreeqc
+#    ^^^^^^^ source.phreeqc support.function.phreeqc
+#           ^ source.phreeqc
+#            ^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc
+#               ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                       ^^^ source.phreeqc
+#                          ^^ source.phreeqc support.function.phreeqc
+#                            ^ source.phreeqc
+#                             ^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                  ^^^ source.phreeqc
+#                                     ^^^^^ source.phreeqc support.function.phreeqc
+#                                          ^ source.phreeqc
+#                                           ^ source.phreeqc keyword.operator.phreeqc
+#                                            ^^^^^^^^ source.phreeqc
+#                                                    ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                          ^ source.phreeqc
+#                                                           ^ source.phreeqc keyword.operator.phreeqc
+#                                                            ^^^^^^^ source.phreeqc
+>SOLUTION 1
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+> pH 11; K 1 K_H 8; Al 1 Gibbsite; Si 1 K-mica
+#^^^^ source.phreeqc
+#    ^^ source.phreeqc constant.numeric.phreeqc
+#      ^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^ source.phreeqc
+#                ^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^ source.phreeqc
+#                      ^ source.phreeqc constant.numeric.phreeqc
+#                       ^^^^^^^^^^^^^^ source.phreeqc
+#                                     ^ source.phreeqc constant.numeric.phreeqc
+#                                      ^^^^^^^^ source.phreeqc
+>SOLUTION 2
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+> pH 7; K 1 K-mica; Al 1 Gibbsite; Si 1 Kaolinite
+#^^^^ source.phreeqc
+#    ^ source.phreeqc constant.numeric.phreeqc
+#     ^^^^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^^^^^^^^^^^^ source.phreeqc
+#                      ^ source.phreeqc constant.numeric.phreeqc
+#                       ^^^^^^^^^^^^^^ source.phreeqc
+#                                     ^ source.phreeqc constant.numeric.phreeqc
+#                                      ^^^^^^^^^^^ source.phreeqc
+>SOLUTION 3
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+> pH 7; K 1 K-mica; Al 1 K-feldspar; Si 1 Kaolinite
+#^^^^ source.phreeqc
+#    ^ source.phreeqc constant.numeric.phreeqc
+#     ^^^^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^^^^^^^^^^^^ source.phreeqc
+#                      ^ source.phreeqc constant.numeric.phreeqc
+#                       ^^^^^^^^^^^^^^^^ source.phreeqc
+#                                       ^ source.phreeqc constant.numeric.phreeqc
+#                                        ^^^^^^^^^^^ source.phreeqc
+>SOLUTION 4
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+> pH 7; K 1 K_H -1; Al 1 Kaolinite; Si 1 K-feldspar
+#^^^^ source.phreeqc
+#    ^ source.phreeqc constant.numeric.phreeqc
+#     ^^^^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^^^^^ source.phreeqc
+#               ^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^ source.phreeqc
+#                      ^ source.phreeqc constant.numeric.phreeqc
+#                       ^^^^^^^^^^^^^^^ source.phreeqc
+#                                      ^ source.phreeqc constant.numeric.phreeqc
+#                                       ^^^^^^^^^^^^ source.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>USER_GRAPH
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+> 10 PLOT_XY LA("H4SiO4"), SI("K_H"), color = Black, symbol = None 
+#^ source.phreeqc
+# ^^ source.phreeqc constant.numeric.phreeqc
+#   ^ source.phreeqc
+#    ^^^^^^^ source.phreeqc support.function.phreeqc
+#           ^ source.phreeqc
+#            ^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc
+#               ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                       ^^^ source.phreeqc
+#                          ^^ source.phreeqc support.function.phreeqc
+#                            ^ source.phreeqc
+#                             ^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                  ^^^ source.phreeqc
+#                                     ^^^^^ source.phreeqc support.function.phreeqc
+#                                          ^ source.phreeqc
+#                                           ^ source.phreeqc keyword.operator.phreeqc
+#                                            ^^^^^^^^ source.phreeqc
+#                                                    ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                          ^ source.phreeqc
+#                                                           ^ source.phreeqc keyword.operator.phreeqc
+#                                                            ^^^^^^^ source.phreeqc
+>SOLUTION 1
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+> pH 11; K 1 K_H 8; Al 1 K-feldspar; Si 1 K-mica
+#^^^^ source.phreeqc
+#    ^^ source.phreeqc constant.numeric.phreeqc
+#      ^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^ source.phreeqc
+#                ^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^ source.phreeqc
+#                      ^ source.phreeqc constant.numeric.phreeqc
+#                       ^^^^^^^^^^^^^^^^ source.phreeqc
+#                                       ^ source.phreeqc constant.numeric.phreeqc
+#                                        ^^^^^^^^ source.phreeqc
+>SOLUTION 2
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+> pH 7; K 1 K-mica; Al 1 K-feldspar; Si 1 Kaolinite
+#^^^^ source.phreeqc
+#    ^ source.phreeqc constant.numeric.phreeqc
+#     ^^^^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^^^^^^^^^^^^ source.phreeqc
+#                      ^ source.phreeqc constant.numeric.phreeqc
+#                       ^^^^^^^^^^^^^^^^ source.phreeqc
+#                                       ^ source.phreeqc constant.numeric.phreeqc
+#                                        ^^^^^^^^^^^ source.phreeqc
+>SOLUTION 3
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+> pH 7; K 1 K-mica; Al 1 Gibbsite; Si 1 Kaolinite
+#^^^^ source.phreeqc
+#    ^ source.phreeqc constant.numeric.phreeqc
+#     ^^^^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^^^^^^^^^^^^ source.phreeqc
+#                      ^ source.phreeqc constant.numeric.phreeqc
+#                       ^^^^^^^^^^^^^^ source.phreeqc
+#                                     ^ source.phreeqc constant.numeric.phreeqc
+#                                      ^^^^^^^^^^^ source.phreeqc
+>SOLUTION 4
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+> pH 7; K 1 K_H -1; Al 1 Gibbsite; Si 1 Kaolinite
+#^^^^ source.phreeqc
+#    ^ source.phreeqc constant.numeric.phreeqc
+#     ^^^^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^^^^^ source.phreeqc
+#               ^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^ source.phreeqc
+#                      ^ source.phreeqc constant.numeric.phreeqc
+#                       ^^^^^^^^^^^^^^ source.phreeqc
+#                                     ^ source.phreeqc constant.numeric.phreeqc
+#                                      ^^^^^^^^^^^ source.phreeqc
+>END 
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^ source.phreeqc
+>

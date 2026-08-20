@@ -1,0 +1,283 @@
+>TITLE Example 19.--Linear, Freundlich and Langmuir isotherms for
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^ source.phreeqc
+#              ^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>      Cd sorption on loamy sand. Calculates Example 7.1
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                                    ^^^ source.phreeqc constant.numeric.phreeqc
+>      from Appelo and Postma, 2005. Data from Christensen, 1984.
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                              ^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                   ^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                                           ^^^^^ source.phreeqc constant.numeric.phreeqc
+>SURFACE_MASTER_SPECIES
+#^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>      Linear Linear
+#^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>      Freundlich Freundlich
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>      Langmuir Langmuir
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>SURFACE_SPECIES
+#^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>  Linear = Linear
+#^^^^^^^^^^^^^^^^^^ source.phreeqc
+>  Linear + Cd+2 = LinearCd+2
+#^^^^^^^^^^^^^^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+#               ^^^^^^^^^^^^ source.phreeqc
+#                           ^ source.phreeqc constant.numeric.phreeqc
+>      -log_k -100.7         # log10(0.2) - 100
+#^^^^^^ source.phreeqc
+#      ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#            ^ source.phreeqc
+#             ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                   ^^^^^^^^^ source.phreeqc
+#                            ^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>      -mole_balance LinearCdCl2
+#^^^^^^ source.phreeqc
+#      ^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^^^^^^^^ source.phreeqc
+>  Freundlich = Freundlich
+#^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>  Freundlich + 0.722 Cd+2 = FreundlichCd+2
+#^^^^^^^^^^^^^^^ source.phreeqc
+#               ^^^^^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^ source.phreeqc
+#                        ^ source.phreeqc constant.numeric.phreeqc
+#                         ^^^^^^^^^^^^^^^^ source.phreeqc
+#                                         ^ source.phreeqc constant.numeric.phreeqc
+>      -log_k -102.61        # log10(0.421) + (0.722 - 1) * log10(112.4e6) - 100
+#^^^^^^ source.phreeqc
+#      ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#            ^ source.phreeqc
+#             ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^^^^^ source.phreeqc
+#                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>      -no_check
+#^^^^^^ source.phreeqc
+#      ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+>      -mole_balance FreundlichCdCl2
+#^^^^^^ source.phreeqc
+#      ^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^^^^^^^^^^^^ source.phreeqc
+>  Langmuir = Langmuir
+#^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>  Langmuir + Cd+2 = LangmuirCd+2
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^^^^^^^^ source.phreeqc
+#                               ^ source.phreeqc constant.numeric.phreeqc
+>      -log_k 6.56           # log10(112.4 / 30.9e-6)
+#^^^^^^ source.phreeqc
+#      ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#            ^ source.phreeqc
+#             ^^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^^^^^ source.phreeqc
+#                            ^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>      -mole_balance LangmuirCdCl2
+#^^^^^^ source.phreeqc
+#      ^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^^^^^^^^^^ source.phreeqc
+>SURFACE 1
+#^^^^^^^ source.phreeqc keyword.control.phreeqc
+#       ^ source.phreeqc
+#        ^ source.phreeqc constant.numeric.phreeqc
+>      Linear 1e100 1 1
+#^^^^^^^^^^^^^ source.phreeqc
+#             ^^^^^ source.phreeqc constant.numeric.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+#                    ^ source.phreeqc
+#                     ^ source.phreeqc constant.numeric.phreeqc
+>      Freundlich 1e100 1 1
+#^^^^^^^^^^^^^^^^^ source.phreeqc
+#                 ^^^^^ source.phreeqc constant.numeric.phreeqc
+#                      ^ source.phreeqc
+#                       ^ source.phreeqc constant.numeric.phreeqc
+#                        ^ source.phreeqc
+#                         ^ source.phreeqc constant.numeric.phreeqc
+>      Langmuir 8.45e-8 1 1  # 9.5 / 112.4e6
+#^^^^^^^^^^^^^^^ source.phreeqc
+#               ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                      ^ source.phreeqc
+#                       ^ source.phreeqc constant.numeric.phreeqc
+#                        ^ source.phreeqc
+#                         ^ source.phreeqc constant.numeric.phreeqc
+#                          ^^ source.phreeqc
+#                            ^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>      -no_edl
+#^^^^^^ source.phreeqc
+#      ^^^^^^^ source.phreeqc variable.parameter.phreeqc
+>SOLUTION 1
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+>      pH  6
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+>      Ca  1
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+>      Cl  2
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+>REACTION 1
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+>      CdCl2 1
+#^^^^^^^^^^^^ source.phreeqc
+#            ^ source.phreeqc constant.numeric.phreeqc
+>      0.7e-6 in 20
+#^^^^^^ source.phreeqc
+#      ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^ source.phreeqc
+#                ^^ source.phreeqc constant.numeric.phreeqc
+>USER_GRAPH Example 19
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#          ^^^^^^^^^ source.phreeqc
+#                   ^^ source.phreeqc constant.numeric.phreeqc
+>      -headings Linear Freundlich Langmuir
+#^^^^^^ source.phreeqc
+#      ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>      -chart_title "Sorption Isotherms"
+#^^^^^^ source.phreeqc
+#      ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                  ^ source.phreeqc
+#                   ^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>      -axis_titles "Dissolved Cd, in micrograms per kilogram water" \
+#^^^^^^ source.phreeqc
+#      ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                  ^ source.phreeqc
+#                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                                   ^^^ source.phreeqc
+>                    "Sorbed Cd, in micrograms per gram soil"
+#^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>      -plot_tsv_file ex19_meas.tsv
+#^^^^^^ source.phreeqc
+#      ^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^^^^^^^^^^^^^^^ source.phreeqc
+>      -axis_scale x_axis 0 40
+#^^^^^^ source.phreeqc
+#      ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^^^^^^ source.phreeqc
+#                         ^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^^ source.phreeqc constant.numeric.phreeqc
+>      -axis_scale y_axis 0 6
+#^^^^^^ source.phreeqc
+#      ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^^^^^^ source.phreeqc
+#                         ^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^ source.phreeqc constant.numeric.phreeqc
+>      -initial_solutions true
+#^^^^^^ source.phreeqc
+#      ^^^^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                        ^ source.phreeqc
+#                         ^^^^ source.phreeqc support.function.phreeqc
+>  -start
+#^^ source.phreeqc
+#  ^^^^^^ source.phreeqc variable.parameter.phreeqc
+>10 x = act("Cd+2") * 112.4e6
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^^^ source.phreeqc
+#     ^ source.phreeqc keyword.operator.phreeqc
+#      ^ source.phreeqc
+#       ^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                 ^^ source.phreeqc
+#                   ^ source.phreeqc keyword.operator.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+>20 PLOT_XY x, mol("LinearCd+2")*112e6, color = Green, symbol = None, line_width = 2
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^^^^^ source.phreeqc support.function.phreeqc
+#          ^^^^ source.phreeqc
+#              ^^^ source.phreeqc support.function.phreeqc
+#                 ^ source.phreeqc
+#                  ^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                              ^ source.phreeqc
+#                               ^ source.phreeqc keyword.operator.phreeqc
+#                                ^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                     ^^ source.phreeqc
+#                                       ^^^^^ source.phreeqc support.function.phreeqc
+#                                            ^ source.phreeqc
+#                                             ^ source.phreeqc keyword.operator.phreeqc
+#                                              ^^^^^^^^ source.phreeqc
+#                                                      ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                            ^ source.phreeqc
+#                                                             ^ source.phreeqc keyword.operator.phreeqc
+#                                                              ^^^^^^^ source.phreeqc
+#                                                                     ^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                               ^ source.phreeqc
+#                                                                                ^ source.phreeqc keyword.operator.phreeqc
+#                                                                                 ^ source.phreeqc
+#                                                                                  ^ source.phreeqc constant.numeric.phreeqc
+>30 PLOT_XY x, mol("FreundlichCd+2")*112e6, color = Blue, symbol = None, line_width = 2
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^^^^^ source.phreeqc support.function.phreeqc
+#          ^^^^ source.phreeqc
+#              ^^^ source.phreeqc support.function.phreeqc
+#                 ^ source.phreeqc
+#                  ^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                  ^ source.phreeqc
+#                                   ^ source.phreeqc keyword.operator.phreeqc
+#                                    ^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                         ^^ source.phreeqc
+#                                           ^^^^^ source.phreeqc support.function.phreeqc
+#                                                ^ source.phreeqc
+#                                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                                  ^^^^^^^ source.phreeqc
+#                                                         ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                               ^ source.phreeqc
+#                                                                ^ source.phreeqc keyword.operator.phreeqc
+#                                                                 ^^^^^^^ source.phreeqc
+#                                                                        ^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                                  ^ source.phreeqc
+#                                                                                   ^ source.phreeqc keyword.operator.phreeqc
+#                                                                                    ^ source.phreeqc
+#                                                                                     ^ source.phreeqc constant.numeric.phreeqc
+>40 PLOT_XY x, mol("LangmuirCd+2")*112e6, color = Orange, symbol = None, line_width = 2
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^^^^^ source.phreeqc support.function.phreeqc
+#          ^^^^ source.phreeqc
+#              ^^^ source.phreeqc support.function.phreeqc
+#                 ^ source.phreeqc
+#                  ^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                ^ source.phreeqc
+#                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                  ^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                       ^^ source.phreeqc
+#                                         ^^^^^ source.phreeqc support.function.phreeqc
+#                                              ^ source.phreeqc
+#                                               ^ source.phreeqc keyword.operator.phreeqc
+#                                                ^^^^^^^^^ source.phreeqc
+#                                                         ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                               ^ source.phreeqc
+#                                                                ^ source.phreeqc keyword.operator.phreeqc
+#                                                                 ^^^^^^^ source.phreeqc
+#                                                                        ^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                                  ^ source.phreeqc
+#                                                                                   ^ source.phreeqc keyword.operator.phreeqc
+#                                                                                    ^ source.phreeqc
+#                                                                                     ^ source.phreeqc constant.numeric.phreeqc
+>  -end
+#^^ source.phreeqc
+#  ^^^^ source.phreeqc variable.parameter.phreeqc
+>PRINT
+#^^^^^ source.phreeqc keyword.control.phreeqc
+>     -reset false
+#^^^^^ source.phreeqc
+#     ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#           ^^^^^^^ source.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc

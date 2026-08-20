@@ -1,0 +1,790 @@
+>TITLE Example 13B.--1 mmol/l NaCl/NO3 enters column with stagnant zones.
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^^^^^^ source.phreeqc
+#                   ^^ source.phreeqc constant.numeric.phreeqc
+#                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                    Explicit definition of first-order exchange factors.
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>SOLUTION 0    # 1 mmol/l NaCl
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^^^^ source.phreeqc
+#              ^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>   units   mmol/l
+#^^^^^^^^^^^^^^^^^^ source.phreeqc
+>   pH       7.0
+#^^^^^^^^^^^^ source.phreeqc
+#            ^^^ source.phreeqc constant.numeric.phreeqc
+>   pe      13.0    O2(g)   -0.7
+#^^^^^^^^^^^ source.phreeqc
+#           ^^^^ source.phreeqc constant.numeric.phreeqc
+#               ^^^^^^^^^^^^ source.phreeqc
+#                           ^^^^ source.phreeqc constant.numeric.phreeqc
+>   Na       1.0    # Na has Retardation = 2
+#^^^^^^^^^^^^ source.phreeqc
+#            ^^^ source.phreeqc constant.numeric.phreeqc
+#               ^^^^ source.phreeqc
+#                   ^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>   Cl       1.0    # Cl has Retardation = 1, stagnant exchange
+#^^^^^^^^^^^^ source.phreeqc
+#            ^^^ source.phreeqc constant.numeric.phreeqc
+#               ^^^^ source.phreeqc
+#                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>   N(5)     1.0    # NO3 is conservative
+#^^^^^ source.phreeqc
+#     ^ source.phreeqc constant.numeric.phreeqc
+#      ^^^^^^ source.phreeqc
+#            ^^^ source.phreeqc constant.numeric.phreeqc
+#               ^^^^ source.phreeqc
+#                   ^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>#       charge imbalance is no problem ...
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>SOLUTION 1-41  # Column with KNO3
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^ source.phreeqc constant.numeric.phreeqc
+#             ^^ source.phreeqc
+#               ^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>   units   mmol/l
+#^^^^^^^^^^^^^^^^^^ source.phreeqc
+>   pH       7.0
+#^^^^^^^^^^^^ source.phreeqc
+#            ^^^ source.phreeqc constant.numeric.phreeqc
+>   pe      13.0   O2(g)    -0.7
+#^^^^^^^^^^^ source.phreeqc
+#           ^^^^ source.phreeqc constant.numeric.phreeqc
+#               ^^^^^^^^^^^^ source.phreeqc
+#                           ^^^^ source.phreeqc constant.numeric.phreeqc
+>   K        1.0
+#^^^^^^^^^^^^ source.phreeqc
+#            ^^^ source.phreeqc constant.numeric.phreeqc
+>   N(5)     1.0
+#^^^^^ source.phreeqc
+#     ^ source.phreeqc constant.numeric.phreeqc
+#      ^^^^^^ source.phreeqc
+#            ^^^ source.phreeqc constant.numeric.phreeqc
+>EXCHANGE_SPECIES # For linear exchange, make KX exch. coeff. equal to NaX
+#^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                ^ source.phreeqc
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>   K+ + X- = KX
+#^^^^^^^^^^^^^^^^ source.phreeqc
+>   log_k   0.0
+#^^^^^^^^^^^ source.phreeqc
+#           ^^^ source.phreeqc constant.numeric.phreeqc
+>   -gamma  3.5     0.015
+#^^^ source.phreeqc
+#   ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#         ^^ source.phreeqc
+#           ^^^ source.phreeqc constant.numeric.phreeqc
+#              ^^^^^ source.phreeqc
+#                   ^^^^^ source.phreeqc constant.numeric.phreeqc
+>EXCHANGE 1-41
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^ source.phreeqc constant.numeric.phreeqc
+>   -equil  1
+#^^^ source.phreeqc
+#   ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#         ^^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+>   X       1.e-3
+#^^^^^^^^^^^ source.phreeqc
+#           ^^^^^ source.phreeqc constant.numeric.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>PRINT
+#^^^^^ source.phreeqc keyword.control.phreeqc
+>        -reset false
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#              ^^^^^^^ source.phreeqc
+>        -echo_input true
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^ source.phreeqc
+>		-status false
+#^^ source.phreeqc
+#  ^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#         ^^^^^^^ source.phreeqc
+>MIX  1;  1 .93038;      22 .06962       ;MIX  2;         2 .93038;      23 .06962;
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^ source.phreeqc
+#     ^ source.phreeqc constant.numeric.phreeqc
+#      ^^^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^ source.phreeqc
+#                        ^^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^^^^^^^^^^ source.phreeqc
+#                                              ^ source.phreeqc constant.numeric.phreeqc
+#                                               ^^^^^^^^^^ source.phreeqc
+#                                                         ^ source.phreeqc constant.numeric.phreeqc
+#                                                          ^ source.phreeqc
+#                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                 ^^^^^^^ source.phreeqc
+#                                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                                          ^ source.phreeqc
+#                                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                                 ^^ source.phreeqc
+>MIX  3;  3 .93038;      24 .06962       ;MIX  4;         4 .93038;      25 .06962;
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^ source.phreeqc
+#     ^ source.phreeqc constant.numeric.phreeqc
+#      ^^^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^ source.phreeqc
+#                        ^^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^^^^^^^^^^ source.phreeqc
+#                                              ^ source.phreeqc constant.numeric.phreeqc
+#                                               ^^^^^^^^^^ source.phreeqc
+#                                                         ^ source.phreeqc constant.numeric.phreeqc
+#                                                          ^ source.phreeqc
+#                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                 ^^^^^^^ source.phreeqc
+#                                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                                          ^ source.phreeqc
+#                                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                                 ^^ source.phreeqc
+>MIX  5;  5 .93038;      26 .06962       ;MIX  6;         6 .93038;      27 .06962;
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^ source.phreeqc
+#     ^ source.phreeqc constant.numeric.phreeqc
+#      ^^^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^ source.phreeqc
+#                        ^^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^^^^^^^^^^ source.phreeqc
+#                                              ^ source.phreeqc constant.numeric.phreeqc
+#                                               ^^^^^^^^^^ source.phreeqc
+#                                                         ^ source.phreeqc constant.numeric.phreeqc
+#                                                          ^ source.phreeqc
+#                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                 ^^^^^^^ source.phreeqc
+#                                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                                          ^ source.phreeqc
+#                                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                                 ^^ source.phreeqc
+>MIX  7;  7 .93038;      28 .06962       ;MIX  8;         8 .93038;      29 .06962;
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^ source.phreeqc
+#     ^ source.phreeqc constant.numeric.phreeqc
+#      ^^^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^ source.phreeqc
+#                        ^^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^^^^^^^^^^ source.phreeqc
+#                                              ^ source.phreeqc constant.numeric.phreeqc
+#                                               ^^^^^^^^^^ source.phreeqc
+#                                                         ^ source.phreeqc constant.numeric.phreeqc
+#                                                          ^ source.phreeqc
+#                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                 ^^^^^^^ source.phreeqc
+#                                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                                          ^ source.phreeqc
+#                                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                                 ^^ source.phreeqc
+>MIX  9;  9 .93038;      30 .06962       ;MIX 10;        10 .93038;      31 .06962;
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^ source.phreeqc
+#     ^ source.phreeqc constant.numeric.phreeqc
+#      ^^^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^ source.phreeqc
+#                        ^^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^^^^^^^^^ source.phreeqc
+#                                             ^^ source.phreeqc constant.numeric.phreeqc
+#                                               ^^^^^^^^^ source.phreeqc
+#                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                          ^ source.phreeqc
+#                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                 ^^^^^^^ source.phreeqc
+#                                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                                          ^ source.phreeqc
+#                                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                                 ^^ source.phreeqc
+>MIX 11; 11 .93038;      32 .06962       ;MIX 12;        12 .93038;      33 .06962;
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^ source.phreeqc
+#    ^^ source.phreeqc constant.numeric.phreeqc
+#      ^^ source.phreeqc
+#        ^^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^ source.phreeqc
+#                        ^^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^^^^^^^^^ source.phreeqc
+#                                             ^^ source.phreeqc constant.numeric.phreeqc
+#                                               ^^^^^^^^^ source.phreeqc
+#                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                          ^ source.phreeqc
+#                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                 ^^^^^^^ source.phreeqc
+#                                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                                          ^ source.phreeqc
+#                                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                                 ^^ source.phreeqc
+>MIX 13; 13 .93038;      34 .06962       ;MIX 14;        14 .93038;      35 .06962;
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^ source.phreeqc
+#    ^^ source.phreeqc constant.numeric.phreeqc
+#      ^^ source.phreeqc
+#        ^^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^ source.phreeqc
+#                        ^^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^^^^^^^^^ source.phreeqc
+#                                             ^^ source.phreeqc constant.numeric.phreeqc
+#                                               ^^^^^^^^^ source.phreeqc
+#                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                          ^ source.phreeqc
+#                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                 ^^^^^^^ source.phreeqc
+#                                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                                          ^ source.phreeqc
+#                                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                                 ^^ source.phreeqc
+>MIX 15; 15 .93038;      36 .06962       ;MIX 16;        16 .93038;      37 .06962;
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^ source.phreeqc
+#    ^^ source.phreeqc constant.numeric.phreeqc
+#      ^^ source.phreeqc
+#        ^^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^ source.phreeqc
+#                        ^^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^^^^^^^^^ source.phreeqc
+#                                             ^^ source.phreeqc constant.numeric.phreeqc
+#                                               ^^^^^^^^^ source.phreeqc
+#                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                          ^ source.phreeqc
+#                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                 ^^^^^^^ source.phreeqc
+#                                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                                          ^ source.phreeqc
+#                                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                                 ^^ source.phreeqc
+>MIX 17; 17 .93038;      38 .06962       ;MIX 18;        18 .93038;      39 .06962;
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^ source.phreeqc
+#    ^^ source.phreeqc constant.numeric.phreeqc
+#      ^^ source.phreeqc
+#        ^^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^ source.phreeqc
+#                        ^^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^^^^^^^^^ source.phreeqc
+#                                             ^^ source.phreeqc constant.numeric.phreeqc
+#                                               ^^^^^^^^^ source.phreeqc
+#                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                          ^ source.phreeqc
+#                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                 ^^^^^^^ source.phreeqc
+#                                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                                          ^ source.phreeqc
+#                                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                                 ^^ source.phreeqc
+>MIX 19; 19 .93038;      40 .06962       ;MIX 20;        20 .93038;      41 .06962;
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^ source.phreeqc
+#    ^^ source.phreeqc constant.numeric.phreeqc
+#      ^^ source.phreeqc
+#        ^^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^ source.phreeqc
+#                        ^^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^^^^^^^^^ source.phreeqc
+#                                             ^^ source.phreeqc constant.numeric.phreeqc
+#                                               ^^^^^^^^^ source.phreeqc
+#                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                          ^ source.phreeqc
+#                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                 ^^^^^^^ source.phreeqc
+#                                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                                          ^ source.phreeqc
+#                                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                                 ^^ source.phreeqc
+>#
+#^ source.phreeqc comment.line.number-sign.phreeqc
+>MIX 22;  1 .20886;      22 .79114       ;MIX 23;         2 .20886;      23 .79114;
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^ source.phreeqc
+#    ^^ source.phreeqc constant.numeric.phreeqc
+#      ^^^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^ source.phreeqc
+#                        ^^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^^^^^^^^^ source.phreeqc
+#                                             ^^ source.phreeqc constant.numeric.phreeqc
+#                                               ^^^^^^^^^^ source.phreeqc
+#                                                         ^ source.phreeqc constant.numeric.phreeqc
+#                                                          ^ source.phreeqc
+#                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                 ^^^^^^^ source.phreeqc
+#                                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                                          ^ source.phreeqc
+#                                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                                 ^^ source.phreeqc
+>MIX 24;  3 .20886;      24 .79114       ;MIX 25;         4 .20886;      25 .79114;
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^ source.phreeqc
+#    ^^ source.phreeqc constant.numeric.phreeqc
+#      ^^^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^ source.phreeqc
+#                        ^^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^^^^^^^^^ source.phreeqc
+#                                             ^^ source.phreeqc constant.numeric.phreeqc
+#                                               ^^^^^^^^^^ source.phreeqc
+#                                                         ^ source.phreeqc constant.numeric.phreeqc
+#                                                          ^ source.phreeqc
+#                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                 ^^^^^^^ source.phreeqc
+#                                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                                          ^ source.phreeqc
+#                                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                                 ^^ source.phreeqc
+>MIX 26;  5 .20886;      26 .79114       ;MIX 27;         6 .20886;      27 .79114;
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^ source.phreeqc
+#    ^^ source.phreeqc constant.numeric.phreeqc
+#      ^^^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^ source.phreeqc
+#                        ^^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^^^^^^^^^ source.phreeqc
+#                                             ^^ source.phreeqc constant.numeric.phreeqc
+#                                               ^^^^^^^^^^ source.phreeqc
+#                                                         ^ source.phreeqc constant.numeric.phreeqc
+#                                                          ^ source.phreeqc
+#                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                 ^^^^^^^ source.phreeqc
+#                                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                                          ^ source.phreeqc
+#                                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                                 ^^ source.phreeqc
+>MIX 28;  7 .20886;      28 .79114       ;MIX 29;         8 .20886;      29 .79114;
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^ source.phreeqc
+#    ^^ source.phreeqc constant.numeric.phreeqc
+#      ^^^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^ source.phreeqc
+#                        ^^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^^^^^^^^^ source.phreeqc
+#                                             ^^ source.phreeqc constant.numeric.phreeqc
+#                                               ^^^^^^^^^^ source.phreeqc
+#                                                         ^ source.phreeqc constant.numeric.phreeqc
+#                                                          ^ source.phreeqc
+#                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                 ^^^^^^^ source.phreeqc
+#                                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                                          ^ source.phreeqc
+#                                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                                 ^^ source.phreeqc
+>MIX 30;  9 .20886;      30 .79114       ;MIX 31;        10 .20886;      31 .79114;
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^ source.phreeqc
+#    ^^ source.phreeqc constant.numeric.phreeqc
+#      ^^^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^ source.phreeqc
+#                        ^^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^^^^^^^^^ source.phreeqc
+#                                             ^^ source.phreeqc constant.numeric.phreeqc
+#                                               ^^^^^^^^^ source.phreeqc
+#                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                          ^ source.phreeqc
+#                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                 ^^^^^^^ source.phreeqc
+#                                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                                          ^ source.phreeqc
+#                                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                                 ^^ source.phreeqc
+>MIX 32; 11 .20886;      32 .79114       ;MIX 33;        12 .20886;      33 .79114;
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^ source.phreeqc
+#    ^^ source.phreeqc constant.numeric.phreeqc
+#      ^^ source.phreeqc
+#        ^^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^ source.phreeqc
+#                        ^^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^^^^^^^^^ source.phreeqc
+#                                             ^^ source.phreeqc constant.numeric.phreeqc
+#                                               ^^^^^^^^^ source.phreeqc
+#                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                          ^ source.phreeqc
+#                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                 ^^^^^^^ source.phreeqc
+#                                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                                          ^ source.phreeqc
+#                                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                                 ^^ source.phreeqc
+>MIX 34; 13 .20886;      34 .79114       ;MIX 35;        14 .20886;      35 .79114;
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^ source.phreeqc
+#    ^^ source.phreeqc constant.numeric.phreeqc
+#      ^^ source.phreeqc
+#        ^^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^ source.phreeqc
+#                        ^^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^^^^^^^^^ source.phreeqc
+#                                             ^^ source.phreeqc constant.numeric.phreeqc
+#                                               ^^^^^^^^^ source.phreeqc
+#                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                          ^ source.phreeqc
+#                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                 ^^^^^^^ source.phreeqc
+#                                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                                          ^ source.phreeqc
+#                                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                                 ^^ source.phreeqc
+>MIX 36; 15 .20886;      36 .79114       ;MIX 37;        16 .20886;      37 .79114;
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^ source.phreeqc
+#    ^^ source.phreeqc constant.numeric.phreeqc
+#      ^^ source.phreeqc
+#        ^^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^ source.phreeqc
+#                        ^^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^^^^^^^^^ source.phreeqc
+#                                             ^^ source.phreeqc constant.numeric.phreeqc
+#                                               ^^^^^^^^^ source.phreeqc
+#                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                          ^ source.phreeqc
+#                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                 ^^^^^^^ source.phreeqc
+#                                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                                          ^ source.phreeqc
+#                                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                                 ^^ source.phreeqc
+>MIX 38; 17 .20886;      38 .79114       ;MIX 39;        18 .20886;      39 .79114;
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^ source.phreeqc
+#    ^^ source.phreeqc constant.numeric.phreeqc
+#      ^^ source.phreeqc
+#        ^^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^ source.phreeqc
+#                        ^^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^^^^^^^^^ source.phreeqc
+#                                             ^^ source.phreeqc constant.numeric.phreeqc
+#                                               ^^^^^^^^^ source.phreeqc
+#                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                          ^ source.phreeqc
+#                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                 ^^^^^^^ source.phreeqc
+#                                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                                          ^ source.phreeqc
+#                                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                                 ^^ source.phreeqc
+>MIX 40; 19 .20886;      40 .79114       ;MIX 41;        20 .20886;      41 .79114;
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^ source.phreeqc
+#    ^^ source.phreeqc constant.numeric.phreeqc
+#      ^^ source.phreeqc
+#        ^^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^ source.phreeqc
+#                        ^^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^^^^^^^^^ source.phreeqc
+#                                             ^^ source.phreeqc constant.numeric.phreeqc
+#                                               ^^^^^^^^^ source.phreeqc
+#                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                          ^ source.phreeqc
+#                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                 ^^^^^^^ source.phreeqc
+#                                                                        ^^ source.phreeqc constant.numeric.phreeqc
+#                                                                          ^ source.phreeqc
+#                                                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                                 ^^ source.phreeqc
+>TRANSPORT
+#^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>   -cells  20
+#^^^ source.phreeqc
+#   ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#         ^^ source.phreeqc
+#           ^^ source.phreeqc constant.numeric.phreeqc
+>   -shifts 5
+#^^^ source.phreeqc
+#   ^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#          ^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+>   -flow_direction  forward
+#^^^ source.phreeqc
+#   ^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                  ^^^^^^^^^^ source.phreeqc
+>   -time_step       3600
+#^^^ source.phreeqc
+#   ^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#             ^^^^^^^ source.phreeqc
+#                    ^^^^ source.phreeqc constant.numeric.phreeqc
+>   -boundary_conditions   flux  flux
+#^^^ source.phreeqc
+#   ^^^^^^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                       ^^^^^^^^^^^^^^ source.phreeqc
+>   -diffusion_coefficient 0.0
+#^^^ source.phreeqc
+#   ^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                         ^ source.phreeqc
+#                          ^^^ source.phreeqc constant.numeric.phreeqc
+>   -lengths         20*0.1
+#^^^ source.phreeqc
+#   ^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#           ^^^^^^^^^ source.phreeqc
+#                    ^^ source.phreeqc constant.numeric.phreeqc
+#                      ^ source.phreeqc
+#                       ^^^ source.phreeqc constant.numeric.phreeqc
+>   -dispersivities  20*0.015
+#^^^ source.phreeqc
+#   ^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                  ^^ source.phreeqc
+#                    ^^ source.phreeqc constant.numeric.phreeqc
+#                      ^ source.phreeqc
+#                       ^^^^^ source.phreeqc constant.numeric.phreeqc
+>   -stagnant        1
+#^^^ source.phreeqc
+#   ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#            ^^^^^^^^ source.phreeqc
+#                    ^ source.phreeqc constant.numeric.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>SOLUTION 0  # Original solution reenters
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^^ source.phreeqc
+#            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>   units   mmol/l
+#^^^^^^^^^^^^^^^^^^ source.phreeqc
+>   pH       7.0
+#^^^^^^^^^^^^ source.phreeqc
+#            ^^^ source.phreeqc constant.numeric.phreeqc
+>   pe      13.0   O2(g)    -0.7
+#^^^^^^^^^^^ source.phreeqc
+#           ^^^^ source.phreeqc constant.numeric.phreeqc
+#               ^^^^^^^^^^^^ source.phreeqc
+#                           ^^^^ source.phreeqc constant.numeric.phreeqc
+>   K        1.0
+#^^^^^^^^^^^^ source.phreeqc
+#            ^^^ source.phreeqc constant.numeric.phreeqc
+>   N(5)     1.0
+#^^^^^ source.phreeqc
+#     ^ source.phreeqc constant.numeric.phreeqc
+#      ^^^^^^ source.phreeqc
+#            ^^^ source.phreeqc constant.numeric.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>SELECTED_OUTPUT
+#^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>   -file   ex13b.sel
+#^^^ source.phreeqc
+#   ^^^^^ source.phreeqc variable.parameter.phreeqc
+#        ^^^^^^^^^^^^^ source.phreeqc
+>   -reset  false
+#^^^ source.phreeqc
+#   ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#         ^^^^^^^^ source.phreeqc
+>   -distance       true
+#^^^ source.phreeqc
+#   ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#            ^^^^^^^^^^^^ source.phreeqc
+>   -solution
+#^^^ source.phreeqc
+#   ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+>USER_PUNCH
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>   -headings Cl_mmol Na_mmol
+#^^^ source.phreeqc
+#   ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#            ^^^^^^^^^^^^^^^^^ source.phreeqc
+>  10 PUNCH TOT("Cl")*1000, TOT("Na")*1000
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc
+#               ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                   ^ source.phreeqc
+#                    ^ source.phreeqc keyword.operator.phreeqc
+#                     ^^^^ source.phreeqc constant.numeric.phreeqc
+#                         ^^ source.phreeqc
+#                           ^^^ source.phreeqc support.function.phreeqc
+#                              ^ source.phreeqc
+#                               ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                   ^ source.phreeqc
+#                                    ^ source.phreeqc keyword.operator.phreeqc
+#                                     ^^^^ source.phreeqc constant.numeric.phreeqc
+>TRANSPORT
+#^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>   -shifts  10
+#^^^ source.phreeqc
+#   ^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#          ^^ source.phreeqc
+#            ^^ source.phreeqc constant.numeric.phreeqc
+>   -punch_cells        1-20
+#^^^ source.phreeqc
+#   ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#               ^^^^^^^^ source.phreeqc
+#                       ^ source.phreeqc constant.numeric.phreeqc
+#                        ^ source.phreeqc
+#                         ^^ source.phreeqc constant.numeric.phreeqc
+>   -punch_frequency    10
+#^^^ source.phreeqc
+#   ^^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^ source.phreeqc
+#                       ^^ source.phreeqc constant.numeric.phreeqc
+>USER_GRAPH 1 Example 13B
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#          ^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^^^^^^^^^^ source.phreeqc
+>   -headings Distance Na Cl
+#^^^ source.phreeqc
+#   ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#            ^^^^^^^^^^^^^^^^ source.phreeqc
+>   -chart_title "Dual Porosity, First-Order Exchange with Explicit Mixing Factors"
+#^^^ source.phreeqc
+#   ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#               ^ source.phreeqc
+#                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>   -axis_titles "Distance, in meters" "Millimoles per kilogram water"
+#^^^ source.phreeqc
+#   ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#               ^ source.phreeqc
+#                ^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                     ^ source.phreeqc
+#                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>   -axis_scale x_axis 0 2
+#^^^ source.phreeqc
+#   ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#              ^^^^^^^^ source.phreeqc
+#                      ^ source.phreeqc constant.numeric.phreeqc
+#                       ^ source.phreeqc
+#                        ^ source.phreeqc constant.numeric.phreeqc
+>   -axis_scale y_axis 0 0.8
+#^^^ source.phreeqc
+#   ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#              ^^^^^^^^ source.phreeqc
+#                      ^ source.phreeqc constant.numeric.phreeqc
+#                       ^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+>   -plot_concentration_vs x
+#^^^ source.phreeqc
+#   ^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                         ^^^ source.phreeqc
+>   -start
+#^^^ source.phreeqc
+#   ^^^^^^ source.phreeqc variable.parameter.phreeqc
+>  10 GRAPH_X DIST
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^ source.phreeqc
+#             ^^^^ source.phreeqc support.function.phreeqc
+>  20 GRAPH_Y TOT("Na")*1000 TOT("Cl")*1000
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^ source.phreeqc
+#             ^^^ source.phreeqc support.function.phreeqc
+#                ^ source.phreeqc
+#                 ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                     ^ source.phreeqc
+#                      ^ source.phreeqc keyword.operator.phreeqc
+#                       ^^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^ source.phreeqc
+#                            ^^^ source.phreeqc support.function.phreeqc
+#                               ^ source.phreeqc
+#                                ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                    ^ source.phreeqc
+#                                     ^ source.phreeqc keyword.operator.phreeqc
+#                                      ^^^^ source.phreeqc constant.numeric.phreeqc
+>   -end
+#^^^ source.phreeqc
+#   ^^^^ source.phreeqc variable.parameter.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>

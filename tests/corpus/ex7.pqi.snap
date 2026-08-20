@@ -1,0 +1,823 @@
+>TITLE Example 7.--Organic decomposition with fixed-pressure and
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^ source.phreeqc
+#              ^^ source.phreeqc constant.numeric.phreeqc
+#                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>                  fixed-volume gas phases
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>SOLUTION_MASTER_SPECIES
+#^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>N(-3)    NH4+           0.0     N
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^^^ source.phreeqc
+>SOLUTION_SPECIES
+#^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>NH4+ = NH3 + H+
+#^^^^^^^^^^^^^^^^ source.phreeqc
+>        log_k           -9.252
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>        delta_h 12.48   kcal
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^ source.phreeqc constant.numeric.phreeqc
+#                     ^^^^^^^^ source.phreeqc
+>        -analytic    0.6322    -0.001225     -2835.76
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^^ source.phreeqc
+#                     ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^ source.phreeqc
+#                               ^^^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                        ^^^^^ source.phreeqc
+#                                             ^^^^^^^^ source.phreeqc constant.numeric.phreeqc
+>
+>NO3- + 10 H+ + 8 e- = NH4+ + 3 H2O
+#^^^^^^^ source.phreeqc
+#       ^^ source.phreeqc constant.numeric.phreeqc
+#         ^^^^^^ source.phreeqc
+#               ^ source.phreeqc constant.numeric.phreeqc
+#                ^^^^^^^^^^^^^ source.phreeqc
+#                             ^ source.phreeqc constant.numeric.phreeqc
+#                              ^^^^^ source.phreeqc
+>        log_k           119.077
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+>        delta_h -187.055        kcal
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                        ^^^^^^^^^^^^^ source.phreeqc
+>        -gamma    2.5000    0.0000
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#              ^^^^ source.phreeqc
+#                  ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                        ^^^^ source.phreeqc
+#                            ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>PHASES
+#^^^^^^ source.phreeqc keyword.control.phreeqc
+>NH3(g)
+#^^^^^^^ source.phreeqc
+>        NH3 = NH3
+#^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        log_k           1.770
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        delta_h -8.170  kcal
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                      ^^^^^^^ source.phreeqc
+>SOLUTION 1
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+>EQUILIBRIUM_PHASES 1
+#^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+>        Calcite
+#^^^^^^^^^^^^^^^^ source.phreeqc
+>        CO2(g)  -1.5
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>SAVE solution 1
+#^^^^ source.phreeqc keyword.control.phreeqc
+#    ^^^^^^^^^^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+>SELECTED_OUTPUT
+#^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>        -reset false
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#              ^^^^^^^ source.phreeqc
+>        -file ex7.sel
+#^^^^^^^^ source.phreeqc
+#        ^^^^^ source.phreeqc variable.parameter.phreeqc
+#             ^^^^^^^^^ source.phreeqc
+>        -simulation     true
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^^^^^ source.phreeqc
+>        -state          true
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#              ^^^^^^^^^^^^^^^ source.phreeqc
+>        -reaction       true
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^^^^^^^^^^ source.phreeqc
+>        -si CO2(g) CH4(g) N2(g) NH3(g)
+#^^^^^^^^ source.phreeqc
+#        ^^^ source.phreeqc variable.parameter.phreeqc
+#           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        -gas CO2(g) CH4(g) N2(g) NH3(g)
+#^^^^^^^^ source.phreeqc
+#        ^^^^ source.phreeqc variable.parameter.phreeqc
+#            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>#  Simulation 2: Decomposition of organic matter, CH2O(NH3).07,
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>#  at fixed pressure of 1.1 atm
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>USE solution 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+>GAS_PHASE 1 Fixed-pressure gas phase
+#^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#         ^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        -fixed_pressure
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+>        -pressure       1.1
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+>        CO2(g)          0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+>        CH4(g)          0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+>        N2(g)           0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+>        H2O(g)          0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+>REACTION 1
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+>        CH2O(NH3)0.07     1.0
+#^^^^^^^^^^^^^^^^^ source.phreeqc
+#                 ^^^^ source.phreeqc constant.numeric.phreeqc
+#                     ^^^^^ source.phreeqc
+#                          ^^^ source.phreeqc constant.numeric.phreeqc
+>        1. 2. 3. 4. 8. 16. 32 64. 125. 250. 500. 1000. mmol
+#^^^^^^^^ source.phreeqc
+#        ^^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^ source.phreeqc constant.numeric.phreeqc
+#             ^ source.phreeqc
+#              ^^ source.phreeqc constant.numeric.phreeqc
+#                ^ source.phreeqc
+#                 ^^ source.phreeqc constant.numeric.phreeqc
+#                   ^ source.phreeqc
+#                    ^^ source.phreeqc constant.numeric.phreeqc
+#                      ^ source.phreeqc
+#                       ^^^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^^ source.phreeqc constant.numeric.phreeqc
+#                             ^ source.phreeqc
+#                              ^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^ source.phreeqc
+#                                  ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                      ^ source.phreeqc
+#                                       ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                           ^ source.phreeqc
+#                                            ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                ^ source.phreeqc
+#                                                 ^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                      ^^^^^^ source.phreeqc
+>USER_GRAPH 1 Example 7
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#          ^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^^^^^^ source.phreeqc
+#                     ^ source.phreeqc constant.numeric.phreeqc
+>        -headings Fixed_Pressure: CH4 CO2 N2 H2O #Volume
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                                 ^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>        -chart_title "Gas Composition"
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>        -axis_titles "Organic matter reacted, in millimoles" \
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                            ^^^ source.phreeqc
+>        	     "Log(Partial pressure, in atmospheres)" "Volume, in liters"
+#^^^^^^^^^^^^^^ source.phreeqc
+#              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                     ^ source.phreeqc
+#                                                      ^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>        -axis_scale x_axis 1 1e3 auto auto log
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^^^ source.phreeqc
+#                           ^ source.phreeqc constant.numeric.phreeqc
+#                            ^ source.phreeqc
+#                             ^^^ source.phreeqc constant.numeric.phreeqc
+#                                ^^^^^^^^^^^ source.phreeqc
+#                                           ^^^ source.phreeqc support.function.basic.phreeqc
+>        -axis_scale y_axis -5.0 1.0 1 1
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^^^ source.phreeqc
+#                           ^^^^ source.phreeqc constant.numeric.phreeqc
+#                               ^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+#                                   ^ source.phreeqc
+#                                    ^ source.phreeqc constant.numeric.phreeqc
+#                                     ^ source.phreeqc
+#                                      ^ source.phreeqc constant.numeric.phreeqc
+>        -connect_simulations false
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                            ^ source.phreeqc
+#                             ^^^^^ source.phreeqc support.function.phreeqc
+>  -start
+#^^ source.phreeqc
+#  ^^^^^^ source.phreeqc variable.parameter.phreeqc
+>  10 IF GAS("CH4(g)") < 1e-10 THEN GOTO 100
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^ source.phreeqc keyword.control.basic.phreeqc
+#       ^ source.phreeqc
+#        ^^^ source.phreeqc support.function.phreeqc
+#           ^ source.phreeqc
+#            ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                    ^^ source.phreeqc
+#                      ^ source.phreeqc keyword.operator.phreeqc
+#                       ^ source.phreeqc
+#                        ^^^^^ source.phreeqc constant.numeric.phreeqc
+#                             ^ source.phreeqc
+#                              ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                  ^ source.phreeqc
+#                                   ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                       ^ source.phreeqc
+#                                        ^^^ source.phreeqc constant.numeric.phreeqc
+>  20 mM_OM = RXN * 1e3
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^^^^^^ source.phreeqc
+#           ^ source.phreeqc keyword.operator.phreeqc
+#            ^ source.phreeqc
+#             ^^^ source.phreeqc support.function.phreeqc
+#                ^ source.phreeqc
+#                 ^ source.phreeqc keyword.operator.phreeqc
+#                  ^ source.phreeqc
+#                   ^^^ source.phreeqc constant.numeric.phreeqc
+>  30 PLOT_XY -10, -10, line_width = 0, symbol_size = 0
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^ source.phreeqc
+#             ^^^ source.phreeqc constant.numeric.phreeqc
+#                ^^ source.phreeqc
+#                  ^^^ source.phreeqc constant.numeric.phreeqc
+#                     ^^ source.phreeqc
+#                       ^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                 ^ source.phreeqc
+#                                  ^ source.phreeqc keyword.operator.phreeqc
+#                                   ^ source.phreeqc
+#                                    ^ source.phreeqc constant.numeric.phreeqc
+#                                     ^^ source.phreeqc
+#                                       ^^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                  ^ source.phreeqc
+#                                                   ^ source.phreeqc keyword.operator.phreeqc
+#                                                    ^ source.phreeqc
+#                                                     ^ source.phreeqc constant.numeric.phreeqc
+>  40 PLOT_XY mM_OM, SI("CH4(g)"), color = Black, symbol = XCross
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^^^^^^^^ source.phreeqc
+#                    ^^ source.phreeqc support.function.phreeqc
+#                      ^ source.phreeqc
+#                       ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                               ^^^ source.phreeqc
+#                                  ^^^^^ source.phreeqc support.function.phreeqc
+#                                       ^ source.phreeqc
+#                                        ^ source.phreeqc keyword.operator.phreeqc
+#                                         ^^^^^^^^ source.phreeqc
+#                                                 ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                       ^ source.phreeqc
+#                                                        ^ source.phreeqc keyword.operator.phreeqc
+#                                                         ^^^^^^^^ source.phreeqc
+>  50 PLOT_XY mM_OM, SI("CO2(g)"), color = Red, symbol = XCross
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^^^^^^^^ source.phreeqc
+#                    ^^ source.phreeqc support.function.phreeqc
+#                      ^ source.phreeqc
+#                       ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                               ^^^ source.phreeqc
+#                                  ^^^^^ source.phreeqc support.function.phreeqc
+#                                       ^ source.phreeqc
+#                                        ^ source.phreeqc keyword.operator.phreeqc
+#                                         ^^^^^^ source.phreeqc
+#                                               ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                     ^ source.phreeqc
+#                                                      ^ source.phreeqc keyword.operator.phreeqc
+#                                                       ^^^^^^^^ source.phreeqc
+>  60 PLOT_XY mM_OM, SI("N2(g)"), color = Teal, symbol = XCross
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^^^^^^^^ source.phreeqc
+#                    ^^ source.phreeqc support.function.phreeqc
+#                      ^ source.phreeqc
+#                       ^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                              ^^^ source.phreeqc
+#                                 ^^^^^ source.phreeqc support.function.phreeqc
+#                                      ^ source.phreeqc
+#                                       ^ source.phreeqc keyword.operator.phreeqc
+#                                        ^^^^^^^ source.phreeqc
+#                                               ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                     ^ source.phreeqc
+#                                                      ^ source.phreeqc keyword.operator.phreeqc
+#                                                       ^^^^^^^^ source.phreeqc
+>  70 PLOT_XY mM_OM, SI("H2O(g)"), color = Blue, symbol = XCross
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^^^^^^^^ source.phreeqc
+#                    ^^ source.phreeqc support.function.phreeqc
+#                      ^ source.phreeqc
+#                       ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                               ^^^ source.phreeqc
+#                                  ^^^^^ source.phreeqc support.function.phreeqc
+#                                       ^ source.phreeqc
+#                                        ^ source.phreeqc keyword.operator.phreeqc
+#                                         ^^^^^^^ source.phreeqc
+#                                                ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                      ^ source.phreeqc
+#                                                       ^ source.phreeqc keyword.operator.phreeqc
+#                                                        ^^^^^^^^ source.phreeqc
+>  100 REM end of program
+#^^ source.phreeqc
+#  ^^^^ source.phreeqc constant.numeric.phreeqc
+#      ^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.rem.phreeqc
+>  -end
+#^^ source.phreeqc
+#  ^^^^ source.phreeqc variable.parameter.phreeqc
+>USER_GRAPH 2 Example 7
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#          ^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^^^^^^ source.phreeqc
+#                     ^ source.phreeqc constant.numeric.phreeqc
+>        -headings  Fixed_P:...Pressure Fixed_P:...Volume
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^^^^^^^^^^^ source.phreeqc
+#                              ^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                      ^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        -chart_title \
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^^^ source.phreeqc
+>            "Total Gas Pressure and Volume"
+#^^^^^^^^^^^^ source.phreeqc
+#            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>        -axis_titles "Organic matter reacted, in millimoles" \
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                            ^^^ source.phreeqc
+>                     "Log(Pressure, in atmospheres)" "Volume, in liters"
+#^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                    ^ source.phreeqc
+#                                                     ^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>        -axis_scale x_axis 1 1e3 auto auto log
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^^^ source.phreeqc
+#                           ^ source.phreeqc constant.numeric.phreeqc
+#                            ^ source.phreeqc
+#                             ^^^ source.phreeqc constant.numeric.phreeqc
+#                                ^^^^^^^^^^^ source.phreeqc
+#                                           ^^^ source.phreeqc support.function.basic.phreeqc
+>        -axis_scale y_axis -5.0 1.0 1 1
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^^^ source.phreeqc
+#                           ^^^^ source.phreeqc constant.numeric.phreeqc
+#                               ^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+#                                   ^ source.phreeqc
+#                                    ^ source.phreeqc constant.numeric.phreeqc
+#                                     ^ source.phreeqc
+#                                      ^ source.phreeqc constant.numeric.phreeqc
+>        -axis_scale y2_axis 1e-3 1e5 auto auto log
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^^^^ source.phreeqc
+#                            ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                ^ source.phreeqc
+#                                 ^^^ source.phreeqc constant.numeric.phreeqc
+#                                    ^^^^^^^^^^^ source.phreeqc
+#                                               ^^^ source.phreeqc support.function.basic.phreeqc
+>        -connect_simulations false
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                            ^ source.phreeqc
+#                             ^^^^^ source.phreeqc support.function.phreeqc
+>  -start
+#^^ source.phreeqc
+#  ^^^^^^ source.phreeqc variable.parameter.phreeqc
+>  10 IF GAS("CH4(g)") < 1e-10 THEN GOTO 100
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^ source.phreeqc keyword.control.basic.phreeqc
+#       ^ source.phreeqc
+#        ^^^ source.phreeqc support.function.phreeqc
+#           ^ source.phreeqc
+#            ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                    ^^ source.phreeqc
+#                      ^ source.phreeqc keyword.operator.phreeqc
+#                       ^ source.phreeqc
+#                        ^^^^^ source.phreeqc constant.numeric.phreeqc
+#                             ^ source.phreeqc
+#                              ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                  ^ source.phreeqc
+#                                   ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                       ^ source.phreeqc
+#                                        ^^^ source.phreeqc constant.numeric.phreeqc
+>  20 mM_OM = RXN * 1e3
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^^^^^^ source.phreeqc
+#           ^ source.phreeqc keyword.operator.phreeqc
+#            ^ source.phreeqc
+#             ^^^ source.phreeqc support.function.phreeqc
+#                ^ source.phreeqc
+#                 ^ source.phreeqc keyword.operator.phreeqc
+#                  ^ source.phreeqc
+#                   ^^^ source.phreeqc constant.numeric.phreeqc
+>  30 moles = (GAS("CH4(g)") + GAS("CO2(g)") + GAS("N2(g)") + GAS("H2O(g)"))
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^^^^^^ source.phreeqc
+#           ^ source.phreeqc keyword.operator.phreeqc
+#            ^^ source.phreeqc
+#              ^^^ source.phreeqc support.function.phreeqc
+#                 ^ source.phreeqc
+#                  ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                          ^^ source.phreeqc
+#                            ^ source.phreeqc keyword.operator.phreeqc
+#                             ^ source.phreeqc
+#                              ^^^ source.phreeqc support.function.phreeqc
+#                                 ^ source.phreeqc
+#                                  ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                          ^^ source.phreeqc
+#                                            ^ source.phreeqc keyword.operator.phreeqc
+#                                             ^ source.phreeqc
+#                                              ^^^ source.phreeqc support.function.phreeqc
+#                                                 ^ source.phreeqc
+#                                                  ^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                         ^^ source.phreeqc
+#                                                           ^ source.phreeqc keyword.operator.phreeqc
+#                                                            ^ source.phreeqc
+#                                                             ^^^ source.phreeqc support.function.phreeqc
+#                                                                ^ source.phreeqc
+#                                                                 ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                                         ^^^ source.phreeqc
+>  40 vol = moles * 0.08207 * TK / 1.1
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^^^^ source.phreeqc
+#         ^ source.phreeqc keyword.operator.phreeqc
+#          ^^^^^^^ source.phreeqc
+#                 ^ source.phreeqc keyword.operator.phreeqc
+#                  ^ source.phreeqc
+#                   ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^ source.phreeqc keyword.operator.phreeqc
+#                            ^ source.phreeqc
+#                             ^^ source.phreeqc support.function.phreeqc
+#                               ^ source.phreeqc
+#                                ^ source.phreeqc keyword.operator.phreeqc
+#                                 ^ source.phreeqc
+#                                  ^^^ source.phreeqc constant.numeric.phreeqc
+>  50 PLOT_XY mM_OM, LOG10(1.1), color = Magenta, symbol = XCross
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^^^^^^^^ source.phreeqc
+#                    ^^^^^ source.phreeqc support.function.basic.phreeqc
+#                         ^ source.phreeqc
+#                          ^^^ source.phreeqc constant.numeric.phreeqc
+#                             ^^^ source.phreeqc
+#                                ^^^^^ source.phreeqc support.function.phreeqc
+#                                     ^ source.phreeqc
+#                                      ^ source.phreeqc keyword.operator.phreeqc
+#                                       ^^^^^^^^^^ source.phreeqc
+#                                                 ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                       ^ source.phreeqc
+#                                                        ^ source.phreeqc keyword.operator.phreeqc
+#                                                         ^^^^^^^^ source.phreeqc
+>  60 PLOT_XY mM_OM, vol, color = Cyan, symbol = XCross, y_axis = 2
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^^^^^^^^^^^^^ source.phreeqc
+#                         ^^^^^ source.phreeqc support.function.phreeqc
+#                              ^ source.phreeqc
+#                               ^ source.phreeqc keyword.operator.phreeqc
+#                                ^^^^^^^ source.phreeqc
+#                                       ^^^^^^ source.phreeqc support.function.phreeqc
+#                                             ^ source.phreeqc
+#                                              ^ source.phreeqc keyword.operator.phreeqc
+#                                               ^^^^^^^^^^^^^^^^ source.phreeqc
+#                                                               ^ source.phreeqc keyword.operator.phreeqc
+#                                                                ^ source.phreeqc
+#                                                                 ^ source.phreeqc constant.numeric.phreeqc
+>  100 REM end of program
+#^^ source.phreeqc
+#  ^^^^ source.phreeqc constant.numeric.phreeqc
+#      ^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.rem.phreeqc
+>  -end
+#^^ source.phreeqc
+#  ^^^^ source.phreeqc variable.parameter.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>#  Simulation 3: Decomposition of organic matter, CH2O(NH3).07,
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>#  at fixed volume of 23.19 L
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>USE solution 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+>USE reaction 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+>GAS_PHASE 1 Fixed volume gas phase
+#^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#         ^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        -fixed_volume
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+>        -volume         23.19
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#               ^^^^^^^^^ source.phreeqc
+#                        ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        CO2(g)          0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+>        CH4(g)          0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+>        N2(g)           0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+>        H2O(g)          0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+>        -equilibrate 1
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^ source.phreeqc
+#                     ^ source.phreeqc constant.numeric.phreeqc
+>USER_GRAPH 1
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#          ^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+>        -headings Fixed_Volume: CH4 CO2 N2 H2O
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>  -start
+#^^ source.phreeqc
+#  ^^^^^^ source.phreeqc variable.parameter.phreeqc
+>  10 mM_OM = RXN * 1e3
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^^^^^^ source.phreeqc
+#           ^ source.phreeqc keyword.operator.phreeqc
+#            ^ source.phreeqc
+#             ^^^ source.phreeqc support.function.phreeqc
+#                ^ source.phreeqc
+#                 ^ source.phreeqc keyword.operator.phreeqc
+#                  ^ source.phreeqc
+#                   ^^^ source.phreeqc constant.numeric.phreeqc
+>  20 PLOT_XY -10, -10, line_width = 0, symbol_size = 0
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^ source.phreeqc
+#             ^^^ source.phreeqc constant.numeric.phreeqc
+#                ^^ source.phreeqc
+#                  ^^^ source.phreeqc constant.numeric.phreeqc
+#                     ^^ source.phreeqc
+#                       ^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                 ^ source.phreeqc
+#                                  ^ source.phreeqc keyword.operator.phreeqc
+#                                   ^ source.phreeqc
+#                                    ^ source.phreeqc constant.numeric.phreeqc
+#                                     ^^ source.phreeqc
+#                                       ^^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                  ^ source.phreeqc
+#                                                   ^ source.phreeqc keyword.operator.phreeqc
+#                                                    ^ source.phreeqc
+#                                                     ^ source.phreeqc constant.numeric.phreeqc
+>  30 PLOT_XY mM_OM, SI("CH4(g)"), color = Black, symbol = Circle
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^^^^^^^^ source.phreeqc
+#                    ^^ source.phreeqc support.function.phreeqc
+#                      ^ source.phreeqc
+#                       ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                               ^^^ source.phreeqc
+#                                  ^^^^^ source.phreeqc support.function.phreeqc
+#                                       ^ source.phreeqc
+#                                        ^ source.phreeqc keyword.operator.phreeqc
+#                                         ^^^^^^^^ source.phreeqc
+#                                                 ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                       ^ source.phreeqc
+#                                                        ^ source.phreeqc keyword.operator.phreeqc
+#                                                         ^^^^^^^^ source.phreeqc
+>  40 PLOT_XY mM_OM, SI("CO2(g)"), color = Red, symbol = Circle
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^^^^^^^^ source.phreeqc
+#                    ^^ source.phreeqc support.function.phreeqc
+#                      ^ source.phreeqc
+#                       ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                               ^^^ source.phreeqc
+#                                  ^^^^^ source.phreeqc support.function.phreeqc
+#                                       ^ source.phreeqc
+#                                        ^ source.phreeqc keyword.operator.phreeqc
+#                                         ^^^^^^ source.phreeqc
+#                                               ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                     ^ source.phreeqc
+#                                                      ^ source.phreeqc keyword.operator.phreeqc
+#                                                       ^^^^^^^^ source.phreeqc
+>  50 PLOT_XY mM_OM, SI("N2(g)"), color = Teal, symbol = Circle
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^^^^^^^^ source.phreeqc
+#                    ^^ source.phreeqc support.function.phreeqc
+#                      ^ source.phreeqc
+#                       ^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                              ^^^ source.phreeqc
+#                                 ^^^^^ source.phreeqc support.function.phreeqc
+#                                      ^ source.phreeqc
+#                                       ^ source.phreeqc keyword.operator.phreeqc
+#                                        ^^^^^^^ source.phreeqc
+#                                               ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                     ^ source.phreeqc
+#                                                      ^ source.phreeqc keyword.operator.phreeqc
+#                                                       ^^^^^^^^ source.phreeqc
+>  60 PLOT_XY mM_OM, SI("H2O(g)"), color = Blue, symbol = Circle, symbol_size = 5
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^^^^^^^^ source.phreeqc
+#                    ^^ source.phreeqc support.function.phreeqc
+#                      ^ source.phreeqc
+#                       ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                               ^^^ source.phreeqc
+#                                  ^^^^^ source.phreeqc support.function.phreeqc
+#                                       ^ source.phreeqc
+#                                        ^ source.phreeqc keyword.operator.phreeqc
+#                                         ^^^^^^^ source.phreeqc
+#                                                ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                      ^ source.phreeqc
+#                                                       ^ source.phreeqc keyword.operator.phreeqc
+#                                                        ^^^^^^^^^ source.phreeqc
+#                                                                 ^^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                            ^ source.phreeqc
+#                                                                             ^ source.phreeqc keyword.operator.phreeqc
+#                                                                              ^ source.phreeqc
+#                                                                               ^ source.phreeqc constant.numeric.phreeqc
+>  -end
+#^^ source.phreeqc
+#  ^^^^ source.phreeqc variable.parameter.phreeqc
+>USER_GRAPH 2
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#          ^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+>        -headings Fixed_V:...Pressure Fixed_V:...Volume
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^^^^^^^^^^ source.phreeqc
+#                             ^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                     ^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>  -start
+#^^ source.phreeqc
+#  ^^^^^^ source.phreeqc variable.parameter.phreeqc
+>  10 mM_OM = RXN * 1e3
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^^^^^^ source.phreeqc
+#           ^ source.phreeqc keyword.operator.phreeqc
+#            ^ source.phreeqc
+#             ^^^ source.phreeqc support.function.phreeqc
+#                ^ source.phreeqc
+#                 ^ source.phreeqc keyword.operator.phreeqc
+#                  ^ source.phreeqc
+#                   ^^^ source.phreeqc constant.numeric.phreeqc
+>  20 tot_p = SR("CH4(g)") + SR("CO2(g)") + SR("N2(g)") + SR("H2O(g)")
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^^^^^^ source.phreeqc
+#           ^ source.phreeqc keyword.operator.phreeqc
+#            ^ source.phreeqc
+#             ^^ source.phreeqc support.function.phreeqc
+#               ^ source.phreeqc
+#                ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                        ^^ source.phreeqc
+#                          ^ source.phreeqc keyword.operator.phreeqc
+#                           ^ source.phreeqc
+#                            ^^ source.phreeqc support.function.phreeqc
+#                              ^ source.phreeqc
+#                               ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                       ^^ source.phreeqc
+#                                         ^ source.phreeqc keyword.operator.phreeqc
+#                                          ^ source.phreeqc
+#                                           ^^ source.phreeqc support.function.phreeqc
+#                                             ^ source.phreeqc
+#                                              ^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                     ^^ source.phreeqc
+#                                                       ^ source.phreeqc keyword.operator.phreeqc
+#                                                        ^ source.phreeqc
+#                                                         ^^ source.phreeqc support.function.phreeqc
+#                                                           ^ source.phreeqc
+#                                                            ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                                    ^^ source.phreeqc
+>  30 PLOT_XY mM_OM, LOG10(tot_p), color = Magenta, symbol = Circle
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^^^^^^^^ source.phreeqc
+#                    ^^^^^ source.phreeqc support.function.basic.phreeqc
+#                         ^^^^^^^^^ source.phreeqc
+#                                  ^^^^^ source.phreeqc support.function.phreeqc
+#                                       ^ source.phreeqc
+#                                        ^ source.phreeqc keyword.operator.phreeqc
+#                                         ^^^^^^^^^^ source.phreeqc
+#                                                   ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                         ^ source.phreeqc
+#                                                          ^ source.phreeqc keyword.operator.phreeqc
+#                                                           ^^^^^^^^ source.phreeqc
+>  40 PLOT_XY mM_OM, 23.19, color = Cyan, line_width = 1 symbol = Circle, y_axis = 2
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^^^^^^^^ source.phreeqc
+#                    ^^^^^ source.phreeqc constant.numeric.phreeqc
+#                         ^^ source.phreeqc
+#                           ^^^^^ source.phreeqc support.function.phreeqc
+#                                ^ source.phreeqc
+#                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                  ^^^^^^^ source.phreeqc
+#                                         ^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                   ^ source.phreeqc
+#                                                    ^ source.phreeqc keyword.operator.phreeqc
+#                                                     ^ source.phreeqc
+#                                                      ^ source.phreeqc constant.numeric.phreeqc
+#                                                       ^ source.phreeqc
+#                                                        ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                              ^ source.phreeqc
+#                                                               ^ source.phreeqc keyword.operator.phreeqc
+#                                                                ^^^^^^^^^^^^^^^^ source.phreeqc
+#                                                                                ^ source.phreeqc keyword.operator.phreeqc
+#                                                                                 ^ source.phreeqc
+#                                                                                  ^ source.phreeqc constant.numeric.phreeqc
+>  -end
+#^^ source.phreeqc
+#  ^^^^ source.phreeqc variable.parameter.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>

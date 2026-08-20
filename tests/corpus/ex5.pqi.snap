@@ -1,0 +1,265 @@
+>TITLE Example 5.--Add oxygen, equilibrate with pyrite, calcite, and goethite.
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^ source.phreeqc
+#              ^^ source.phreeqc constant.numeric.phreeqc
+#                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>SOLUTION 1  PURE WATER
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^^^^^^^^^^^^^ source.phreeqc
+>        pH      7.0
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>        temp    25.0
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>EQUILIBRIUM_PHASES 1
+#^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+>        Pyrite          0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+>        Goethite        0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+>        Calcite         0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+>        CO2(g)         -3.5
+#^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                       ^^^^ source.phreeqc constant.numeric.phreeqc
+>        Gypsum          0.0     0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+#                           ^^^^^ source.phreeqc
+#                                ^^^ source.phreeqc constant.numeric.phreeqc
+>REACTION 1
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+>        O2      1.0
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>        NaCl    0.5
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>        0.0     0.001   0.005   0.01   0.03   0.05
+#^^^^^^^^ source.phreeqc
+#        ^^^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^ source.phreeqc
+#                ^^^^^ source.phreeqc constant.numeric.phreeqc
+#                     ^^^ source.phreeqc
+#                        ^^^^^ source.phreeqc constant.numeric.phreeqc
+#                             ^^^ source.phreeqc
+#                                ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                    ^^^ source.phreeqc
+#                                       ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                           ^^^ source.phreeqc
+#                                              ^^^^ source.phreeqc constant.numeric.phreeqc
+>SELECTED_OUTPUT
+#^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>        -file   ex5.sel
+#^^^^^^^^ source.phreeqc
+#        ^^^^^ source.phreeqc variable.parameter.phreeqc
+#             ^^^^^^^^^^^ source.phreeqc
+>        -total  Cl
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#              ^^^^^ source.phreeqc
+>        -si     Gypsum
+#^^^^^^^^ source.phreeqc
+#        ^^^ source.phreeqc variable.parameter.phreeqc
+#           ^^^^^^^^^^^^ source.phreeqc
+>        -equilibrium_phases  pyrite goethite calcite CO2(g) gypsum
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>USER_GRAPH Example 5
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#          ^^^^^^^^^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+>        -headings Pyrite Goethite Calcite CO2(g) Gypsum SI_Gypsum
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        -chart_title "Pyrite Oxidation"
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>        -axis_titles "O2 added, in millimoles" "Millimoles dissolved" \
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                              ^ source.phreeqc
+#                                               ^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                                     ^^^ source.phreeqc
+>             "Saturation index"
+#^^^^^^^^^^^^^ source.phreeqc
+#             ^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>  10 x = RXN * 1e3
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^^^ source.phreeqc
+#       ^ source.phreeqc keyword.operator.phreeqc
+#        ^ source.phreeqc
+#         ^^^ source.phreeqc support.function.phreeqc
+#            ^ source.phreeqc
+#             ^ source.phreeqc keyword.operator.phreeqc
+#              ^ source.phreeqc
+#               ^^^ source.phreeqc constant.numeric.phreeqc
+>  20 PLOT_XY x, 1e3 * (10 - EQUI("Pyrite")), symbol = Plus
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+#                   ^ source.phreeqc
+#                    ^ source.phreeqc keyword.operator.phreeqc
+#                     ^^ source.phreeqc
+#                       ^^ source.phreeqc constant.numeric.phreeqc
+#                         ^ source.phreeqc
+#                          ^ source.phreeqc keyword.operator.phreeqc
+#                           ^ source.phreeqc
+#                            ^^^^ source.phreeqc support.function.phreeqc
+#                                ^ source.phreeqc
+#                                 ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                         ^^^^ source.phreeqc
+#                                             ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                   ^ source.phreeqc
+#                                                    ^ source.phreeqc keyword.operator.phreeqc
+#                                                     ^^^^^^ source.phreeqc
+>  30 PLOT_XY x, 1e3 * (10 - EQUI("Goethite")), symbol = Plus
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+#                   ^ source.phreeqc
+#                    ^ source.phreeqc keyword.operator.phreeqc
+#                     ^^ source.phreeqc
+#                       ^^ source.phreeqc constant.numeric.phreeqc
+#                         ^ source.phreeqc
+#                          ^ source.phreeqc keyword.operator.phreeqc
+#                           ^ source.phreeqc
+#                            ^^^^ source.phreeqc support.function.phreeqc
+#                                ^ source.phreeqc
+#                                 ^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                           ^^^^ source.phreeqc
+#                                               ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                     ^ source.phreeqc
+#                                                      ^ source.phreeqc keyword.operator.phreeqc
+#                                                       ^^^^^^ source.phreeqc
+>  40 PLOT_XY x, 1e3 * (10 - EQUI("Calcite")), symbol = Plus
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+#                   ^ source.phreeqc
+#                    ^ source.phreeqc keyword.operator.phreeqc
+#                     ^^ source.phreeqc
+#                       ^^ source.phreeqc constant.numeric.phreeqc
+#                         ^ source.phreeqc
+#                          ^ source.phreeqc keyword.operator.phreeqc
+#                           ^ source.phreeqc
+#                            ^^^^ source.phreeqc support.function.phreeqc
+#                                ^ source.phreeqc
+#                                 ^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                          ^^^^ source.phreeqc
+#                                              ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                    ^ source.phreeqc
+#                                                     ^ source.phreeqc keyword.operator.phreeqc
+#                                                      ^^^^^^ source.phreeqc
+>  50 PLOT_XY x, 1e3 * (10 - EQUI("CO2(g)")), symbol = Plus
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+#                   ^ source.phreeqc
+#                    ^ source.phreeqc keyword.operator.phreeqc
+#                     ^^ source.phreeqc
+#                       ^^ source.phreeqc constant.numeric.phreeqc
+#                         ^ source.phreeqc
+#                          ^ source.phreeqc keyword.operator.phreeqc
+#                           ^ source.phreeqc
+#                            ^^^^ source.phreeqc support.function.phreeqc
+#                                ^ source.phreeqc
+#                                 ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                         ^^^^ source.phreeqc
+#                                             ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                   ^ source.phreeqc
+#                                                    ^ source.phreeqc keyword.operator.phreeqc
+#                                                     ^^^^^^ source.phreeqc
+>  60 PLOT_XY x, 1e3 * (-EQUI("Gypsum")), symbol = Plus, color = Magenta
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+#                   ^ source.phreeqc
+#                    ^ source.phreeqc keyword.operator.phreeqc
+#                     ^^ source.phreeqc
+#                       ^ source.phreeqc keyword.operator.phreeqc
+#                        ^^^^ source.phreeqc support.function.phreeqc
+#                            ^ source.phreeqc
+#                             ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                     ^^^^ source.phreeqc
+#                                         ^^^^^^ source.phreeqc support.function.phreeqc
+#                                               ^ source.phreeqc
+#                                                ^ source.phreeqc keyword.operator.phreeqc
+#                                                 ^^^^^^^ source.phreeqc
+#                                                        ^^^^^ source.phreeqc support.function.phreeqc
+#                                                             ^ source.phreeqc
+#                                                              ^ source.phreeqc keyword.operator.phreeqc
+#                                                               ^^^^^^^^^ source.phreeqc
+>  70 PLOT_XY x, SI("Gypsum"), y-axis = 2, line_width = 2, symbol = Circle, \
+#^^ source.phreeqc
+#  ^^ source.phreeqc constant.numeric.phreeqc
+#    ^ source.phreeqc
+#     ^^^^^^^ source.phreeqc support.function.phreeqc
+#            ^^^^ source.phreeqc
+#                ^^ source.phreeqc support.function.phreeqc
+#                  ^ source.phreeqc
+#                   ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                           ^^^^ source.phreeqc
+#                               ^ source.phreeqc keyword.operator.phreeqc
+#                                ^^^^^ source.phreeqc
+#                                     ^ source.phreeqc keyword.operator.phreeqc
+#                                      ^ source.phreeqc
+#                                       ^ source.phreeqc constant.numeric.phreeqc
+#                                        ^^ source.phreeqc
+#                                          ^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                    ^ source.phreeqc
+#                                                     ^ source.phreeqc keyword.operator.phreeqc
+#                                                      ^ source.phreeqc
+#                                                       ^ source.phreeqc constant.numeric.phreeqc
+#                                                        ^^ source.phreeqc
+#                                                          ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                ^ source.phreeqc
+#                                                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                                                  ^^^^^^^^^^^ source.phreeqc
+>  	symbol_size = 8, color = Magenta
+#^^^ source.phreeqc
+#   ^^^^^^^^^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc
+#               ^ source.phreeqc keyword.operator.phreeqc
+#                ^ source.phreeqc
+#                 ^ source.phreeqc constant.numeric.phreeqc
+#                  ^^ source.phreeqc
+#                    ^^^^^ source.phreeqc support.function.phreeqc
+#                         ^ source.phreeqc
+#                          ^ source.phreeqc keyword.operator.phreeqc
+#                           ^^^^^^^^^ source.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>

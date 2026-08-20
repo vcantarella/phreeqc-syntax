@@ -1,0 +1,333 @@
+>TITLE Calculate gypsum/anhydrite transitions, 30 - 170 oC, 1 - 1000 atm
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                              ^^ source.phreeqc constant.numeric.phreeqc
+#                                                ^^^ source.phreeqc
+#                                                   ^^^ source.phreeqc constant.numeric.phreeqc
+#                                                      ^^^^^ source.phreeqc
+#                                                           ^ source.phreeqc constant.numeric.phreeqc
+#                                                            ^^^ source.phreeqc
+#                                                               ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                   ^^^^^ source.phreeqc
+>      Data in ex2b.tsv from Blount and Dickson, 1973, Am. Mineral. 58, 323, fig. 2.
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                                ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                    ^^^^^^^^^^^^^^^ source.phreeqc
+#                                                                   ^^ source.phreeqc constant.numeric.phreeqc
+#                                                                     ^^ source.phreeqc
+#                                                                       ^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                          ^^^^^^^ source.phreeqc
+#                                                                                 ^^ source.phreeqc constant.numeric.phreeqc
+>PRINT; -reset false
+#^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>SOLUTION 1
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+>EQUILIBRIUM_PHASES
+#^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>Gypsum
+#^^^^^^^ source.phreeqc
+>REACTION_TEMPERATURE
+#^^^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+> 30 90 in 10
+#^ source.phreeqc
+# ^^ source.phreeqc constant.numeric.phreeqc
+#   ^ source.phreeqc
+#    ^^ source.phreeqc constant.numeric.phreeqc
+#      ^^^^ source.phreeqc
+#          ^^ source.phreeqc constant.numeric.phreeqc
+>USER_GRAPH 1 Example 2B, (P, T)-dependent solubilities of Gypsum and Anhydrite
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#          ^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^ source.phreeqc keyword.operator.phreeqc
+#                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                                                 ^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                                                    ^^^^^^^^^^^ source.phreeqc
+> -plot_tsv_file ex2b.tsv
+#^ source.phreeqc
+# ^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#               ^^^^^^^^^^ source.phreeqc
+> -axis_titles "Temperature, in degrees celsius" "Solubility, in moles per \
+#^ source.phreeqc
+# ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#             ^ source.phreeqc
+#              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>kilogram water"
+#^^^^^^^^^^^^^^^^ source.phreeqc
+> -axis_scale x_axis 30 170
+#^ source.phreeqc
+# ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#            ^^^^^^^^ source.phreeqc
+#                    ^^ source.phreeqc constant.numeric.phreeqc
+#                      ^ source.phreeqc
+#                       ^^^ source.phreeqc constant.numeric.phreeqc
+> -axis_scale y_axis 1e-3 0.05 auto auto log
+#^ source.phreeqc
+# ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#            ^^^^^^^^ source.phreeqc
+#                    ^^^^ source.phreeqc constant.numeric.phreeqc
+#                        ^ source.phreeqc
+#                         ^^^^ source.phreeqc constant.numeric.phreeqc
+#                             ^^^^^^^^^^^ source.phreeqc
+#                                        ^^^ source.phreeqc support.function.basic.phreeqc
+> 10 plot_xy tc, tot("Ca"), color = Red, symbol = None
+#^ source.phreeqc
+# ^^ source.phreeqc constant.numeric.phreeqc
+#   ^ source.phreeqc
+#    ^^^^^^^ source.phreeqc support.function.phreeqc
+#           ^ source.phreeqc
+#            ^^ source.phreeqc support.function.phreeqc
+#              ^^ source.phreeqc
+#                ^^^ source.phreeqc support.function.phreeqc
+#                   ^ source.phreeqc
+#                    ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                        ^^^ source.phreeqc
+#                           ^^^^^ source.phreeqc support.function.phreeqc
+#                                ^ source.phreeqc
+#                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                  ^^^^^^ source.phreeqc
+#                                        ^^^^^^ source.phreeqc support.function.phreeqc
+#                                              ^ source.phreeqc
+#                                               ^ source.phreeqc keyword.operator.phreeqc
+#                                                ^^^^^^ source.phreeqc
+> -end
+#^ source.phreeqc
+# ^^^^ source.phreeqc variable.parameter.phreeqc
+>END # 1st simulation
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^ source.phreeqc
+#    ^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>
+>USE solution 1 
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+#              ^^ source.phreeqc
+>USE equilibrium_phases 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                       ^ source.phreeqc constant.numeric.phreeqc
+>USE reaction_temperature 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                         ^ source.phreeqc constant.numeric.phreeqc
+>REACTION_PRESSURE 2
+#^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                 ^ source.phreeqc
+#                  ^ source.phreeqc constant.numeric.phreeqc
+> 493
+#^ source.phreeqc
+# ^^^ source.phreeqc constant.numeric.phreeqc
+>USER_GRAPH
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+> 10 plot_xy tc, tot("Ca"), color = Red, symbol = None
+#^ source.phreeqc
+# ^^ source.phreeqc constant.numeric.phreeqc
+#   ^ source.phreeqc
+#    ^^^^^^^ source.phreeqc support.function.phreeqc
+#           ^ source.phreeqc
+#            ^^ source.phreeqc support.function.phreeqc
+#              ^^ source.phreeqc
+#                ^^^ source.phreeqc support.function.phreeqc
+#                   ^ source.phreeqc
+#                    ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                        ^^^ source.phreeqc
+#                           ^^^^^ source.phreeqc support.function.phreeqc
+#                                ^ source.phreeqc
+#                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                  ^^^^^^ source.phreeqc
+#                                        ^^^^^^ source.phreeqc support.function.phreeqc
+#                                              ^ source.phreeqc
+#                                               ^ source.phreeqc keyword.operator.phreeqc
+#                                                ^^^^^^ source.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>
+>USE solution 1 
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+#              ^^ source.phreeqc
+>USE equilibrium_phases 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                       ^ source.phreeqc constant.numeric.phreeqc
+>USE reaction_temperature 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                         ^ source.phreeqc constant.numeric.phreeqc
+>REACTION_PRESSURE 3
+#^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                 ^ source.phreeqc
+#                  ^ source.phreeqc constant.numeric.phreeqc
+> 987
+#^ source.phreeqc
+# ^^^ source.phreeqc constant.numeric.phreeqc
+>USER_GRAPH
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+> 20 plot_xy tc, tot("Ca"), color = Red, symbol = None
+#^ source.phreeqc
+# ^^ source.phreeqc constant.numeric.phreeqc
+#   ^ source.phreeqc
+#    ^^^^^^^ source.phreeqc support.function.phreeqc
+#           ^ source.phreeqc
+#            ^^ source.phreeqc support.function.phreeqc
+#              ^^ source.phreeqc
+#                ^^^ source.phreeqc support.function.phreeqc
+#                   ^ source.phreeqc
+#                    ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                        ^^^ source.phreeqc
+#                           ^^^^^ source.phreeqc support.function.phreeqc
+#                                ^ source.phreeqc
+#                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                  ^^^^^^ source.phreeqc
+#                                        ^^^^^^ source.phreeqc support.function.phreeqc
+#                                              ^ source.phreeqc
+#                                               ^ source.phreeqc keyword.operator.phreeqc
+#                                                ^^^^^^ source.phreeqc
+>END # 2nd simulation
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^ source.phreeqc
+#    ^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>
+>USE solution 1 
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+#              ^^ source.phreeqc
+>EQUILIBRIUM_PHASES 4
+#^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+>Anhydrite
+#^^^^^^^^^^ source.phreeqc
+>REACTION_TEMPERATURE 4
+#^^^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                    ^ source.phreeqc
+#                     ^ source.phreeqc constant.numeric.phreeqc
+> 50 170 in 10
+#^ source.phreeqc
+# ^^ source.phreeqc constant.numeric.phreeqc
+#   ^ source.phreeqc
+#    ^^^ source.phreeqc constant.numeric.phreeqc
+#       ^^^^ source.phreeqc
+#           ^^ source.phreeqc constant.numeric.phreeqc
+>USER_GRAPH
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+> 10 plot_xy tc, tot("Ca"), color = Green, symbol = None
+#^ source.phreeqc
+# ^^ source.phreeqc constant.numeric.phreeqc
+#   ^ source.phreeqc
+#    ^^^^^^^ source.phreeqc support.function.phreeqc
+#           ^ source.phreeqc
+#            ^^ source.phreeqc support.function.phreeqc
+#              ^^ source.phreeqc
+#                ^^^ source.phreeqc support.function.phreeqc
+#                   ^ source.phreeqc
+#                    ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                        ^^^ source.phreeqc
+#                           ^^^^^ source.phreeqc support.function.phreeqc
+#                                ^ source.phreeqc
+#                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                  ^^^^^^^^ source.phreeqc
+#                                          ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                ^ source.phreeqc
+#                                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                                  ^^^^^^ source.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>
+>USE solution 1 
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+#              ^^ source.phreeqc
+>USE equilibrium_phases 4
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                       ^ source.phreeqc constant.numeric.phreeqc
+>USE reaction_temperature 4
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                         ^ source.phreeqc constant.numeric.phreeqc
+>USE reaction_pressure 2
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                      ^ source.phreeqc constant.numeric.phreeqc
+>USER_GRAPH
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+> 10 plot_xy tc, tot("Ca"), color = Green, symbol = None
+#^ source.phreeqc
+# ^^ source.phreeqc constant.numeric.phreeqc
+#   ^ source.phreeqc
+#    ^^^^^^^ source.phreeqc support.function.phreeqc
+#           ^ source.phreeqc
+#            ^^ source.phreeqc support.function.phreeqc
+#              ^^ source.phreeqc
+#                ^^^ source.phreeqc support.function.phreeqc
+#                   ^ source.phreeqc
+#                    ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                        ^^^ source.phreeqc
+#                           ^^^^^ source.phreeqc support.function.phreeqc
+#                                ^ source.phreeqc
+#                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                  ^^^^^^^^ source.phreeqc
+#                                          ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                ^ source.phreeqc
+#                                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                                  ^^^^^^ source.phreeqc
+> -end
+#^ source.phreeqc
+# ^^^^ source.phreeqc variable.parameter.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>
+>USE solution 1 
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+#              ^^ source.phreeqc
+>USE equilibrium_phases 4
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                       ^ source.phreeqc constant.numeric.phreeqc
+>USE reaction_temperature 4
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                         ^ source.phreeqc constant.numeric.phreeqc
+>USE reaction_pressure 3
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                      ^ source.phreeqc constant.numeric.phreeqc
+>USER_GRAPH
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+> 10 plot_xy tc, tot("Ca"), color = Green, symbol = None
+#^ source.phreeqc
+# ^^ source.phreeqc constant.numeric.phreeqc
+#   ^ source.phreeqc
+#    ^^^^^^^ source.phreeqc support.function.phreeqc
+#           ^ source.phreeqc
+#            ^^ source.phreeqc support.function.phreeqc
+#              ^^ source.phreeqc
+#                ^^^ source.phreeqc support.function.phreeqc
+#                   ^ source.phreeqc
+#                    ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                        ^^^ source.phreeqc
+#                           ^^^^^ source.phreeqc support.function.phreeqc
+#                                ^ source.phreeqc
+#                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                  ^^^^^^^^ source.phreeqc
+#                                          ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                ^ source.phreeqc
+#                                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                                  ^^^^^^ source.phreeqc
+> -end
+#^ source.phreeqc
+# ^^^^ source.phreeqc variable.parameter.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>

@@ -1,0 +1,996 @@
+>#must use DATABASE iso.dat
+#^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>TITLE Example 20B.--Isotope evolution.
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>PRINT
+#^^^^^ source.phreeqc keyword.control.phreeqc
+>	-censor_species        1e-006
+#^ source.phreeqc
+# ^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                ^^^^^^^^ source.phreeqc
+#                        ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>KNOBS
+#^^^^^ source.phreeqc keyword.control.phreeqc
+>	-diagonal_scale
+#^ source.phreeqc
+# ^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+>	-step 10
+#^ source.phreeqc
+# ^^^^^ source.phreeqc variable.parameter.phreeqc
+#      ^ source.phreeqc
+#       ^^ source.phreeqc constant.numeric.phreeqc
+>	-pe   5
+#^ source.phreeqc
+# ^^^ source.phreeqc variable.parameter.phreeqc
+#    ^^^ source.phreeqc
+#       ^ source.phreeqc constant.numeric.phreeqc
+>#
+#^ source.phreeqc comment.line.number-sign.phreeqc
+># Open system calculation 
+#^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+># 	
+#^^^ source.phreeqc comment.line.number-sign.phreeqc
+>SOLID_SOLUTION 1 With [14C]
+#^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#              ^ source.phreeqc
+#               ^ source.phreeqc constant.numeric.phreeqc
+#                ^^^^^^^^^^^^ source.phreeqc
+>Calcite 
+#^^^^^^^^^ source.phreeqc
+>	-comp	Calcite                 0
+#^ source.phreeqc
+# ^^^^^ source.phreeqc variable.parameter.phreeqc
+#      ^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^ source.phreeqc constant.numeric.phreeqc
+>	-comp	CaCO2[18O](s)           0
+#^ source.phreeqc
+# ^^^^^ source.phreeqc variable.parameter.phreeqc
+#      ^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^ source.phreeqc constant.numeric.phreeqc
+>	-comp	CaCO[18O]2(s)           0
+#^ source.phreeqc
+# ^^^^^ source.phreeqc variable.parameter.phreeqc
+#      ^^^^^^^^^^ source.phreeqc
+#                ^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^^^^^^^^ source.phreeqc
+#                               ^ source.phreeqc constant.numeric.phreeqc
+>	-comp	CaC[18O]3(s)            0
+#^ source.phreeqc
+# ^^^^^ source.phreeqc variable.parameter.phreeqc
+#      ^^^^^^^^^ source.phreeqc
+#               ^ source.phreeqc constant.numeric.phreeqc
+#                ^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^ source.phreeqc constant.numeric.phreeqc
+>	-comp 	Ca[13C]O3(s)            0
+#^ source.phreeqc
+# ^^^^^ source.phreeqc variable.parameter.phreeqc
+#      ^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                ^ source.phreeqc constant.numeric.phreeqc
+>	-comp	Ca[13C]O2[18O](s)       0
+#^ source.phreeqc
+# ^^^^^ source.phreeqc variable.parameter.phreeqc
+#      ^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^ source.phreeqc constant.numeric.phreeqc
+>	-comp	Ca[13C]O[18O]2(s)       0
+#^ source.phreeqc
+# ^^^^^ source.phreeqc variable.parameter.phreeqc
+#      ^^^^^^^^^^^^^^ source.phreeqc
+#                    ^ source.phreeqc constant.numeric.phreeqc
+#                     ^^^^^^^^^^ source.phreeqc
+#                               ^ source.phreeqc constant.numeric.phreeqc
+>	-comp	Ca[13C][18O]3(s)        0
+#^ source.phreeqc
+# ^^^^^ source.phreeqc variable.parameter.phreeqc
+#      ^^^^^^^^^^^^^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^^^^^^^^ source.phreeqc
+#                               ^ source.phreeqc constant.numeric.phreeqc
+>	-comp 	Ca[14C]O3(s)            0
+#^ source.phreeqc
+# ^^^^^ source.phreeqc variable.parameter.phreeqc
+#      ^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                ^ source.phreeqc constant.numeric.phreeqc
+>	-comp	Ca[14C]O2[18O](s)       0
+#^ source.phreeqc
+# ^^^^^ source.phreeqc variable.parameter.phreeqc
+#      ^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                               ^ source.phreeqc constant.numeric.phreeqc
+>	-comp	Ca[14C]O[18O]2(s)       0
+#^ source.phreeqc
+# ^^^^^ source.phreeqc variable.parameter.phreeqc
+#      ^^^^^^^^^^^^^^ source.phreeqc
+#                    ^ source.phreeqc constant.numeric.phreeqc
+#                     ^^^^^^^^^^ source.phreeqc
+#                               ^ source.phreeqc constant.numeric.phreeqc
+>	-comp	Ca[14C][18O]3(s)        0
+#^ source.phreeqc
+# ^^^^^ source.phreeqc variable.parameter.phreeqc
+#      ^^^^^^^^^^^^^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^^^^^^^^ source.phreeqc
+#                               ^ source.phreeqc constant.numeric.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>REACTION 1
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+>	Calcite               9.8283e-001 
+#^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                       ^^^^^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                  ^^ source.phreeqc
+>	Ca[13C]O3(s)          1.1011e-002 
+#^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                       ^^^^^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                  ^^ source.phreeqc
+>	CaCO2[18O](s)         6.0825e-003 
+#^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                       ^^^^^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                  ^^ source.phreeqc
+>	Ca[13C]O2[18O](s)     6.8147e-005 
+#^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                       ^^^^^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                  ^^ source.phreeqc
+>	CaCO[18O]2(s)         1.2548e-005 
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^^^^^^^^ source.phreeqc
+#                       ^^^^^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                  ^^ source.phreeqc
+>	Ca[13C]O[18O]2(s)     1.4058e-007 
+#^^^^^^^^^^^^^^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+#               ^^^^^^^^ source.phreeqc
+#                       ^^^^^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                  ^^ source.phreeqc
+>	CaC[18O]3(s)          8.6284e-009 
+#^^^^^^^^^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^^^^^^^^^^^^^ source.phreeqc
+#                       ^^^^^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                  ^^ source.phreeqc
+>	Ca[13C][18O]3(s)      9.6671e-011 
+#^^^^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+#              ^^^^^^^^^ source.phreeqc
+#                       ^^^^^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                  ^^ source.phreeqc
+>	0.0005 mole
+#^ source.phreeqc
+# ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#       ^^^^^^ source.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>USER_PRINT
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>10 PRINT "Calcite added: ", GET(0) * RXN
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^^^ source.phreeqc support.function.phreeqc
+#        ^ source.phreeqc
+#         ^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                          ^^ source.phreeqc
+#                            ^^^ source.phreeqc support.function.phreeqc
+#                               ^ source.phreeqc
+#                                ^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^ source.phreeqc
+#                                   ^ source.phreeqc keyword.operator.phreeqc
+#                                    ^ source.phreeqc
+#                                     ^^^ source.phreeqc support.function.phreeqc
+>USER_GRAPH 1 Example 20
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#          ^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^^^^^^ source.phreeqc
+#                     ^^ source.phreeqc constant.numeric.phreeqc
+>        -headings Open--Dissolved Open--Calcite
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^^^ source.phreeqc
+#                      ^ source.phreeqc keyword.operator.phreeqc
+#                       ^ source.phreeqc keyword.operator.phreeqc
+#                        ^^^^^^^^^^^^^^ source.phreeqc
+#                                      ^ source.phreeqc keyword.operator.phreeqc
+#                                       ^ source.phreeqc keyword.operator.phreeqc
+#                                        ^^^^^^^^ source.phreeqc
+>        -chart_title "Oxygen-18"
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>        -axis_titles "Marine calcite reacted, in moles" "Permil"
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                       ^ source.phreeqc
+#                                                        ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>        -axis_scale x_axis 0 0.05 a a 
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^^^ source.phreeqc
+#                           ^ source.phreeqc constant.numeric.phreeqc
+#                            ^ source.phreeqc
+#                             ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^^^ source.phreeqc
+>        -axis_scale y_axis -10 30 a a
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^^^ source.phreeqc
+#                           ^^^ source.phreeqc constant.numeric.phreeqc
+#                              ^ source.phreeqc
+#                               ^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^^ source.phreeqc
+>   -start
+#^^^ source.phreeqc
+#   ^^^^^^ source.phreeqc variable.parameter.phreeqc
+>10 PUT(GET(0) + 1, 0)   
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^ source.phreeqc support.function.phreeqc
+#      ^ source.phreeqc
+#       ^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^^ source.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^ source.phreeqc
+#                ^ source.phreeqc constant.numeric.phreeqc
+#                 ^^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^^ source.phreeqc
+>20 PLOT_XY RXN*GET(0),ISO("R(18O)"), color=Red, line_w=2, symbol=None
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^^^ source.phreeqc support.function.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^^^ source.phreeqc
+#                          ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                  ^^^ source.phreeqc
+#                                     ^^^^^ source.phreeqc support.function.phreeqc
+#                                          ^ source.phreeqc keyword.operator.phreeqc
+#                                           ^^^^^^^^^^^ source.phreeqc
+#                                                      ^ source.phreeqc keyword.operator.phreeqc
+#                                                       ^ source.phreeqc constant.numeric.phreeqc
+#                                                        ^^ source.phreeqc
+#                                                          ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                ^ source.phreeqc keyword.operator.phreeqc
+#                                                                 ^^^^^ source.phreeqc
+>30 PLOT_XY RXN*GET(0),ISO("R(18O)_Calcite"), color=Green, line_w=2, symbol=None
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^^^ source.phreeqc support.function.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^^^ source.phreeqc
+#                          ^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                          ^^^ source.phreeqc
+#                                             ^^^^^ source.phreeqc support.function.phreeqc
+#                                                  ^ source.phreeqc keyword.operator.phreeqc
+#                                                   ^^^^^^^^^^^^^ source.phreeqc
+#                                                                ^ source.phreeqc keyword.operator.phreeqc
+#                                                                 ^ source.phreeqc constant.numeric.phreeqc
+#                                                                  ^^ source.phreeqc
+#                                                                    ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                          ^ source.phreeqc keyword.operator.phreeqc
+#                                                                           ^^^^^ source.phreeqc
+>   -end
+#^^^ source.phreeqc
+#   ^^^^ source.phreeqc variable.parameter.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>USER_GRAPH 2 Example 20
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#          ^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^^^^^^ source.phreeqc
+#                     ^^ source.phreeqc constant.numeric.phreeqc
+>        -headings Open--Dissolved Open-Calcite
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^^^ source.phreeqc
+#                      ^ source.phreeqc keyword.operator.phreeqc
+#                       ^ source.phreeqc keyword.operator.phreeqc
+#                        ^^^^^^^^^^^^^^ source.phreeqc
+#                                      ^ source.phreeqc keyword.operator.phreeqc
+#                                       ^^^^^^^^ source.phreeqc
+>        -chart_title "Carbon-13"
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>        -axis_titles "Marine calcite reacted, in moles" "Permil"
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                       ^ source.phreeqc
+#                                                        ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>        -axis_scale x_axis 0 0.05 a a 
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^^^ source.phreeqc
+#                           ^ source.phreeqc constant.numeric.phreeqc
+#                            ^ source.phreeqc
+#                             ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^^^ source.phreeqc
+>        -axis_scale y_axis -25 5.0 a a
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^^^ source.phreeqc
+#                           ^^^ source.phreeqc constant.numeric.phreeqc
+#                              ^ source.phreeqc
+#                               ^^^ source.phreeqc constant.numeric.phreeqc
+#                                  ^^^^^ source.phreeqc
+>        -plot_tsv  ex20-c13.tsv
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^^^^ source.phreeqc
+#                       ^ source.phreeqc keyword.operator.phreeqc
+#                        ^^^^^^^^ source.phreeqc
+>   -start
+#^^^ source.phreeqc
+#   ^^^^^^ source.phreeqc variable.parameter.phreeqc
+>10 PLOT_XY RXN*GET(0),ISO("R(13C)"), color=Red, line_w=2, symbol=None
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^^^ source.phreeqc support.function.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^^^ source.phreeqc
+#                          ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                  ^^^ source.phreeqc
+#                                     ^^^^^ source.phreeqc support.function.phreeqc
+#                                          ^ source.phreeqc keyword.operator.phreeqc
+#                                           ^^^^^^^^^^^ source.phreeqc
+#                                                      ^ source.phreeqc keyword.operator.phreeqc
+#                                                       ^ source.phreeqc constant.numeric.phreeqc
+#                                                        ^^ source.phreeqc
+#                                                          ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                ^ source.phreeqc keyword.operator.phreeqc
+#                                                                 ^^^^^ source.phreeqc
+>20 PLOT_XY RXN*GET(0),ISO("R(13C)_Calcite"), color=Green, line_w=2, symbol=None 
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^^^ source.phreeqc support.function.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^^^ source.phreeqc
+#                          ^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                          ^^^ source.phreeqc
+#                                             ^^^^^ source.phreeqc support.function.phreeqc
+#                                                  ^ source.phreeqc keyword.operator.phreeqc
+#                                                   ^^^^^^^^^^^^^ source.phreeqc
+#                                                                ^ source.phreeqc keyword.operator.phreeqc
+#                                                                 ^ source.phreeqc constant.numeric.phreeqc
+#                                                                  ^^ source.phreeqc
+#                                                                    ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                          ^ source.phreeqc keyword.operator.phreeqc
+#                                                                           ^^^^^^ source.phreeqc
+>   -end
+#^^^ source.phreeqc
+#   ^^^^ source.phreeqc variable.parameter.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>USER_GRAPH 3 Example 20
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#          ^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^^^^^^ source.phreeqc
+#                     ^^ source.phreeqc constant.numeric.phreeqc
+>        -headings Open--Dissolved Open--Calcite
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^^^ source.phreeqc
+#                      ^ source.phreeqc keyword.operator.phreeqc
+#                       ^ source.phreeqc keyword.operator.phreeqc
+#                        ^^^^^^^^^^^^^^ source.phreeqc
+#                                      ^ source.phreeqc keyword.operator.phreeqc
+#                                       ^ source.phreeqc keyword.operator.phreeqc
+#                                        ^^^^^^^^ source.phreeqc
+>        -chart_title "Carbon-14"
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>        -axis_titles "Marine calcite reacted, in moles" "Percent modern carbon"
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                    ^ source.phreeqc
+#                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                       ^ source.phreeqc
+#                                                        ^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>        -axis_scale x_axis 0 0.05 a a 
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^^^ source.phreeqc
+#                           ^ source.phreeqc constant.numeric.phreeqc
+#                            ^ source.phreeqc
+#                             ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^^^^ source.phreeqc
+>        -axis_scale y_axis 0 100 a a
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                   ^^^^^^^^ source.phreeqc
+#                           ^ source.phreeqc constant.numeric.phreeqc
+#                            ^ source.phreeqc
+#                             ^^^ source.phreeqc constant.numeric.phreeqc
+#                                ^^^^^ source.phreeqc
+>        -plot_tsv  ex20-c14.tsv
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^^^^ source.phreeqc
+#                       ^ source.phreeqc keyword.operator.phreeqc
+#                        ^^^^^^^^ source.phreeqc
+>   -start
+#^^^ source.phreeqc
+#   ^^^^^^ source.phreeqc variable.parameter.phreeqc
+>10 PLOT_XY RXN*GET(0),ISO("R(14C)"), color=Red, line_w=2, symbol=None
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^^^ source.phreeqc support.function.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^^^ source.phreeqc
+#                          ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                  ^^^ source.phreeqc
+#                                     ^^^^^ source.phreeqc support.function.phreeqc
+#                                          ^ source.phreeqc keyword.operator.phreeqc
+#                                           ^^^^^^^^^^^ source.phreeqc
+#                                                      ^ source.phreeqc keyword.operator.phreeqc
+#                                                       ^ source.phreeqc constant.numeric.phreeqc
+#                                                        ^^ source.phreeqc
+#                                                          ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                ^ source.phreeqc keyword.operator.phreeqc
+#                                                                 ^^^^^ source.phreeqc
+>20 PLOT_XY RXN*GET(0),ISO("R(14C)_Calcite"), color=Green, line_w=2, symbol=None 
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^^^ source.phreeqc support.function.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^^^ source.phreeqc
+#                          ^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                          ^^^ source.phreeqc
+#                                             ^^^^^ source.phreeqc support.function.phreeqc
+#                                                  ^ source.phreeqc keyword.operator.phreeqc
+#                                                   ^^^^^^^^^^^^^ source.phreeqc
+#                                                                ^ source.phreeqc keyword.operator.phreeqc
+#                                                                 ^ source.phreeqc constant.numeric.phreeqc
+#                                                                  ^^ source.phreeqc
+#                                                                    ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                          ^ source.phreeqc keyword.operator.phreeqc
+#                                                                           ^^^^^^ source.phreeqc
+>   -end                                                                            
+#^^^ source.phreeqc
+#   ^^^^ source.phreeqc variable.parameter.phreeqc
+#       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>SOLUTION 1
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+>	pH	5  	charge
+#^^^^ source.phreeqc
+#    ^ source.phreeqc constant.numeric.phreeqc
+#     ^^^^^^^^^^ source.phreeqc
+>	pe      10
+#^^^^^^^^^ source.phreeqc
+#         ^^ source.phreeqc constant.numeric.phreeqc
+>	C	2	CO2(g)  -1.0	
+#^^^ source.phreeqc
+#   ^ source.phreeqc constant.numeric.phreeqc
+#    ^^^^^^^^^ source.phreeqc
+#             ^^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^ source.phreeqc
+>	[13C]	-25	# permil
+#^^^^^^^ source.phreeqc
+#       ^^^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>	[14C]	100	# pmc
+#^^^^^^^ source.phreeqc
+#       ^^^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>	[18O]	-5	# permil
+#^^^^^^^ source.phreeqc
+#       ^^ source.phreeqc constant.numeric.phreeqc
+#         ^ source.phreeqc
+#          ^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>SELECTED_OUTPUT
+#^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>	-reset false
+#^ source.phreeqc
+# ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#       ^^^^^^^ source.phreeqc
+>	-file ex20_open
+#^ source.phreeqc
+# ^^^^^ source.phreeqc variable.parameter.phreeqc
+#      ^^^^^^^^^^^ source.phreeqc
+>USER_PUNCH
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>-start
+#^^^^^^ source.phreeqc variable.parameter.phreeqc
+>10 FOR i = 1 to 100
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^ source.phreeqc keyword.control.basic.phreeqc
+#      ^^^ source.phreeqc
+#         ^ source.phreeqc keyword.operator.phreeqc
+#          ^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^ source.phreeqc
+#             ^^ source.phreeqc keyword.control.basic.phreeqc
+#               ^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>20 PUNCH EOL$ + "USE solution 1"      
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^^^ source.phreeqc support.function.phreeqc
+#        ^ source.phreeqc
+#         ^^^^ source.phreeqc support.function.phreeqc
+#             ^ source.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^ source.phreeqc
+#                ^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                ^^^^^^^ source.phreeqc
+>30 PUNCH EOL$ + "USE solid_solution 1"
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^^^ source.phreeqc support.function.phreeqc
+#        ^ source.phreeqc
+#         ^^^^ source.phreeqc support.function.phreeqc
+#             ^ source.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^ source.phreeqc
+#                ^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+>40 PUNCH EOL$ + "USE reaction 1"      
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^^^ source.phreeqc support.function.phreeqc
+#        ^ source.phreeqc
+#         ^^^^ source.phreeqc support.function.phreeqc
+#             ^ source.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^ source.phreeqc
+#                ^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                ^^^^^^^ source.phreeqc
+>50 PUNCH EOL$ + "SAVE solution 1"     
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^^^ source.phreeqc support.function.phreeqc
+#        ^ source.phreeqc
+#         ^^^^ source.phreeqc support.function.phreeqc
+#             ^ source.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^ source.phreeqc
+#                ^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                 ^^^^^^ source.phreeqc
+>60 PUNCH EOL$ + "END"                 
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^^^ source.phreeqc support.function.phreeqc
+#        ^ source.phreeqc
+#         ^^^^ source.phreeqc support.function.phreeqc
+#             ^ source.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^ source.phreeqc
+#                ^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                     ^^^^^^^^^^^^^^^^^^ source.phreeqc
+>70 NEXT i
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#       ^^^ source.phreeqc
+>-end
+#^^^^ source.phreeqc variable.parameter.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>PRINT
+#^^^^^ source.phreeqc keyword.control.phreeqc
+>	-selected_output false
+#^ source.phreeqc
+# ^^^^^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^^^^^ source.phreeqc
+>	-warnings        0
+#^ source.phreeqc
+# ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#          ^^^^^^^^ source.phreeqc
+#                  ^ source.phreeqc constant.numeric.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>INCLUDE$ ex20_open
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^^^^^^^^^^^ source.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>#
+#^ source.phreeqc comment.line.number-sign.phreeqc
+># Closed system calculation 
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+># 
+#^^ source.phreeqc comment.line.number-sign.phreeqc
+>USER_GRAPH 1 Oxygen-18
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#          ^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^^^^ source.phreeqc
+#                   ^ source.phreeqc keyword.operator.phreeqc
+#                    ^^ source.phreeqc constant.numeric.phreeqc
+>        -headings Closed--Dissolved Closed--Calcite
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^^^^^ source.phreeqc
+#                        ^ source.phreeqc keyword.operator.phreeqc
+#                         ^ source.phreeqc keyword.operator.phreeqc
+#                          ^^^^^^^^^^^^^^^^ source.phreeqc
+#                                          ^ source.phreeqc keyword.operator.phreeqc
+#                                           ^ source.phreeqc keyword.operator.phreeqc
+#                                            ^^^^^^^^ source.phreeqc
+>   -start
+#^^^ source.phreeqc
+#   ^^^^^^ source.phreeqc variable.parameter.phreeqc
+>10 PUT(GET(1) + 1, 1)   
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^ source.phreeqc support.function.phreeqc
+#      ^ source.phreeqc
+#       ^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^^ source.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^ source.phreeqc
+#                ^ source.phreeqc constant.numeric.phreeqc
+#                 ^^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^^ source.phreeqc
+>20 PLOT_XY RXN*GET(1),ISO("R(18O)"), color=Blue, line_w=0, symbol=Circle
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^^^ source.phreeqc support.function.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^^^ source.phreeqc
+#                          ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                  ^^^ source.phreeqc
+#                                     ^^^^^ source.phreeqc support.function.phreeqc
+#                                          ^ source.phreeqc keyword.operator.phreeqc
+#                                           ^^^^^^^^^^^^ source.phreeqc
+#                                                       ^ source.phreeqc keyword.operator.phreeqc
+#                                                        ^ source.phreeqc constant.numeric.phreeqc
+#                                                         ^^ source.phreeqc
+#                                                           ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                                                  ^^^^^^^ source.phreeqc
+>30 PLOT_XY RXN*GET(1),ISO("R(18O)_Calcite"), color=Black, line_w=0, symbol=Circle
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^^^ source.phreeqc support.function.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^^^ source.phreeqc
+#                          ^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                          ^^^ source.phreeqc
+#                                             ^^^^^ source.phreeqc support.function.phreeqc
+#                                                  ^ source.phreeqc keyword.operator.phreeqc
+#                                                   ^^^^^^^^^^^^^ source.phreeqc
+#                                                                ^ source.phreeqc keyword.operator.phreeqc
+#                                                                 ^ source.phreeqc constant.numeric.phreeqc
+#                                                                  ^^ source.phreeqc
+#                                                                    ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                          ^ source.phreeqc keyword.operator.phreeqc
+#                                                                           ^^^^^^^ source.phreeqc
+>   -end
+#^^^ source.phreeqc
+#   ^^^^ source.phreeqc variable.parameter.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>USER_GRAPH 2 Carbon-13
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#          ^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^^^^ source.phreeqc
+#                   ^ source.phreeqc keyword.operator.phreeqc
+#                    ^^ source.phreeqc constant.numeric.phreeqc
+>        -headings Closed--Dissolved Closed--Calcite
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^^^^^ source.phreeqc
+#                        ^ source.phreeqc keyword.operator.phreeqc
+#                         ^ source.phreeqc keyword.operator.phreeqc
+#                          ^^^^^^^^^^^^^^^^ source.phreeqc
+#                                          ^ source.phreeqc keyword.operator.phreeqc
+#                                           ^ source.phreeqc keyword.operator.phreeqc
+#                                            ^^^^^^^^ source.phreeqc
+>   -start
+#^^^ source.phreeqc
+#   ^^^^^^ source.phreeqc variable.parameter.phreeqc
+>10 PLOT_XY RXN*GET(1),ISO("R(13C)"), color=Blue, line_w=2, symbol=None
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^^^ source.phreeqc support.function.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^^^ source.phreeqc
+#                          ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                  ^^^ source.phreeqc
+#                                     ^^^^^ source.phreeqc support.function.phreeqc
+#                                          ^ source.phreeqc keyword.operator.phreeqc
+#                                           ^^^^^^^^^^^^ source.phreeqc
+#                                                       ^ source.phreeqc keyword.operator.phreeqc
+#                                                        ^ source.phreeqc constant.numeric.phreeqc
+#                                                         ^^ source.phreeqc
+#                                                           ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                                                  ^^^^^ source.phreeqc
+>20 PLOT_XY RXN*GET(1),ISO("R(13C)_Calcite"), color=Black, line_w=2, symbol=None 
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^^^ source.phreeqc support.function.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^^^ source.phreeqc
+#                          ^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                          ^^^ source.phreeqc
+#                                             ^^^^^ source.phreeqc support.function.phreeqc
+#                                                  ^ source.phreeqc keyword.operator.phreeqc
+#                                                   ^^^^^^^^^^^^^ source.phreeqc
+#                                                                ^ source.phreeqc keyword.operator.phreeqc
+#                                                                 ^ source.phreeqc constant.numeric.phreeqc
+#                                                                  ^^ source.phreeqc
+#                                                                    ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                          ^ source.phreeqc keyword.operator.phreeqc
+#                                                                           ^^^^^^ source.phreeqc
+>   -end
+#^^^ source.phreeqc
+#   ^^^^ source.phreeqc variable.parameter.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>USER_GRAPH 3 Carbon-14
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#          ^ source.phreeqc
+#           ^ source.phreeqc constant.numeric.phreeqc
+#            ^^^^^^^ source.phreeqc
+#                   ^ source.phreeqc keyword.operator.phreeqc
+#                    ^^ source.phreeqc constant.numeric.phreeqc
+>        -headings Closed--Dissolved Closed--Calcite
+#^^^^^^^^ source.phreeqc
+#        ^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#                 ^^^^^^^ source.phreeqc
+#                        ^ source.phreeqc keyword.operator.phreeqc
+#                         ^ source.phreeqc keyword.operator.phreeqc
+#                          ^^^^^^^^^^^^^^^^ source.phreeqc
+#                                          ^ source.phreeqc keyword.operator.phreeqc
+#                                           ^ source.phreeqc keyword.operator.phreeqc
+#                                            ^^^^^^^^ source.phreeqc
+>   -start
+#^^^ source.phreeqc
+#   ^^^^^^ source.phreeqc variable.parameter.phreeqc
+>10 PLOT_XY RXN*GET(1),ISO("R(14C)"), color=Blue, line_w=2, symbol=None
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^^^ source.phreeqc support.function.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^^^ source.phreeqc
+#                          ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                  ^^^ source.phreeqc
+#                                     ^^^^^ source.phreeqc support.function.phreeqc
+#                                          ^ source.phreeqc keyword.operator.phreeqc
+#                                           ^^^^^^^^^^^^ source.phreeqc
+#                                                       ^ source.phreeqc keyword.operator.phreeqc
+#                                                        ^ source.phreeqc constant.numeric.phreeqc
+#                                                         ^^ source.phreeqc
+#                                                           ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                                                  ^^^^^ source.phreeqc
+>20 PLOT_XY RXN*GET(1),ISO("R(14C)_Calcite"), color=Black, line_w=2, symbol=None 
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^^^^^ source.phreeqc support.function.phreeqc
+#          ^ source.phreeqc
+#           ^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^^^ source.phreeqc support.function.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+#                    ^^^^^^ source.phreeqc
+#                          ^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                          ^^^ source.phreeqc
+#                                             ^^^^^ source.phreeqc support.function.phreeqc
+#                                                  ^ source.phreeqc keyword.operator.phreeqc
+#                                                   ^^^^^^^^^^^^^ source.phreeqc
+#                                                                ^ source.phreeqc keyword.operator.phreeqc
+#                                                                 ^ source.phreeqc constant.numeric.phreeqc
+#                                                                  ^^ source.phreeqc
+#                                                                    ^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                          ^ source.phreeqc keyword.operator.phreeqc
+#                                                                           ^^^^^^ source.phreeqc
+>   -end
+#^^^ source.phreeqc
+#   ^^^^ source.phreeqc variable.parameter.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>USER_PRINT
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>10 PRINT "Calcite added: ", GET(1), GET(1)*0.0005, RXN
+#^^ source.phreeqc constant.numeric.phreeqc
+#  ^ source.phreeqc
+#   ^^^^^ source.phreeqc support.function.phreeqc
+#        ^ source.phreeqc
+#         ^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                          ^^ source.phreeqc
+#                            ^^^ source.phreeqc support.function.phreeqc
+#                               ^ source.phreeqc
+#                                ^ source.phreeqc constant.numeric.phreeqc
+#                                 ^^^ source.phreeqc
+#                                    ^^^ source.phreeqc support.function.phreeqc
+#                                       ^ source.phreeqc
+#                                        ^ source.phreeqc constant.numeric.phreeqc
+#                                         ^ source.phreeqc
+#                                          ^ source.phreeqc keyword.operator.phreeqc
+#                                           ^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                 ^^ source.phreeqc
+#                                                   ^^^ source.phreeqc support.function.phreeqc
+>SOLUTION 1
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+>	pH	5  	charge
+#^^^^ source.phreeqc
+#    ^ source.phreeqc constant.numeric.phreeqc
+#     ^^^^^^^^^^ source.phreeqc
+>	pe      10
+#^^^^^^^^^ source.phreeqc
+#         ^^ source.phreeqc constant.numeric.phreeqc
+>	C	2	CO2(g)  -1.0	
+#^^^ source.phreeqc
+#   ^ source.phreeqc constant.numeric.phreeqc
+#    ^^^^^^^^^ source.phreeqc
+#             ^^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^ source.phreeqc
+>	[13C]	-25	# permil
+#^^^^^^^ source.phreeqc
+#       ^^^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>	[14C]	100	# pmc
+#^^^^^^^ source.phreeqc
+#       ^^^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>	[18O]	-5	# permil
+#^^^^^^^ source.phreeqc
+#       ^^ source.phreeqc constant.numeric.phreeqc
+#         ^ source.phreeqc
+#          ^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>END	
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^ source.phreeqc
+>INCREMENTAL_REACTIONS true
+#^^^^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                     ^^^^^^ source.phreeqc
+># Alternative to redefinition of REACTION 1
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>#REACTION_MODIFY 1
+#^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>#	-steps
+#^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>#		0.05
+#^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>#	-equal_increments	1
+#^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>#	-count_steps		100
+#^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>REACTION 1
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+>	Calcite               9.8283e-001 
+#^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                       ^^^^^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                  ^^ source.phreeqc
+>	Ca[13C]O3(s)          1.1011e-002 
+#^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                       ^^^^^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                  ^^ source.phreeqc
+>	CaCO2[18O](s)         6.0825e-003 
+#^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                       ^^^^^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                  ^^ source.phreeqc
+>	Ca[13C]O2[18O](s)     6.8147e-005 
+#^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                       ^^^^^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                  ^^ source.phreeqc
+>	CaCO[18O]2(s)         1.2548e-005 
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^^^^^^^^ source.phreeqc
+#                       ^^^^^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                  ^^ source.phreeqc
+>	Ca[13C]O[18O]2(s)     1.4058e-007 
+#^^^^^^^^^^^^^^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+#               ^^^^^^^^ source.phreeqc
+#                       ^^^^^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                  ^^ source.phreeqc
+>	CaC[18O]3(s)          8.6284e-009 
+#^^^^^^^^^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^^^^^^^^^^^^^ source.phreeqc
+#                       ^^^^^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                  ^^ source.phreeqc
+>	Ca[13C][18O]3(s)      9.6671e-011 
+#^^^^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+#              ^^^^^^^^^ source.phreeqc
+#                       ^^^^^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                  ^^ source.phreeqc
+>	0.05 mole in 100 steps
+#^ source.phreeqc
+# ^^^^ source.phreeqc constant.numeric.phreeqc
+#     ^^^^^^^^^ source.phreeqc
+#              ^^^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^ source.phreeqc
+>RUN_CELLS
+#^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>	-cells 1
+#^ source.phreeqc
+# ^^^^^^ source.phreeqc variable.parameter.phreeqc
+#       ^ source.phreeqc
+#        ^ source.phreeqc constant.numeric.phreeqc
+>END	
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^ source.phreeqc
+>	
+>
+>

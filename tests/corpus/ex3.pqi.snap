@@ -1,0 +1,155 @@
+>TITLE Example 3, part A.--Calcite equilibrium at log Pco2 = -2.0 and 25C.        
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+#               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                                            ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                                                ^^^^^^^^^^^^^^^^^^ source.phreeqc
+>SOLUTION 1  Pure water
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^^^^^^^^^^^^^ source.phreeqc
+>        pH      7.0
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>        temp    25.0
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>EQUILIBRIUM_PHASES
+#^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+>        CO2(g)          -2.0    
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^ source.phreeqc constant.numeric.phreeqc
+#                            ^^^^^ source.phreeqc
+>        Calcite         0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+>SAVE solution 1
+#^^^^ source.phreeqc keyword.control.phreeqc
+#    ^^^^^^^^^^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>TITLE Example 3, part B.--Definition of seawater.
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+#               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>SOLUTION 2  Seawater
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^^^^^^^^^^^ source.phreeqc
+>        units   ppm
+#^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        pH      8.22
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        pe      8.451
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        density 1.023
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        temp    25.0
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        Ca              412.3
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        Mg              1291.8
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>        Na              10768.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+>        K               399.1
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        Si              4.28
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^ source.phreeqc constant.numeric.phreeqc
+>        Cl              19353.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+>        Alkalinity      141.682 as HCO3
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^^^^ source.phreeqc constant.numeric.phreeqc
+#                               ^^^^^^^^^ source.phreeqc
+>        S(6)            2712.0
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^^^^ source.phreeqc constant.numeric.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>TITLE Example 3, part C.--Mix 70% groundwater, 30% seawater.
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+#               ^^^^^^^^^^^^^^^ source.phreeqc
+#                              ^^ source.phreeqc constant.numeric.phreeqc
+#                                ^^^^^^^^^^^^^^^ source.phreeqc
+#                                               ^^ source.phreeqc constant.numeric.phreeqc
+#                                                 ^^^^^^^^^^^^ source.phreeqc
+>MIX 1
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^ source.phreeqc
+#    ^ source.phreeqc constant.numeric.phreeqc
+>        1      0.7
+#^^^^^^^^ source.phreeqc
+#        ^ source.phreeqc constant.numeric.phreeqc
+#         ^^^^^^ source.phreeqc
+#               ^^^ source.phreeqc constant.numeric.phreeqc
+>        2      0.3
+#^^^^^^^^ source.phreeqc
+#        ^ source.phreeqc constant.numeric.phreeqc
+#         ^^^^^^ source.phreeqc
+#               ^^^ source.phreeqc constant.numeric.phreeqc
+>SAVE solution   3
+#^^^^ source.phreeqc keyword.control.phreeqc
+#    ^^^^^^^^^^^^ source.phreeqc
+#                ^ source.phreeqc constant.numeric.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>TITLE Example 3, part D.--Equilibrate mixture with calcite and dolomite.
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+#               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>EQUILIBRIUM_PHASES 1
+#^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+>        Calcite         0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+>        Dolomite        0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+>USE solution 3
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>TITLE Example 3, part E.--Equilibrate mixture with calcite only.
+#^^^^^ source.phreeqc keyword.control.phreeqc
+#     ^^^^^^^^^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+#               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>EQUILIBRIUM_PHASES 2
+#^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                  ^ source.phreeqc
+#                   ^ source.phreeqc constant.numeric.phreeqc
+>        Calcite         0.0
+#^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                        ^^^ source.phreeqc constant.numeric.phreeqc
+>USE solution 3
+#^^^ source.phreeqc keyword.control.phreeqc
+#   ^^^^^^^^^^ source.phreeqc
+#             ^ source.phreeqc constant.numeric.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc
+>

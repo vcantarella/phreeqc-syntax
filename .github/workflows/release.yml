@@ -1,0 +1,39 @@
+name: Release
+
+# Triggered by pushing a version tag (v0.1.0, v0.2.0, ...).
+# Packages the extension, attaches the .vsix to a GitHub Release, and publishes
+# to the VS Code Marketplace. Needs the VSCE_PAT repository secret (see MAINTAINING.md).
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write # create the GitHub Release
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Tag must match package.json version
+        run: |
+          PKG_V=$(node -p "require('./package.json').version")
+          TAG_V="${GITHUB_REF_NAME#v}"
+          if [ "$PKG_V" != "$TAG_V" ]; then
+            echo "Tag $GITHUB_REF_NAME does not match package.json version $PKG_V" >&2
+            exit 1
+          fi
+      - run: npx vsce package # runs typecheck + all tests via vscode:prepublish
+      - name: Create GitHub Release with the .vsix attached
+        run: gh release create "$GITHUB_REF_NAME" *.vsix --generate-notes
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - name: Publish to VS Code Marketplace
+        run: npx vsce publish --packagePath *.vsix
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}

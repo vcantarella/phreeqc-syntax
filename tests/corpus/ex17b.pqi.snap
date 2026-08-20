@@ -1,0 +1,516 @@
+>#must use DATABASE pitzer.dat
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>SOLUTION 1  Black Sea water
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#        ^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        units   mg/L
+#^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>        density 1.014
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        pH      8.0     # estimated
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+#                   ^^^^^ source.phreeqc
+#                        ^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+>        Ca      233
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>        Mg      679
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>        Na      5820
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        K       193
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^ source.phreeqc constant.numeric.phreeqc
+>        S(6)    1460
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^ source.phreeqc
+#                ^^^^ source.phreeqc constant.numeric.phreeqc
+>        Cl      10340
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^^^^ source.phreeqc constant.numeric.phreeqc
+>        Br      35
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^^ source.phreeqc constant.numeric.phreeqc
+>        C       1       CO2(g) -3.5
+#^^^^^^^^^^^^^^^^ source.phreeqc
+#                ^ source.phreeqc constant.numeric.phreeqc
+#                 ^^^^^^^^^^^^^^ source.phreeqc
+#                               ^^^^ source.phreeqc constant.numeric.phreeqc
+>EQUILIBRIUM_PHASES
+#^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+> # carbonates...
+#^ source.phreeqc
+# ^^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+> CO2(g) -3.5 10; Calcite 0 0
+#^^^^^^^^ source.phreeqc
+#        ^^^^ source.phreeqc constant.numeric.phreeqc
+#            ^ source.phreeqc
+#             ^^ source.phreeqc constant.numeric.phreeqc
+#               ^^^^^^^^^^ source.phreeqc
+#                         ^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^ source.phreeqc constant.numeric.phreeqc
+> # sulfates...
+#^ source.phreeqc
+# ^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+> Gypsum 0 0;     Anhydrite 0 0;  Glauberite 0 0;  Polyhalite 0 0
+#^^^^^^^^ source.phreeqc
+#        ^ source.phreeqc constant.numeric.phreeqc
+#         ^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^^^^^^^^^^^^ source.phreeqc
+#                           ^ source.phreeqc constant.numeric.phreeqc
+#                            ^ source.phreeqc
+#                             ^ source.phreeqc constant.numeric.phreeqc
+#                              ^^^^^^^^^^^^^^ source.phreeqc
+#                                            ^ source.phreeqc constant.numeric.phreeqc
+#                                             ^ source.phreeqc
+#                                              ^ source.phreeqc constant.numeric.phreeqc
+#                                               ^^^^^^^^^^^^^^ source.phreeqc
+#                                                             ^ source.phreeqc constant.numeric.phreeqc
+#                                                              ^ source.phreeqc
+#                                                               ^ source.phreeqc constant.numeric.phreeqc
+> Epsomite 0 0;   Kieserite 0 0;  Hexahydrite 0 0
+#^^^^^^^^^^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^ source.phreeqc
+#            ^ source.phreeqc constant.numeric.phreeqc
+#             ^^^^^^^^^^^^^^ source.phreeqc
+#                           ^ source.phreeqc constant.numeric.phreeqc
+#                            ^ source.phreeqc
+#                             ^ source.phreeqc constant.numeric.phreeqc
+#                              ^^^^^^^^^^^^^^^ source.phreeqc
+#                                             ^ source.phreeqc constant.numeric.phreeqc
+#                                              ^ source.phreeqc
+#                                               ^ source.phreeqc constant.numeric.phreeqc
+> # chlorides...
+#^ source.phreeqc
+# ^^^^^^^^^^^^^^ source.phreeqc comment.line.number-sign.phreeqc
+> Halite 0 0;     Bischofite 0 0; Carnallite 0 0
+#^^^^^^^^ source.phreeqc
+#        ^ source.phreeqc constant.numeric.phreeqc
+#         ^ source.phreeqc
+#          ^ source.phreeqc constant.numeric.phreeqc
+#           ^^^^^^^^^^^^^^^^^ source.phreeqc
+#                            ^ source.phreeqc constant.numeric.phreeqc
+#                             ^ source.phreeqc
+#                              ^ source.phreeqc constant.numeric.phreeqc
+#                               ^^^^^^^^^^^^^ source.phreeqc
+#                                            ^ source.phreeqc constant.numeric.phreeqc
+#                                             ^ source.phreeqc
+#                                              ^ source.phreeqc constant.numeric.phreeqc
+>USER_GRAPH Example 17B
+#^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#          ^^^^^^^^^^^^^ source.phreeqc
+> -head H2O Na K Mg Ca Cl SO4 Calcite Gypsum Anhydrite Halite\
+#^ source.phreeqc
+# ^^^^^ source.phreeqc variable.parameter.phreeqc
+#      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+>       Glauberite Polyhalite
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+> -init false
+#^ source.phreeqc
+# ^^^^^ source.phreeqc variable.parameter.phreeqc
+#      ^ source.phreeqc
+#       ^^^^^ source.phreeqc support.function.phreeqc
+> -axis_scale x_axis 0 100
+#^ source.phreeqc
+# ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#            ^^^^^^^^ source.phreeqc
+#                    ^ source.phreeqc constant.numeric.phreeqc
+#                     ^ source.phreeqc
+#                      ^^^ source.phreeqc constant.numeric.phreeqc
+> -axis_scale y_axis -5 1. 1
+#^ source.phreeqc
+# ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#            ^^^^^^^^ source.phreeqc
+#                    ^^ source.phreeqc constant.numeric.phreeqc
+#                      ^ source.phreeqc
+#                       ^^ source.phreeqc constant.numeric.phreeqc
+#                         ^ source.phreeqc
+#                          ^ source.phreeqc constant.numeric.phreeqc
+> -axis_scale sy_axis -5 10 5 100
+#^ source.phreeqc
+# ^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#            ^^^^^^^^^ source.phreeqc
+#                     ^^ source.phreeqc constant.numeric.phreeqc
+#                       ^ source.phreeqc
+#                        ^^ source.phreeqc constant.numeric.phreeqc
+#                          ^ source.phreeqc
+#                           ^ source.phreeqc constant.numeric.phreeqc
+#                            ^ source.phreeqc
+#                             ^^^ source.phreeqc constant.numeric.phreeqc
+> -axis_titles "Concentration factor" "Log(Molality)"  "Log(Moles of solid)"
+#^ source.phreeqc
+# ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#             ^ source.phreeqc
+#              ^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                    ^ source.phreeqc
+#                                     ^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                    ^^ source.phreeqc
+#                                                      ^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+> -chart_title "Evaporating Black Sea water"
+#^ source.phreeqc
+# ^^^^^^^^^^^^ source.phreeqc variable.parameter.phreeqc
+#             ^ source.phreeqc
+#              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+> -start
+#^ source.phreeqc
+# ^^^^^^ source.phreeqc variable.parameter.phreeqc
+> 10 graph_x 1 / tot("water")
+#^ source.phreeqc
+# ^^ source.phreeqc constant.numeric.phreeqc
+#   ^ source.phreeqc
+#    ^^^^^^^ source.phreeqc support.function.phreeqc
+#           ^ source.phreeqc
+#            ^ source.phreeqc constant.numeric.phreeqc
+#             ^ source.phreeqc
+#              ^ source.phreeqc keyword.operator.phreeqc
+#               ^ source.phreeqc
+#                ^^^ source.phreeqc support.function.phreeqc
+#                   ^ source.phreeqc
+#                    ^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                           ^^ source.phreeqc
+> 20 graph_y log10(tot("Na")), log10(tot("K")), log10(tot("Mg")), log10(tot("Ca")),\
+#^ source.phreeqc
+# ^^ source.phreeqc constant.numeric.phreeqc
+#   ^ source.phreeqc
+#    ^^^^^^^ source.phreeqc support.function.phreeqc
+#           ^ source.phreeqc
+#            ^^^^^ source.phreeqc support.function.basic.phreeqc
+#                 ^ source.phreeqc
+#                  ^^^ source.phreeqc support.function.phreeqc
+#                     ^ source.phreeqc
+#                      ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                          ^^^^ source.phreeqc
+#                              ^^^^^ source.phreeqc support.function.basic.phreeqc
+#                                   ^ source.phreeqc
+#                                    ^^^ source.phreeqc support.function.phreeqc
+#                                       ^ source.phreeqc
+#                                        ^^^ source.phreeqc string.quoted.double.phreeqc
+#                                           ^^^^ source.phreeqc
+#                                               ^^^^^ source.phreeqc support.function.basic.phreeqc
+#                                                    ^ source.phreeqc
+#                                                     ^^^ source.phreeqc support.function.phreeqc
+#                                                        ^ source.phreeqc
+#                                                         ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                             ^^^^ source.phreeqc
+#                                                                 ^^^^^ source.phreeqc support.function.basic.phreeqc
+#                                                                      ^ source.phreeqc
+#                                                                       ^^^ source.phreeqc support.function.phreeqc
+#                                                                          ^ source.phreeqc
+#                                                                           ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                                               ^^^^^ source.phreeqc
+>            log10(tot("Cl")), log10(tot("S"))
+#^^^^^^^^^^^^ source.phreeqc
+#            ^^^^^ source.phreeqc support.function.basic.phreeqc
+#                 ^ source.phreeqc
+#                  ^^^ source.phreeqc support.function.phreeqc
+#                     ^ source.phreeqc
+#                      ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                          ^^^^ source.phreeqc
+#                              ^^^^^ source.phreeqc support.function.basic.phreeqc
+#                                   ^ source.phreeqc
+#                                    ^^^ source.phreeqc support.function.phreeqc
+#                                       ^ source.phreeqc
+#                                        ^^^ source.phreeqc string.quoted.double.phreeqc
+#                                           ^^^ source.phreeqc
+> 30 if equi("Calcite") > 1e-5 then graph_sy log10(equi("Calcite")) else graph_sy -5
+#^ source.phreeqc
+# ^^ source.phreeqc constant.numeric.phreeqc
+#   ^ source.phreeqc
+#    ^^ source.phreeqc keyword.control.basic.phreeqc
+#      ^ source.phreeqc
+#       ^^^^ source.phreeqc support.function.phreeqc
+#           ^ source.phreeqc
+#            ^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                     ^^ source.phreeqc
+#                       ^ source.phreeqc keyword.operator.phreeqc
+#                        ^ source.phreeqc
+#                         ^^^^ source.phreeqc constant.numeric.phreeqc
+#                             ^ source.phreeqc
+#                              ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                  ^ source.phreeqc
+#                                   ^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                           ^ source.phreeqc
+#                                            ^^^^^ source.phreeqc support.function.basic.phreeqc
+#                                                 ^ source.phreeqc
+#                                                  ^^^^ source.phreeqc support.function.phreeqc
+#                                                      ^ source.phreeqc
+#                                                       ^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                                ^^^ source.phreeqc
+#                                                                   ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                                                       ^ source.phreeqc
+#                                                                        ^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                                ^ source.phreeqc
+#                                                                                 ^^ source.phreeqc constant.numeric.phreeqc
+> 35 if equi("Gypsum") > 1e-5 then graph_sy log10(equi("Gypsum")) else graph_sy -5
+#^ source.phreeqc
+# ^^ source.phreeqc constant.numeric.phreeqc
+#   ^ source.phreeqc
+#    ^^ source.phreeqc keyword.control.basic.phreeqc
+#      ^ source.phreeqc
+#       ^^^^ source.phreeqc support.function.phreeqc
+#           ^ source.phreeqc
+#            ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                    ^^ source.phreeqc
+#                      ^ source.phreeqc keyword.operator.phreeqc
+#                       ^ source.phreeqc
+#                        ^^^^ source.phreeqc constant.numeric.phreeqc
+#                            ^ source.phreeqc
+#                             ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                 ^ source.phreeqc
+#                                  ^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                          ^ source.phreeqc
+#                                           ^^^^^ source.phreeqc support.function.basic.phreeqc
+#                                                ^ source.phreeqc
+#                                                 ^^^^ source.phreeqc support.function.phreeqc
+#                                                     ^ source.phreeqc
+#                                                      ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                              ^^^ source.phreeqc
+#                                                                 ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                                                     ^ source.phreeqc
+#                                                                      ^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                              ^ source.phreeqc
+#                                                                               ^^ source.phreeqc constant.numeric.phreeqc
+> 40 if equi("Anhydrite") > 1e-5 then graph_sy log10(equi("Anhydrite")) else graph_sy -5
+#^ source.phreeqc
+# ^^ source.phreeqc constant.numeric.phreeqc
+#   ^ source.phreeqc
+#    ^^ source.phreeqc keyword.control.basic.phreeqc
+#      ^ source.phreeqc
+#       ^^^^ source.phreeqc support.function.phreeqc
+#           ^ source.phreeqc
+#            ^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                       ^^ source.phreeqc
+#                         ^ source.phreeqc keyword.operator.phreeqc
+#                          ^ source.phreeqc
+#                           ^^^^ source.phreeqc constant.numeric.phreeqc
+#                               ^ source.phreeqc
+#                                ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                    ^ source.phreeqc
+#                                     ^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                             ^ source.phreeqc
+#                                              ^^^^^ source.phreeqc support.function.basic.phreeqc
+#                                                   ^ source.phreeqc
+#                                                    ^^^^ source.phreeqc support.function.phreeqc
+#                                                        ^ source.phreeqc
+#                                                         ^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                                    ^^^ source.phreeqc
+#                                                                       ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                                                           ^ source.phreeqc
+#                                                                            ^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                                    ^ source.phreeqc
+#                                                                                     ^^ source.phreeqc constant.numeric.phreeqc
+> 50 if equi("Halite") > 1e-5 then graph_sy log10(equi("Halite")) else graph_sy -5
+#^ source.phreeqc
+# ^^ source.phreeqc constant.numeric.phreeqc
+#   ^ source.phreeqc
+#    ^^ source.phreeqc keyword.control.basic.phreeqc
+#      ^ source.phreeqc
+#       ^^^^ source.phreeqc support.function.phreeqc
+#           ^ source.phreeqc
+#            ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                    ^^ source.phreeqc
+#                      ^ source.phreeqc keyword.operator.phreeqc
+#                       ^ source.phreeqc
+#                        ^^^^ source.phreeqc constant.numeric.phreeqc
+#                            ^ source.phreeqc
+#                             ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                 ^ source.phreeqc
+#                                  ^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                          ^ source.phreeqc
+#                                           ^^^^^ source.phreeqc support.function.basic.phreeqc
+#                                                ^ source.phreeqc
+#                                                 ^^^^ source.phreeqc support.function.phreeqc
+#                                                     ^ source.phreeqc
+#                                                      ^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                              ^^^ source.phreeqc
+#                                                                 ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                                                     ^ source.phreeqc
+#                                                                      ^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                              ^ source.phreeqc
+#                                                                               ^^ source.phreeqc constant.numeric.phreeqc
+> 60 if equi("Glauberite") > 1e-5 then graph_sy log10(equi("Glauberite")) else graph_sy -5
+#^ source.phreeqc
+# ^^ source.phreeqc constant.numeric.phreeqc
+#   ^ source.phreeqc
+#    ^^ source.phreeqc keyword.control.basic.phreeqc
+#      ^ source.phreeqc
+#       ^^^^ source.phreeqc support.function.phreeqc
+#           ^ source.phreeqc
+#            ^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                        ^^ source.phreeqc
+#                          ^ source.phreeqc keyword.operator.phreeqc
+#                           ^ source.phreeqc
+#                            ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                ^ source.phreeqc
+#                                 ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                     ^ source.phreeqc
+#                                      ^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                              ^ source.phreeqc
+#                                               ^^^^^ source.phreeqc support.function.basic.phreeqc
+#                                                    ^ source.phreeqc
+#                                                     ^^^^ source.phreeqc support.function.phreeqc
+#                                                         ^ source.phreeqc
+#                                                          ^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                                      ^^^ source.phreeqc
+#                                                                         ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                                                             ^ source.phreeqc
+#                                                                              ^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                                      ^ source.phreeqc
+#                                                                                       ^^ source.phreeqc constant.numeric.phreeqc
+> 70 if equi("Polyhalite") > 1e-5 then graph_sy log10(equi("Polyhalite")) else graph_sy -5
+#^ source.phreeqc
+# ^^ source.phreeqc constant.numeric.phreeqc
+#   ^ source.phreeqc
+#    ^^ source.phreeqc keyword.control.basic.phreeqc
+#      ^ source.phreeqc
+#       ^^^^ source.phreeqc support.function.phreeqc
+#           ^ source.phreeqc
+#            ^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                        ^^ source.phreeqc
+#                          ^ source.phreeqc keyword.operator.phreeqc
+#                           ^ source.phreeqc
+#                            ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                ^ source.phreeqc
+#                                 ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                     ^ source.phreeqc
+#                                      ^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                              ^ source.phreeqc
+#                                               ^^^^^ source.phreeqc support.function.basic.phreeqc
+#                                                    ^ source.phreeqc
+#                                                     ^^^^ source.phreeqc support.function.phreeqc
+#                                                         ^ source.phreeqc
+#                                                          ^^^^^^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                                      ^^^ source.phreeqc
+#                                                                         ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                                                                             ^ source.phreeqc
+#                                                                              ^^^^^^^^ source.phreeqc support.function.phreeqc
+#                                                                                      ^ source.phreeqc
+#                                                                                       ^^ source.phreeqc constant.numeric.phreeqc
+> 80 if STEP_NO > 20 THEN PRINT "x", "Na", "K", "Mg", "Ca", "Cl", "S"
+#^ source.phreeqc
+# ^^ source.phreeqc constant.numeric.phreeqc
+#   ^ source.phreeqc
+#    ^^ source.phreeqc keyword.control.basic.phreeqc
+#      ^ source.phreeqc
+#       ^^^^^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc
+#               ^ source.phreeqc keyword.operator.phreeqc
+#                ^ source.phreeqc
+#                 ^^ source.phreeqc constant.numeric.phreeqc
+#                   ^ source.phreeqc
+#                    ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                        ^ source.phreeqc
+#                         ^^^^^ source.phreeqc support.function.phreeqc
+#                              ^ source.phreeqc
+#                               ^^^ source.phreeqc string.quoted.double.phreeqc
+#                                  ^^ source.phreeqc
+#                                    ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                        ^^ source.phreeqc
+#                                          ^^^ source.phreeqc string.quoted.double.phreeqc
+#                                             ^^ source.phreeqc
+#                                               ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                   ^^ source.phreeqc
+#                                                     ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                         ^^ source.phreeqc
+#                                                           ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                               ^^ source.phreeqc
+#                                                                 ^^^ source.phreeqc string.quoted.double.phreeqc
+> 90 if STEP_NO > 20 THEN PRINT 1 / tot("water"), (tot("Na")), (tot("K")), (tot("Mg")),\
+#^ source.phreeqc
+# ^^ source.phreeqc constant.numeric.phreeqc
+#   ^ source.phreeqc
+#    ^^ source.phreeqc keyword.control.basic.phreeqc
+#      ^ source.phreeqc
+#       ^^^^^^^ source.phreeqc support.function.phreeqc
+#              ^ source.phreeqc
+#               ^ source.phreeqc keyword.operator.phreeqc
+#                ^ source.phreeqc
+#                 ^^ source.phreeqc constant.numeric.phreeqc
+#                   ^ source.phreeqc
+#                    ^^^^ source.phreeqc keyword.control.basic.phreeqc
+#                        ^ source.phreeqc
+#                         ^^^^^ source.phreeqc support.function.phreeqc
+#                              ^ source.phreeqc
+#                               ^ source.phreeqc constant.numeric.phreeqc
+#                                ^ source.phreeqc
+#                                 ^ source.phreeqc keyword.operator.phreeqc
+#                                  ^ source.phreeqc
+#                                   ^^^ source.phreeqc support.function.phreeqc
+#                                      ^ source.phreeqc
+#                                       ^^^^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                              ^^^^ source.phreeqc
+#                                                  ^^^ source.phreeqc support.function.phreeqc
+#                                                     ^ source.phreeqc
+#                                                      ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                          ^^^^^ source.phreeqc
+#                                                               ^^^ source.phreeqc support.function.phreeqc
+#                                                                  ^ source.phreeqc
+#                                                                   ^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                                      ^^^^^ source.phreeqc
+#                                                                           ^^^ source.phreeqc support.function.phreeqc
+#                                                                              ^ source.phreeqc
+#                                                                               ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                                                   ^^^^^ source.phreeqc
+>                               (tot("Ca")), (tot("Cl")), (tot("S"))
+#^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.phreeqc
+#                                ^^^ source.phreeqc support.function.phreeqc
+#                                   ^ source.phreeqc
+#                                    ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                        ^^^^^ source.phreeqc
+#                                             ^^^ source.phreeqc support.function.phreeqc
+#                                                ^ source.phreeqc
+#                                                 ^^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                     ^^^^^ source.phreeqc
+#                                                          ^^^ source.phreeqc support.function.phreeqc
+#                                                             ^ source.phreeqc
+#                                                              ^^^ source.phreeqc string.quoted.double.phreeqc
+#                                                                 ^^^ source.phreeqc
+> -end
+#^ source.phreeqc
+# ^^^^ source.phreeqc variable.parameter.phreeqc
+>REACTION
+#^^^^^^^^ source.phreeqc keyword.control.phreeqc
+> H2O -1; 0 36 3*4 6*1 2*0.25 0.176 4*0.05 5*0.03
+#^^^^^ source.phreeqc
+#     ^^ source.phreeqc constant.numeric.phreeqc
+#       ^^ source.phreeqc
+#         ^ source.phreeqc constant.numeric.phreeqc
+#          ^ source.phreeqc
+#           ^^ source.phreeqc constant.numeric.phreeqc
+#             ^ source.phreeqc
+#              ^ source.phreeqc constant.numeric.phreeqc
+#               ^ source.phreeqc
+#                ^ source.phreeqc constant.numeric.phreeqc
+#                 ^ source.phreeqc
+#                  ^ source.phreeqc constant.numeric.phreeqc
+#                   ^ source.phreeqc
+#                    ^ source.phreeqc constant.numeric.phreeqc
+#                     ^ source.phreeqc
+#                      ^ source.phreeqc constant.numeric.phreeqc
+#                       ^ source.phreeqc
+#                        ^^^^ source.phreeqc constant.numeric.phreeqc
+#                            ^ source.phreeqc
+#                             ^^^^^ source.phreeqc constant.numeric.phreeqc
+#                                  ^ source.phreeqc
+#                                   ^ source.phreeqc constant.numeric.phreeqc
+#                                    ^ source.phreeqc
+#                                     ^^^^ source.phreeqc constant.numeric.phreeqc
+#                                         ^ source.phreeqc
+#                                          ^ source.phreeqc constant.numeric.phreeqc
+#                                           ^ source.phreeqc
+#                                            ^^^^ source.phreeqc constant.numeric.phreeqc
+>INCREMENTAL_REACTIONS true
+#^^^^^^^^^^^^^^^^^^^^^ source.phreeqc keyword.control.phreeqc
+#                     ^^^^^^ source.phreeqc
+>END
+#^^^ source.phreeqc keyword.control.phreeqc

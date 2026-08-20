@@ -1,71 +1,86 @@
 {
-    "scopeName": "source.phreeqc",
-    "fileTypes": [".phr", ".ppi", ".pqi", ".phrq", ".dat", ".out"],
-    "name": "PHREEQC",
-    "patterns": [
-      {
-        "name": "comment.line.phreeqc",
-        "match": "#.*$"
-      },
-      {
-        "name": "keyword.control.phreeqc",
-        "match": "\\b((ADVECTION|CALCULATE_VALUES|COPY|DATABASE|DELETE|DUMP|END|EQUILIBRIUM_PHASES|EQUILIBRIUM_PHASES_MIX|EQUILIBRIUM_PHASES_MODIFY|EXCHANGE|EXCHANGE_MIX|EXCHANGE_MASTER_SPECIES|EXCHANGE_MODIFY|EXCHANGE_SPECIES|GAS_PHASE|GAS_PHASE_MIX|GAS_PHASE_MODIFY|INCLUDE$|INCREMENTAL_REACTIONS|INVERSE_MODELING|ISOTOPES|ISOTOPE_ALPHAS|ISOTOPE_RATIOS|KINETICS|KINETICS_MIX|KINETICS_MODIFY|KNOBS|LLNL_AQUEOUS_MODEL_PARAMETERS|MEAN_GAMMAS|MIX|NAMED_EXPRESSIONS|PHASES|PITZER|PRINT|RATES|REACTION|REACTION_MODIFY|REACTION_TEMPERATURE|REACTION_TEMPERATURE_MODIFY|RATE_PARAMETERS_PK|RATE_PARAMETERS_SVD|RATE_PARAMETERS_HERMANSKA|RUN_CELLS|SAVE|SELECTED_OUTPUT|SIT|SOLID_SOLUTIONS|SOLID_SOLUTIONS_MIX|SOLID_SOLUTIONS_MODIFY|SOLUTION|SOLUTION_MIX|SOLUTION_MASTER_SPECIES|SOLUTION_MODIFY|SOLUTION_SPECIES|SOLUTION_SPREAD|SURFACE|SURFACE_MIX|SURFACE_MASTER_SPECIES|SURFACE_MODIFY|SURFACE_SPECIES|TITLE|TRANSPORT|USER_GRAPH|USER_PRINT|USER_PUNCH|REACTION_PRESSURE))\\b"
-      },
-      {
-        "name": "constant.numeric.phreeqc",
-        "match": "\\b\\d+\\.?\\d*(e[+-]?\\d+)?\\b"
-      },
-      {
-        "name": "variable.parameter.keyword.argument.phreeqc",
-        "match": "\\b(-ALPHAS|-B0|-B1|-B2|-C0|-Eh|-Gugg_kJ|-Gugg_nondim|-LAMDA|-MacInnes|-Margules|-Millero|-PSI|-THETA|-Thompson|-ZETA|-active|-activities|-activity_coefficients|-activity_water|-add_constant|-add_logk|-alkalinity|-alyotropic_point|-analytical_expression|-axis_scale|-axis_titles|-bad_step_max|-balances|-bdot|-boundary_conditions|-calculate_values|-capacitance|-cd_music|-cells|-censor_mp|-censor_species|-charge_balance|-chart_title|-co2_coefs|-co2_llnl_gamma|-comp|-comp1|-comp2|-connect_simulations|-convergence_tolerance|-correct_disp|-critical_point|-cvode|-cvode_order|-cvode_steps|-davies|-debug_diffuse_layer|-debug_inverse|-debug_mass_action|-debug_mass_balance|-debug_model|-debug_prep|-debug_set|-delta_h|-density|-detach|-dh_a|-dh_b|-diagonal_scale|-diffuse_layer|-diffusion_coefficient|diffusion_only|-dispersivities|-dissolve_only|-distance|-distribution_coefficients|-donnan|-dump|-dump_frequency|-dump_restart|-dw|-echo_input|-end|-equilibrate|-equilibrium_phases|-erm_ddl|-exchange|-file|-fixed_pressure|-fixed_volume|-flow_direction|-force_equality|-force_solutions|-formula|forw|-gamma|-gas_phase|-gases|-grid_offset|-headings|-high_precision|-initial_isotopes|-initial_solutions|-initial_time|-interlayer_d|-inverse_modeling|-ionic_strength|-isotope|-isotope_alphas|-isotope_ratios|-isotope_uncertainty|-isotopes|-iterations|-kinetic_reactants|-kinetics|-lengths|-llnl_gamma|-logfile|-log_k|-lon_netpath|-m|-m0|-mineral_water|-minimal|-miscibility_gap|-molalities|-moles|-mole_balance|-mp_tolerance|-multi_d|-multiple_precision|-no_check|-no_edl|-only_counter_ions|-other|-pH|-parms|-pat_netpath|-pe|-pe_step_size|-percent_error|-phases|-pitzer_exchange_gammas|-plot_concentration_vs|-plot_csv_file|-plot_tsv_file|-plot_xy|-precipitate_only|-pressure|-print_cells|-print_frequency|-punch_cells|-punch_frequency|-range|-reaction|-redox|-reset|-runge_kutta|-saturation_indices|-selected_out|-selected_output|-shifts|-simulation|-sites_units|density|-solid_solutions|-solution|-solutions|-species|-spinodal_gap|-stagnant|-start|-state|-status|-step|-step_divide|-step_size|-steps|-surface|-temp|-temperature|-tempk|-thermal_diffusion|-time|-time_step|-tol|-tolerance|-totals|-uncertainty|-uncertainty_water-units|-use_etheta|-user_graph|-user_print|-user_punch|-volume|-warnings|-water|-component|-name|-add_formula|-si|-exchange_gammas|-phase_name|-rate_name|-phase_proportion|-type|-total_p|-units|-reactant_list|-equal_increments|-count_steps|-solid_solution|-name|-components|-a0|-a1|-ag0|-ag1|-miscibility|-xb1|-xb2|-total_h|-total_o|-cb|-mu|-ah2o|-thickness|-debye_lengths|-DDL_viscosity|-DDL_limit|-limit_DDL|-transport|-namecoef|-d_params|-equal_steps|-rk|-use_cvode|-T_c|-P_c|-Omega|-Vm|-epsilon|-batch|-viscosity|-potential|-porosities|-fix_current|-new_line|-numerical_derivatives|-implicit|-same_model|ALPHAS|B0|B1|B2|C0|Eh|Gugg_kJ|Gugg_nondim|LAMDA|MacInnes|Margules|Millero|PSI|THETA|Thompson|ZETA|active|activities|activity_coefficients|activity_water|add_constant|add_logk|alyotropic_point|analytical_expression|axis_scale|axis_titles|backward|bad_step_max|balances|bdot|boundary_conditions|capacitance|cd_music|cells|censor_mp|censor_species|charge_balance|chart_title|co2_coefs|co2_llnl_gamma|comp|comp1|comp2|connect_simulations|convergence_tolerance|correct_disp|correct_GC|critical_point|cvode|cvode_order|cvode_steps|davies|debug_diffuse_layer|debug_inverse|debug_mass_action|debug_mass_balance|debug_model|debug_prep|debug_set|delta_h|density|detach|dh_a|dh_b|diagonal_scale|diffuse_layer|diffusion_coefficient|dispersivities|dissolve_only|distance|distribution_coefficients|donnan|dump_frequency|dump_restart|dw|echo_input|equilibrate|erm_ddl|file|fixed_pressure|fixed_volume|flow_direction|force_equality|force_solutions|formula|forw|forward|gamma|gases|grid_offset|headings|high_precision|initial_isotopes|initial_solutions|initial_time|interlayer_d|ionic_strength|isotope_uncertainty|iterations|kinetic_reactants|lengths|llnl_gamma|logfile|log_k|lon_netpath|m|m0|mineral_water|minimal|miscibility_gap|molalities|moles|mole_balance|mp_tolerance|multi_d|multiple_precision|no_check|no_edl|only_counter_ions|other|parms|pat_netpath|pe_step_size|percent_error|pitzer_exchange_gammas|plot_concentration_vs|plot_csv_file|plot_tsv_file|plot_xy|precipitate_only|pressure|print_cells|print_frequency|punch_cells|punch_frequency|range|redox|reset|runge_kutta|saturation_indices|selected_out|shifts|simulation|sites_units|density|species|spinodal_gap|stagnant|start|state|status|step|step_divide|step_size|steps|temp|temperature|tempk|thermal_diffusion|time|time_step|tol|tolerance|totals|uncertainty|uncertainty_water|units|use_etheta|volume|warnings|water|Red,|Green,|Blue,|Orange,|Magenta,|Yellow,|Black,|Red|Green|Blue|Orange|Magenta|Yellow|Black|Square,|Diamond,|Triangle,|Circle,|XCross,|Plus,|Star,|TriangleDown,|HDash,|VDash,|None,|Square|Diamond|Triangle|Circle|XCross|Plus|Star|TriangleDown|HDash|VDash|None|component|name|add_formula|si|exchange_gammas|phase_name|rate_name|phase_proportion|type|total_p|units|reactant_list|equal_increments|count_steps|solid_solution|name|components|a0|a1|ag0|ag1|miscibility|xb1|xb2|total_h|total_o|cb|mu|ah2o|thickness|debye_lengths|DDL_viscosity|potential|porosities|DDL_limit|limit_DDL|transport|namecoef|d_params|equal_steps|rk|use_cvode|T_c|P_c|Omega|Vm|epsilon|batch|viscosity|fix_current|new_line|numerical_derivatives|implicit|same_model|meang)\\s*(\\d*\\.?\\d*|'[^']*'|\"[^\"]*\")\\b"
-      },
-      {
-        "include": "#basicStrings"
-      },
-      {
-        "include": "#basicComments"
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "PHREEQC",
+  "scopeName": "source.phreeqc",
+  "fileTypes": ["phr", "ppi", "pqi", "phrq", "dat", "out"],
+  "patterns": [
+    { "include": "#lineComments" },
+    { "include": "#basicRegion" },
+    { "include": "#keywords" },
+    { "include": "#options" },
+    { "include": "#doubleStrings" },
+    { "include": "#numbers" }
+  ],
+  "repository": {
+    "lineComments": {
+      "match": "#.*$",
+      "name": "comment.line.number-sign.phreeqc"
+    },
+    "keywords": {
+      "match": "^\\s*(?i)(ADVECTION|CALCULATE_VALUES|COPY|DATABASE|DELETE|DUMP|END|EQUILIBRIUM_PHASES|EQUILIBRIUM_PHASES_MIX|EQUILIBRIUM_PHASES_MODIFY|EQUILIBRIUM_PHASES_RAW|EXCHANGE|EXCHANGE_MASTER_SPECIES|EXCHANGE_MIX|EXCHANGE_MODIFY|EXCHANGE_RAW|EXCHANGE_SPECIES|GAS_PHASE|GAS_PHASE_MIX|GAS_PHASE_MODIFY|GAS_PHASE_RAW|INCLUDE\\$|INCREMENTAL_REACTIONS|INVERSE_MODELING|ISOTOPES|ISOTOPE_ALPHAS|ISOTOPE_RATIOS|KINETICS|KINETICS_MIX|KINETICS_MODIFY|KINETICS_RAW|KNOBS|LLNL_AQUEOUS_MODEL_PARAMETERS|MEAN_GAMMAS|MIX|MIX_RAW|NAMED_EXPRESSIONS|PHASES|PITZER|PRINT|RATES|RATE_PARAMETERS_HERMANSKA|RATE_PARAMETERS_PK|RATE_PARAMETERS_SVD|REACTION|REACTION_MODIFY|REACTION_PRESSURE|REACTION_PRESSURE_RAW|REACTION_RAW|REACTION_TEMPERATURE|REACTION_TEMPERATURE_MODIFY|REACTION_TEMPERATURE_RAW|RUN_CELLS|SAVE|SELECTED_OUTPUT|SIT|SOLID_SOLUTION|SOLID_SOLUTIONS|SOLID_SOLUTIONS_MIX|SOLID_SOLUTIONS_MODIFY|SOLID_SOLUTIONS_RAW|SOLUTION|SOLUTION_MASTER_SPECIES|SOLUTION_MIX|SOLUTION_MODIFY|SOLUTION_RAW|SOLUTION_SPECIES|SOLUTION_SPREAD|SURFACE|SURFACE_MASTER_SPECIES|SURFACE_MIX|SURFACE_MODIFY|SURFACE_RAW|SURFACE_SPECIES|TITLE|TRANSPORT|USE|USER_GRAPH|USER_PRINT|USER_PUNCH)(?=[\\s#]|$)",
+      "captures": {
+        "1": { "name": "keyword.control.phreeqc" }
       }
-    ],
-    "repository": {
-      "operators": {
-        "patterns": [
-          {
-            "name": "keyword.operator.phreeqc",
-            "match": "[;+\\-*\\/]"
-          }
-        ]
+    },
+    "options": {
+      "match": "^\\s*(-[A-Za-z][A-Za-z0-9_]*)\\b",
+      "captures": {
+        "1": { "name": "variable.parameter.phreeqc" }
+      }
+    },
+    "doubleStrings": {
+      "match": "\"[^\"]*\"",
+      "name": "string.quoted.double.phreeqc"
+    },
+    "singleStrings": {
+      "match": "'[^']*'",
+      "name": "string.quoted.single.phreeqc"
+    },
+    "numbers": {
+      "match": "(?<![\\w.])[-+]?(\\d+\\.?\\d*|\\.\\d+)([eE][+-]?\\d+)?(?![\\w.])",
+      "name": "constant.numeric.phreeqc"
+    },
+    "operators": {
+      "match": "[-+*/^=<>;]",
+      "name": "keyword.operator.phreeqc"
+    },
+    "remComments": {
+      "match": "(?i)^\\s*(\\d+\\s+)?(REM\\b.*)$",
+      "captures": {
+        "1": { "name": "constant.numeric.phreeqc" },
+        "2": { "name": "comment.line.rem.phreeqc" }
+      }
+    },
+    "basicControl": {
+      "match": "(?i)\\b(AND|DATA|DIM|ELSE|ERASE|FOR|GOSUB|GOTO|IF|MOD|NEXT|NOT|ON|OR|READ|RESTORE|RETURN|STEP|THEN|TO|WEND|WHILE)\\b",
+      "name": "keyword.control.basic.phreeqc"
+    },
+    "basicFunctions": {
+      "match": "(?i)\\b(ABS|ARCTAN|ASC|CEIL|CHR\\$|COS|EXP|FLOOR|INSTR|LEN|LOG|LOG10|LTRIM|MID\\$|PAD|RTRIM|SGN|SIN|SQR|SQRT|STR\\$|STR_E\\$|STR_F\\$|TAN|TRIM|VAL)(?![\\w$])",
+      "name": "support.function.basic.phreeqc"
+    },
+    "intrinsics": {
+      "match": "(?i)\\b(ACT|ALK|APHI|CALC_VALUE|CELL_NO|CHANGE_POR|CHANGE_SURF|CHARGE_BALANCE|COLOR|CURRENT_A|DEBYE_LENGTH|DELTA_H_PHASE|DELTA_H_SPECIES|DESCRIPTION|DH_A|DH_A0|DH_AV|DH_B|DH_BDOT|DIFF_C|DIST|EDL|EDL_SPECIES|EOL\\$|EOL_NOTAB\\$|EPS_R|EQUI|EXISTS|FALSE|F_VISC|GAMMA|GAS|GAS_P|GAS_VM|GET|GET_POR|GFW|GRAPH_SY|GRAPH_X|GRAPH_Y|KAPPA|KIN|KINETICS_FORMULA\\$|KIN_DELTA|KIN_TIME|LA|LG|LINE_WIDTH|LIST_S_S|LK_NAMED|LK_PHASE|LK_SPECIES|LM|M|M0|MCD_JCONC|MCD_JTOT|MEANG|MISC1|MISC2|MOL|MU|NO_NEWLINES|OSMOTIC|PARM|PERCENT_ERROR|PHASE_FORMULA\\$|PHASE_VM|PLOT_XY|POT_V|PRESSURE|PRINT|PR_P|PR_PHI|PUNCH|PUT|QBRN|RHO|RHO_0|RXN|SAVE|SC|SETDIFF_C|SI|SIM_NO|SIM_TIME|SOLN_VOL|SPECIES_FORMULA\\$|SR|STEP_NO|SUM_GAS|SUM_SPECIES|SUM_S_S|SURF|SYMBOL|SYMBOL_SIZE|SYS|S_S|TC|TIME|TK|TOT|TOTAL_TIME|TOTMOLE|TRUE|T_SC|VISCOS|VISCOS_0|VM)(?![\\w$])",
+      "name": "support.function.phreeqc"
+    },
+    "basicRegion": {
+      "begin": "^\\s*(?i)(RATES|USER_PRINT|USER_PUNCH|USER_GRAPH|CALCULATE_VALUES)(?=[\\s#]|$)",
+      "beginCaptures": {
+        "1": { "name": "keyword.control.phreeqc" }
       },
-        "basicStrings": {
-          "patterns": [
-            {
-              "name": "string.quoted.double.basic",
-              "begin": "\"",
-              "end": "\"",
-              "patterns": [
-                {
-                  "name": "constant.character.escape.basic",
-                  "match": "\\\\."
-                }
-              ]
-            }
-          ]
-        },
-        "basicComments": {
-          "patterns": [
-            {
-              "name": "comment.line.basic",
-              "match": "REM\\s.*$"
-            }
-          ]
-        },
-        "functions": {
-          "patterns": [
-            {
-              "name": "support.function.phreeqc",
-              "match": "\\b(ABS|AND|ARCTAN|ASC|CHR$|CEIL|COS|DATA|DIM|ELSE|ERASE|EXP|FLOOR|FOR|GOSUB|GOTO|IF|INSTR|LEN|LOG|LOG10|LTRIM|MID$|MOD|NEXT|NOT|ON|OR|PAD|READ|RESTORE|RETURN|RTRIM|SGN|SIN|SQR|SQRT|STEP|STR$|STR_E$|STR_F$|TAN|THEN|TO|TRIM|VAL|WEND|WHILE)\\b"
-            }
-          ]
-        }
-        
+      "end": "^(?i)(?=\\s*(ADVECTION|CALCULATE_VALUES|COPY|DATABASE|DELETE|DUMP|END|EQUILIBRIUM_PHASES|EQUILIBRIUM_PHASES_MIX|EQUILIBRIUM_PHASES_MODIFY|EQUILIBRIUM_PHASES_RAW|EXCHANGE|EXCHANGE_MASTER_SPECIES|EXCHANGE_MIX|EXCHANGE_MODIFY|EXCHANGE_RAW|EXCHANGE_SPECIES|GAS_PHASE|GAS_PHASE_MIX|GAS_PHASE_MODIFY|GAS_PHASE_RAW|INCLUDE\\$|INCREMENTAL_REACTIONS|INVERSE_MODELING|ISOTOPES|ISOTOPE_ALPHAS|ISOTOPE_RATIOS|KINETICS|KINETICS_MIX|KINETICS_MODIFY|KINETICS_RAW|KNOBS|LLNL_AQUEOUS_MODEL_PARAMETERS|MEAN_GAMMAS|MIX|MIX_RAW|NAMED_EXPRESSIONS|PHASES|PITZER|PRINT|RATES|RATE_PARAMETERS_HERMANSKA|RATE_PARAMETERS_PK|RATE_PARAMETERS_SVD|REACTION|REACTION_MODIFY|REACTION_PRESSURE|REACTION_PRESSURE_RAW|REACTION_RAW|REACTION_TEMPERATURE|REACTION_TEMPERATURE_MODIFY|REACTION_TEMPERATURE_RAW|RUN_CELLS|SAVE|SELECTED_OUTPUT|SIT|SOLID_SOLUTION|SOLID_SOLUTIONS|SOLID_SOLUTIONS_MIX|SOLID_SOLUTIONS_MODIFY|SOLID_SOLUTIONS_RAW|SOLUTION|SOLUTION_MASTER_SPECIES|SOLUTION_MIX|SOLUTION_MODIFY|SOLUTION_RAW|SOLUTION_SPECIES|SOLUTION_SPREAD|SURFACE|SURFACE_MASTER_SPECIES|SURFACE_MIX|SURFACE_MODIFY|SURFACE_RAW|SURFACE_SPECIES|TITLE|TRANSPORT|USE|USER_GRAPH|USER_PRINT|USER_PUNCH)(?=[\\s#]|$))",
+      "patterns": [
+        { "include": "#remComments" },
+        { "include": "#lineComments" },
+        { "include": "#doubleStrings" },
+        { "include": "#singleStrings" },
+        { "include": "#options" },
+        { "include": "#basicControl" },
+        { "include": "#basicFunctions" },
+        { "include": "#intrinsics" },
+        { "include": "#numbers" },
+        { "include": "#operators" }
+      ]
     }
+  }
 }
