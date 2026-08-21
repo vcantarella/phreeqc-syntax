@@ -21,8 +21,9 @@ Open any PHREEQC input file and start typing. `Ctrl+Space` opens completion anyw
 
 This extension does not include or run PHREEQC itself. Get PHREEQC from:
 
-- [USGS](https://www.usgs.gov/software/phreeqc-version-3)
-- [Appelo's website](https://www.hydrochemistry.eu/)
+- [PHREEQC Github](https://github.com/phreeqc-dev/phreeqc3): where current development is happening. Click on releases to download the latest binaries
+- [USGS](https://www.usgs.gov/software/phreeqc-version-3): older versions and user manual
+- [Appelo's website](https://www.hydrochemistry.eu/): alternative source for binaries and documentation. From one of the authors.
 
 ## Documentation excerpts
 
